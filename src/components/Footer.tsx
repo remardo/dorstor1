@@ -81,7 +81,7 @@ export function Footer() {
                 <Link to="/warranty" className="text-sm hover:text-white transition-colors">Гарантия и возврат</Link>
               </li>
               <li>
-                <span className="text-sm hover:text-white transition-colors cursor-pointer">О компании</span>
+                <Link to="/about" className="text-sm hover:text-white transition-colors">О компании</Link>
               </li>
               <li>
                 <span className="text-sm hover:text-white transition-colors cursor-pointer">Контакты</span>

@@ -93,6 +93,12 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
             >
               Гарантия
             </Link>
+            <Link
+              to="/about"
+              className="h-10 px-4 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-all flex items-center"
+            >
+              О компании
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -144,7 +150,7 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
             >
               Каталог
             </button>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               <Link
                 to="/payment"
                 onClick={() => setMobileMenuOpen(false)}
@@ -165,6 +171,13 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
                 className="h-10 flex items-center justify-center bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:bg-slate-100 transition-colors"
               >
                 Гарантия
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="h-10 flex items-center justify-center bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:bg-slate-100 transition-colors"
+              >
+                О компании
               </Link>
             </div>
           </div>

@@ -11,6 +11,7 @@ import { ProductPage } from './pages/ProductPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { DeliveryPage } from './pages/DeliveryPage';
 import { WarrantyPage } from './pages/WarrantyPage';
+import { AboutPage } from './pages/AboutPage';
 import { useSEO, generateBreadcrumbs, generateItemListSchema } from './hooks/useSEO';
 
 function HomePage({
@@ -164,6 +165,7 @@ function AppContent() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />
           <Route path="/warranty" element={<WarrantyPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
 
