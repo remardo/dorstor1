@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Filter, X, ChevronDown, SlidersHorizontal, LayoutGrid, List, Package } from 'lucide-react';
 import type { Product } from '../data/products';
 import { categories, brands } from '../data/products';
@@ -13,6 +13,7 @@ interface CatalogProps {
 }
 
 type StockFilter = 'all' | 'in_stock' | 'out_of_stock';
+const ITEMS_PER_PAGE = 24;
 
 export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: CatalogProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -21,6 +22,8 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [brandDropdownOpen, setBrandDropdownOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const loadMoreAnchorRef = useRef<HTMLDivElement | null>(null);
 
   const toggleBrand = (brand: string) => {
     setSelectedBrands(prev =>
@@ -28,13 +31,52 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
     );
   };
 
-  const filtered = products.filter(p => {
+  const scrollToCatalogTop = () => {
+    catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const selectCategory = (category: string | null) => {
+    setSelectedCategory(category);
+    scrollToCatalogTop();
+  };
+
+  const filtered = useMemo(() => products.filter(p => {
     if (selectedCategory && p.category !== selectedCategory) return false;
     if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
     if (stockFilter === 'in_stock' && p.status !== 'in_stock') return false;
     if (stockFilter === 'out_of_stock' && p.status !== 'out_of_stock') return false;
     return true;
-  });
+  }), [products, selectedCategory, selectedBrands, stockFilter]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+  const visibleCount = Math.min(currentPage * ITEMS_PER_PAGE, filtered.length);
+  const visibleProducts = filtered.slice(0, visibleCount);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [products, selectedCategory, selectedBrands, stockFilter]);
+
+  useEffect(() => {
+    setCurrentPage((prev) => Math.min(prev, totalPages));
+  }, [totalPages]);
+
+  useEffect(() => {
+    const anchor = loadMoreAnchorRef.current;
+    if (!anchor || currentPage >= totalPages) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first?.isIntersecting) {
+          setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+        }
+      },
+      { rootMargin: '300px 0px' }
+    );
+
+    observer.observe(anchor);
+    return () => observer.disconnect();
+  }, [currentPage, totalPages]);
 
   const activeFiltersCount = (selectedCategory ? 1 : 0) + selectedBrands.length + (stockFilter !== 'all' ? 1 : 0);
 
@@ -42,6 +84,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
     setSelectedCategory(null);
     setSelectedBrands([]);
     setStockFilter('all');
+    setCurrentPage(1);
   };
 
   const categoryCounts = categories.map(cat => ({
@@ -57,7 +100,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Каталог продукции</h2>
             <p className="text-slate-500 mt-1">
-              {filtered.length} {filtered.length === 1 ? 'позиция' : filtered.length < 5 ? 'позиции' : 'позиций'} в каталоге
+              Показано {visibleProducts.length} из {filtered.length} {filtered.length === 1 ? 'позиции' : filtered.length < 5 ? 'позиций' : 'позиций'}
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -118,7 +161,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Категория</h4>
                 <div className="space-y-1">
                   <button
-                    onClick={() => setSelectedCategory(null)}
+                    onClick={() => selectCategory(null)}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
                       !selectedCategory ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:bg-slate-50'
                     }`}
@@ -128,7 +171,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                   {categoryCounts.map(({ name, count }) => (
                     <button
                       key={name}
-                      onClick={() => setSelectedCategory(name === selectedCategory ? null : name)}
+                      onClick={() => selectCategory(name === selectedCategory ? null : name)}
                       className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all flex items-center justify-between ${
                         selectedCategory === name ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:bg-slate-50'
                       }`}
@@ -228,7 +271,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
             {filtered.length > 0 ? (
               viewMode === 'grid' ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-                  {filtered.map(product => (
+                  {visibleProducts.map(product => (
                     <ProductCard
                       key={product.id}
                       product={product}
@@ -240,7 +283,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {filtered.map(product => (
+                  {visibleProducts.map(product => (
                     <ListProductCard
                       key={product.id}
                       product={product}
@@ -262,6 +305,57 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                 >
                   Сбросить фильтры
                 </button>
+              </div>
+            )}
+
+            {filtered.length > 0 && (
+              <div className="mt-8 flex flex-col items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="h-10 px-4 rounded-xl border border-slate-200 bg-white text-sm font-medium text-slate-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50"
+                  >
+                    Назад
+                  </button>
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+                      const startPage = Math.max(1, Math.min(currentPage - 2, totalPages - 4));
+                      const page = startPage + i;
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page)}
+                          className={`h-10 w-10 rounded-xl text-sm font-medium border transition-colors ${
+                            currentPage === page
+                              ? 'bg-slate-900 border-slate-900 text-white'
+                              : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="h-10 px-4 rounded-xl border border-slate-200 bg-white text-sm font-medium text-slate-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50"
+                  >
+                    Вперёд
+                  </button>
+                </div>
+
+                {visibleCount < filtered.length && (
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    className="h-10 px-5 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
+                  >
+                    Загрузить ещё
+                  </button>
+                )}
+
+                <div ref={loadMoreAnchorRef} className="h-1 w-full" aria-hidden />
               </div>
             )}
           </div>
