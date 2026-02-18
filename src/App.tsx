@@ -1,5 +1,5 @@
 import { useState, useRef, useMemo, useCallback } from 'react';
-import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { products } from './data/products';
 import type { Product } from './data/products';
 import { Header } from './components/Header';
@@ -27,15 +27,19 @@ function HomePage({
   onRemove: (productId: number) => void;
   catalogRef: React.RefObject<HTMLDivElement | null>;
 }) {
+  const normalize = (value: string) =>
+    value.toLowerCase().replace(/ё/g, 'е').replace(/\s+/g, ' ').trim();
+
   const filteredProducts = useMemo(() => {
-    if (!searchQuery.trim()) return products;
-    const q = searchQuery.toLowerCase();
-    return products.filter(p =>
-      p.name.toLowerCase().includes(q) ||
-      p.brand.toLowerCase().includes(q) ||
-      p.category.toLowerCase().includes(q) ||
-      p.slug.toLowerCase().includes(q)
-    );
+    const normalizedQuery = normalize(searchQuery);
+    if (!normalizedQuery) return products;
+
+    const queryTokens = normalizedQuery.split(' ').filter(Boolean);
+
+    return products.filter((p) => {
+      const haystack = normalize(`${p.name} ${p.brand} ${p.category} ${p.slug} ${p.description}`);
+      return queryTokens.every((token) => haystack.includes(token));
+    });
   }, [searchQuery]);
 
   const structuredData = useMemo(() => [
@@ -93,6 +97,7 @@ function AppContent() {
   const [searchQuery, setSearchQuery] = useState('');
   const catalogRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const addToCart = useCallback((product: Product) => {
     setCart(prev => {
@@ -128,12 +133,28 @@ function AppContent() {
     }, 100);
   }, [navigate]);
 
+  const handleSearch = useCallback((query: string) => {
+    setSearchQuery(query);
+
+    if (!query.trim()) return;
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+      return;
+    }
+
+    catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location.pathname, navigate]);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header
         cartCount={cartCount}
         onCartOpen={() => setCartOpen(true)}
-        onSearch={setSearchQuery}
+        onSearch={handleSearch}
         searchQuery={searchQuery}
         onScrollToCatalog={scrollToCatalog}
       />
