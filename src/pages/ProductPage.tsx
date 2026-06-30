@@ -6,7 +6,8 @@ import {
 } from 'lucide-react';
 import { products } from '../data/products';
 import type { Product } from '../data/products';
-import { useSEO, generateBreadcrumbs, generateProductSchema } from '../hooks/useSEO';
+import { useSEO } from '../hooks/useSEO';
+import { productSeo, BASE_URL } from '../data/seo';
 
 interface ProductPageProps {
   cart: Record<number, number>;
@@ -22,43 +23,22 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
 
   const product = products.find(p => p.slug === slug);
 
-  // SEO for product page
-  const structuredData = useMemo(() => {
-    if (!product) return undefined;
-    return [
-      generateBreadcrumbs([
-        { name: 'Главная', url: '/' },
-        { name: product.category, url: '/' },
-        { name: product.name },
-      ]),
-      generateProductSchema({
-        name: product.name,
-        description: `${product.name} — ${product.category.toLowerCase()} от бренда ${product.brand}. ${product.description} Купить оптом в интернет-магазине Доррен с доставкой по РФ.`,
-        image: product.image,
-        brand: product.brand,
-        sku: product.slug,
-        category: product.category,
-        inStock: product.status === 'in_stock',
-        url: `/#/product/${product.slug}`,
-      }),
-    ];
-  }, [product]);
-
-  useSEO({
-    title: product
-      ? `${product.name} купить оптом — ${product.brand} | ${product.category}`
-      : 'Товар не найден',
-    description: product
-      ? `${product.name} — ${product.category.toLowerCase()} бренда ${product.brand}. ${product.status === 'in_stock' ? `В наличии ${product.stock} шт.` : 'Поставка под заказ.'} Оптовая цена по запросу. Доставка по РФ. B2B поставщик Доррен.`
-      : 'Запрашиваемый товар не найден в каталоге. Вернитесь в каталог дверной фурнитуры Доррен.',
-    keywords: product
-      ? `${product.name}, ${product.category}, ${product.brand}, купить ${product.category.toLowerCase()}, ${product.brand} фурнитура, дверная фурнитура оптом, ${product.slug}`
-      : 'дверная фурнитура, каталог',
-    canonical: product ? `https://dorren.ru/#/product/${product.slug}` : undefined,
-    ogType: 'product',
-    ogImage: product?.image || undefined,
-    structuredData,
-  });
+  useSEO(
+    useMemo(
+      () =>
+        product
+          ? productSeo(product)
+          : {
+              title: 'Товар не найден',
+              description:
+                'Запрашиваемый товар не найден в каталоге. Вернитесь в каталог дверной фурнитуры Доррен.',
+              canonical: `${BASE_URL}/`,
+              noindex: true,
+              structuredData: [],
+            },
+      [product]
+    )
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

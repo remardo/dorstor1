@@ -5,7 +5,8 @@ import {
   Clock, CheckCircle, Phone, Mail, ShieldCheck, HandshakeIcon,
   Banknote, FileCheck, ArrowRight
 } from 'lucide-react';
-import { useSEO, generateBreadcrumbs, generateFAQSchema } from '../hooks/useSEO';
+import { useSEO, generateFAQSchema } from '../hooks/useSEO';
+import { STATIC_SEO } from '../data/seo';
 
 const FAQ_ITEMS = [
   {
@@ -31,21 +32,10 @@ const FAQ_ITEMS = [
 ];
 
 export function PaymentPage() {
-  const structuredData = useMemo(() => [
-    generateBreadcrumbs([
-      { name: 'Главная', url: '/' },
-      { name: 'Оплата' },
-    ]),
-    generateFAQSchema(FAQ_ITEMS),
-  ], []);
-
-  useSEO({
-    title: 'Условия оплаты — безналичный расчёт, отсрочка платежа для B2B',
-    description: 'Условия оплаты дверной фурнитуры в Доррен. Безналичный расчёт с НДС и без НДС, отсрочка платежа до 30 дней, предоплата. Полный пакет документов для бухгалтерии. B2B расчёты для юридических лиц и ИП.',
-    keywords: 'оплата дверной фурнитуры, безналичный расчёт, B2B оплата, отсрочка платежа, оплата с НДС, оплата без НДС, счёт на оплату, документооборот, Доррен оплата',
-    canonical: 'https://dorren.ru/#/payment',
-    structuredData,
-  });
+  useSEO(useMemo(() => {
+    const seo = STATIC_SEO['/payment'];
+    return { ...seo, structuredData: [...seo.structuredData, generateFAQSchema(FAQ_ITEMS)] };
+  }, []));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -203,7 +193,7 @@ export function PaymentPage() {
                 step: '01',
                 icon: FileText,
                 title: 'Отправьте заявку',
-                desc: 'Добавьте нужные товары в заявку на сайте или отправьте список на почту b2b@dorren.ru'
+                desc: 'Добавьте нужные товары в заявку на сайте или отправьте список на почту b2b@doorstore.shop'
               },
               {
                 step: '02',
@@ -306,11 +296,11 @@ export function PaymentPage() {
               8 (800) 123-45-67
             </a>
             <a
-              href="mailto:b2b@dorren.ru"
+              href="mailto:b2b@doorstore.shop"
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@dorren.ru
+              b2b@doorstore.shop
             </a>
           </div>
         </div>

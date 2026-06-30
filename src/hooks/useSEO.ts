@@ -11,7 +11,7 @@ interface SEOProps {
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const BASE_URL = 'https://dorren.ru';
+const BASE_URL = 'https://doorstore.shop';
 const SITE_NAME = 'Доррен';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
 
@@ -108,7 +108,7 @@ export function generateBreadcrumbs(
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      ...(item.url ? { item: `https://dorren.ru${item.url}` } : {}),
+      ...(item.url ? { item: `${BASE_URL}${item.url}` } : {}),
     })),
   };
 }
@@ -136,7 +136,7 @@ export function generateProductSchema(product: {
     },
     sku: product.sku,
     category: product.category,
-    url: `https://dorren.ru${product.url}`,
+    url: `${BASE_URL}${product.url}`,
     offers: {
       '@type': 'Offer',
       availability: product.inStock
@@ -189,7 +189,7 @@ export function generateItemListSchema(
       '@type': 'ListItem',
       position: p.position,
       name: p.name,
-      url: `https://dorren.ru${p.url}`,
+      url: `${BASE_URL}${p.url}`,
       ...(p.image ? { image: p.image } : {}),
     })),
   };

@@ -4,7 +4,8 @@ import {
   ChevronRight, Truck, Clock3, MapPin, PackageCheck, ShieldCheck,
   ArrowRight, Phone, Mail, Route, Warehouse, CheckCircle
 } from 'lucide-react';
-import { useSEO, generateBreadcrumbs, generateFAQSchema } from '../hooks/useSEO';
+import { useSEO, generateFAQSchema } from '../hooks/useSEO';
+import { STATIC_SEO } from '../data/seo';
 
 const FAQ_ITEMS = [
   {
@@ -26,21 +27,10 @@ const FAQ_ITEMS = [
 ];
 
 export function DeliveryPage() {
-  const structuredData = useMemo(() => [
-    generateBreadcrumbs([
-      { name: 'Главная', url: '/' },
-      { name: 'Доставка' },
-    ]),
-    generateFAQSchema(FAQ_ITEMS),
-  ], []);
-
-  useSEO({
-    title: 'Доставка дверной фурнитуры по России — сроки, способы, логистика',
-    description: 'Доставка дверной фурнитуры от ДОРРЕН по всей России: отгрузка со склада, самовывоз в Москве, отправка транспортными компаниями. Прозрачные сроки и сопровождение B2B поставок.',
-    keywords: 'доставка дверной фурнитуры, доставка по россии, самовывоз москва, логистика b2b, отгрузка со склада, доррен доставка',
-    canonical: 'https://dorren.ru/#/delivery',
-    structuredData,
-  });
+  useSEO(useMemo(() => {
+    const seo = STATIC_SEO['/delivery'];
+    return { ...seo, structuredData: [...seo.structuredData, generateFAQSchema(FAQ_ITEMS)] };
+  }, []));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -185,11 +175,11 @@ export function DeliveryPage() {
               8 (800) 123-45-67
             </a>
             <a
-              href="mailto:b2b@dorren.ru"
+              href="mailto:b2b@doorstore.shop"
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@dorren.ru
+              b2b@doorstore.shop
             </a>
           </div>
         </div>

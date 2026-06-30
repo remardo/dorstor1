@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Filter, X, ChevronDown, SlidersHorizontal, LayoutGrid, List, Package } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import type { Product } from '../data/products';
 import { categories, brands } from '../data/products';
 import { ProductCard } from './ProductCard';
@@ -376,8 +377,8 @@ function ListProductCard({ product, cartQty, onAdd, onRemove }: {
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all p-4 flex items-center gap-4">
-      <a
-        href={`#/product/${product.slug}`}
+      <Link
+        to={`/product/${product.slug}`}
         className="w-20 h-20 rounded-lg bg-slate-50 overflow-hidden shrink-0"
       >
         {product.image && !imgError ? (
@@ -389,7 +390,7 @@ function ListProductCard({ product, cartQty, onAdd, onRemove }: {
             </svg>
           </div>
         )}
-      </a>
+      </Link>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
@@ -397,9 +398,9 @@ function ListProductCard({ product, cartQty, onAdd, onRemove }: {
           <span className="text-xs text-slate-400">•</span>
           <span className="text-xs text-slate-500">{product.category}</span>
         </div>
-        <a href={`#/product/${product.slug}`} className="text-sm font-medium text-slate-900 truncate block hover:text-brand-700 transition-colors">
+        <Link to={`/product/${product.slug}`} className="text-sm font-medium text-slate-900 truncate block hover:text-brand-700 transition-colors">
           {product.name}
-        </a>
+        </Link>
       </div>
 
       <div className={`flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg shrink-0 ${

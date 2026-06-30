@@ -27,9 +27,9 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
               <Phone className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">8 (800) 123-45-67</span>
             </a>
-            <a href="mailto:b2b@dorren.ru" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="mailto:b2b@doorstore.shop" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">b2b@dorren.ru</span>
+              <span className="hidden sm:inline">b2b@doorstore.shop</span>
             </a>
           </div>
           <div className="flex items-center gap-1.5 text-amber-400">

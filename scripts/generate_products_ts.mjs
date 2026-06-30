@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const INPUT_CSV = path.resolve(__dirname, '../public/product_cards.csv');
+const INPUT_CSV = path.resolve(__dirname, 'data/product_cards.csv');
 const OUTPUT_TS = path.resolve(__dirname, '../src/data/products.ts');
 
 function parseCsv(content) {

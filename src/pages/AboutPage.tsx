@@ -1,36 +1,14 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronRight, Building2, Factory, Handshake, ShieldCheck, PackageCheck,
   ArrowRight, Phone, Mail, Users, Truck, Clock3
 } from 'lucide-react';
-import { useSEO, generateBreadcrumbs } from '../hooks/useSEO';
+import { useSEO } from '../hooks/useSEO';
+import { STATIC_SEO } from '../data/seo';
 
 export function AboutPage() {
-  const structuredData = useMemo(() => [
-    generateBreadcrumbs([
-      { name: 'Главная', url: '/' },
-      { name: 'О компании' },
-    ]),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'ДОРРЕН',
-      url: 'https://dorren.ru/',
-      email: 'b2b@dorren.ru',
-      telephone: '+7-800-123-45-67',
-      areaServed: 'RU',
-      description: 'B2B поставщик дверной фурнитуры для производственных предприятий.',
-    },
-  ], []);
-
-  useSEO({
-    title: 'О компании Доррен — B2B поставщик дверной фурнитуры для фабрик и производств',
-    description: 'Доррен — поставщик дверной фурнитуры для предприятий и дверных фабрик. Комплексные B2B поставки, стабильный склад, техническая экспертиза и логистика по всей России.',
-    keywords: 'о компании доррен, b2b поставщик дверной фурнитуры, поставщик фурнитуры для фабрик, дверная фурнитура оптом, доррен москва',
-    canonical: 'https://dorren.ru/#/about',
-    structuredData,
-  });
+  useSEO(STATIC_SEO['/about']);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -165,11 +143,11 @@ export function AboutPage() {
               8 (800) 123-45-67
             </a>
             <a
-              href="mailto:b2b@dorren.ru"
+              href="mailto:b2b@doorstore.shop"
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@dorren.ru
+              b2b@doorstore.shop
             </a>
           </div>
         </div>

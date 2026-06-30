@@ -1,5 +1,5 @@
-import { useState, useRef, useMemo, useCallback } from 'react';
-import { HashRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useRef, useMemo, useCallback, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { products } from './data/products';
 import type { Product } from './data/products';
 import { Header } from './components/Header';
@@ -12,7 +12,8 @@ import { PaymentPage } from './pages/PaymentPage';
 import { DeliveryPage } from './pages/DeliveryPage';
 import { WarrantyPage } from './pages/WarrantyPage';
 import { AboutPage } from './pages/AboutPage';
-import { useSEO, generateBreadcrumbs, generateItemListSchema } from './hooks/useSEO';
+import { useSEO } from './hooks/useSEO';
+import { homeSeo } from './data/seo';
 
 function HomePage({
   cart,
@@ -42,25 +43,7 @@ function HomePage({
     });
   }, [searchQuery]);
 
-  const structuredData = useMemo(() => [
-    generateBreadcrumbs([{ name: 'Главная', url: '/' }]),
-    generateItemListSchema(
-      products.slice(0, 20).map((p, i) => ({
-        name: p.name,
-        url: `/#/product/${p.slug}`,
-        image: p.image,
-        position: i + 1,
-      }))
-    ),
-  ], []);
-
-  useSEO({
-    title: 'Доррен — специализированная дверная фурнитура оптом для фабрик | B2B поставщик',
-    description: 'Доррен — B2B поставщик дверной фурнитуры для производственных предприятий. Доводчики, глазки, цилиндры, приводы от ASSA ABLOY, DORMA, NOTEDO, DORMAKABA. Оптовые поставки по всей России. Отгрузка от 1 рабочего дня.',
-    keywords: 'дверная фурнитура оптом, фурнитура для дверей B2B, доводчики дверные, дверные глазки, цилиндровые механизмы, ASSA ABLOY, DORMA, NOTEDO, DORMAKABA, ARMADILLO, APECS, фурнитура для фабрик, комплектующие для дверей, Доррен, купить дверную фурнитуру оптом',
-    canonical: 'https://dorren.ru/',
-    structuredData,
-  });
+  useSEO(useMemo(() => homeSeo(), []));
 
   return (
     <>
@@ -92,7 +75,13 @@ function HomePage({
 }
 
 function AppContent() {
-  const [cart, setCart] = useState<Record<number, number>>({});
+  const [cart, setCart] = useState<Record<number, number>>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('cart') || '{}');
+    } catch {
+      return {};
+    }
+  });
   const [cartOpen, setCartOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const catalogRef = useRef<HTMLDivElement | null>(null);
@@ -120,6 +109,10 @@ function AppContent() {
   }, []);
 
   const clearCart = useCallback(() => setCart({}), []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const cartCount = useMemo(
     () => Object.values(cart).reduce((sum, qty) => sum + qty, 0),
@@ -207,8 +200,8 @@ function AppContent() {
 
 export function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AppContent />
-    </HashRouter>
+    </BrowserRouter>
   );
 }

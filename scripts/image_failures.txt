@@ -1,0 +1,66 @@
+2	https://pro-locks.ru/image/cache/data/DDS/PHA+2501_VB_Рычаги-200x200.jpg	HTTP 404
+11	https://gray-kpho-prod.gtv-cdn.com/resizer/v2/https%3A%2F%2Fwebpubcontent.gray.tv%2Fgray%2Farc-fusion-assets%2Fimages%2Ffallback-graphics%2Fkpho.jpg%3Fd%3D544%26mxId%3D00000000?auth=6465ae59f5cf1ce7d100351a504023df606bf74258e40264fe5abdba631bd671&amp;width=1200&amp;height=600&amp;smart=true	HTTP 400
+16	https://stroylocks.com/upload/iblock/46d/mu3ciwmd2ujxxb41ndo071lfktbe7zxy.jpg	HTTP 404
+10	https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/2019346/1000x1000/54100382.jpg	fetch failed
+35	https://stroylocks.com/upload/iblock/d23/ty9kzdbqb1j5e5iykbh7g1dejiyc2xvf.jpg	HTTP 404
+7	https://zip-perm.com/upload/iblock/06e/96tv0v3s6l5ibs1ps6rurkfg410oz8zt.jpeg	The operation was aborted due to timeout
+60	http://key-lock.kz/image/cache/catalog/product/3001-750x851.jpg	fetch failed
+57	https://lockprice.ru/upload/iblock/c50/Гардиан+25.12+Т.jpg	not image: text/html; charset=UTF-8
+58	https://www.avito.ru/img/share/auto/25468242588	HTTP 404
+24	https://static.insales-cdn.com/images/products/1/7580/303218076/DC-140_дверной_доводчик_ASSA_ABLO_серебро.jpg	The operation was aborted due to timeout
+73	https://golden-key.dp.ua/image/cache/catalog/img10/iseo-lock-5-1200x630.webp	HTTP 403
+31	https://satro-paladin.com/_img/satro/goods/0/632/00-00004632/IM_10200401_TS90IMPULSEEN34_I_188961_web-jpeg.jpg	The operation was aborted due to timeout
+41	https://balashikha.m1.ru/images/28/2822d9_80-80-_3wm3.jpg	The operation was aborted due to timeout
+43	https://metalstroy-mk.ru/images/product/1622898843.png	The operation was aborted due to timeout
+94	https://20.img.avito.st/image/1/1.l79gM7a4O1ZWmvlTQkmjmUOROVDekrleFpc5VNCaM1zW.bYYsSPzmXhJxwxzhV_n2oWZog-fg59K7LLiQYgg9KXQ	HTTP 404
+68	https://stroylocks.com/upload/iblock/769/0oxu0pgtw0alh2owy9pt76wemchqhgdq.jpg	HTTP 404
+89	https://kingisepp.dveriizstali.ru/upload/dev2fun.imagecompress/webp/iblock/3a2/zshch1-3-zashchelka-zshch-1-b-ruchek-pravaya_img.webp	HTTP 403
+91	https://www.intant.kz/upload/iblock/c80/2tiqylysgbfsnce4rudk7cr67i4yzgt4/io-102-15-1-izveshchatel-magnitokontaktnyy.png	fetch failed
+82	https://ir.ozone.ru/s3/multimedia-6/c1000/6481650018.jpg	The operation was aborted due to timeout
+100	https://pro-locks.ru/image/cache/data/CORE/8100-6501-6612-size-800x800.png	The operation was aborted due to timeout
+122	https://stroylocks.com/upload/iblock/781/9nngkfdywwij15eqw6zcyp3sbt3ouz18.jpg	HTTP 404
+101	https://doork-shop.ru/image/cache/catalog/123/basic/dorma-komplekt-ruchek-pure-8100---7051k-pz-72--38-56-mm-8-mm-nerzh--st--90050055041-1300x800-product_popup.png	The operation was aborted due to timeout
+128	https://cdn.poryadok.ru/upload/iblock/c12/c124fe3e0da1c62294299598e3fd8383.jpg	HTTP 404
+136	https://content1.rozetka.com.ua/goods/images/big/240051745.jpg	HTTP 404
+109	https://www.1020.by/components/com_jshopping/files/img_products/thumb_prol.png	The operation was aborted due to timeout
+113	https://km1.ru/upload/iblock/0d0/e2y9f0m2g44m42497ciwjcz13ijpwoct.png	The operation was aborted due to timeout
+120	https://furniturapro.ru/image/cache/catalog/product/mad/8/nakladka-pod-cilindr-na-kvadratnom-osnovanii-colombo-pt13-nm-matovyj-chernyj-2-sht-1200x800.jpg	The operation was aborted due to timeout
+166	https://elles.top/uploads/posts/2023-04/1680762588_elles-top-p-skritie-petli-dlya-vorot-instagram-31.jpg	fetch failed
+169	https://sector-sb.ru/media/media/catalog/item/18000/17931/fkm24_1.jpg	HTTP 404
+139	https://inoxproducts.ru/wp-content/uploads/2021/04/Ответная-планка-MG9235-9250-LSR-MG01.jpg	The operation was aborted due to timeout
+156	https://tm.by/sites/default/files/styles/uc_product_full/public/content/product/2024/10/2/i821122-20241018.jpg	fetch failed
+183	https://ksk.by/media/image/cache/data/product/images_0389/pd-00017136_p_l-560x580.jpg	HTTP 403
+145	https://dvernoydoktor.ru/sites/dvernoydoktor.ru/files/tovarimg/border-66017-1.jpg	The operation was aborted due to timeout
+150	https://kluchnik-spb.ru/upload/iblock/41f/Morelli-HH_18-RAZMERY.JPG	The operation was aborted due to timeout
+194	https://zamok31.ru/upload/iblock/882/pt3h084xwngsd5ko0tc8b120ooqvbwmn.jpg	HTTP 404
+200	https://www.toolnation.nl/media/catalog/product/cache/80cadcbf47ef03682b2e261c1976e277/L/B/LBWC50-satin-black.jpg	HTTP 403
+172	https://innohunt.ru/wp-content/uploads/2019/07/Picatinny-rail-zagotovka-INNOMOUNT.jpg	The operation was aborted due to timeout
+184	https://www.dveribravo-sochi.ru/wp-content/uploads/2022/05/30115-codedeco-black.jpg	HTTP 403
+176	https://nasp.ru/img/product/16160/photo_2-116.jpg	The operation was aborted due to timeout
+189	https://nora-m.ru/upload/iblock/d36/5muecwdz8t6fqbvxkqa4h820053kp158.jpg	The operation was aborted due to timeout
+191	https://ruchki.by/wp-content/uploads/254-chernyj.png	The operation was aborted due to timeout
+198	https://169.ru/images/products/ruchki-dlya-mezhkomnatnyh-dverey/ruchki-razdelnye/kvadratnye/ruchka-razdelnaya-ergo-jk-sncp-3-matovyj-nikelhrom-706269-gallery-large-box-v-9.jpeg	The operation was aborted due to timeout
+202	https://inoxproducts.ru/wp-content/uploads/inox-gc105-photo-2-1024x1024-logo.jpg	The operation was aborted due to timeout
+203	https://www.smart-doors.su/upload/iblock/96a/PRESTO_3_16_0650_hcr.jpg	The operation was aborted due to timeout
+206	https://m-work.ru/upload/1231762146/1240925110_6518.jpg	The operation was aborted due to timeout
+208	https://static.insales-cdn.com/images/products/1/2936/304655224/DCG143_Скользящая_тяга_ASSA_ABLOY.jpg	The operation was aborted due to timeout
+220	https://sanray73.ru/image/cache/data/new/kanaliz/politek/POLITEK-truba--500x500.jpg	fetch failed
+217	https://intecron-trade.com/images/cms/data/0131.jpg	The operation was aborted due to timeout
+225	https://spb.gflex.ru/upload/iblock/142/14257ece9819cd0619b3b34fdc1a8128.jpg	fetch failed
+233	https://www.tbm.ru/risunok1024/Fiksator_otkritogo_polozheniya_TS90_DORMA_DRM0074_001.jpg	HTTP 404
+229	https://cs.petrovich.ru/image/20769406/original.jpg	fetch failed
+232	https://shop.idelectro.ru/upload/iblock/622/vdmml8ek5dmbmdzp0b2jzj93h56lhjia.jpg	HTTP 404
+222	https://ir.ozone.ru/s3/multimedia-s/c1000/6866641576.jpg	The operation was aborted due to timeout
+246	https://berkut.by/upload/iblock/ed1/yrnk2syjmyg9cs1lfgvb9jvvqkfx29q3/028cfd1c_370b_11e8_80e5_00155d66fa0d_40960307_46c5_11e8_80e5_00155d66fa0d.resize2.jpeg	HTTP 404
+247	https://berkut.by/upload/iblock/ed1/yrnk2syjmyg9cs1lfgvb9jvvqkfx29q3/028cfd1c_370b_11e8_80e5_00155d66fa0d_40960307_46c5_11e8_80e5_00155d66fa0d.resize2.jpeg	HTTP 404
+227	https://www.tlock.ru/photo_bank/43243_01.jpg	The operation was aborted due to timeout
+258	https://vettore-locks.com/upload/iblock/c9d/10lt5fkvfd2114w0am1ht9kdu5p7qdlm.png	HTTP 404
+250	https://www.prostanki.com/img/boardpics/2023_06/kObTnA5fh7LVChgf8xQr.jpg	HTTP 404
+257	https://vettore-locks.com/upload/iblock/7a7/reeigep7lfx90owrqg9997dqch07rgtb.png	HTTP 404
+234	https://zonadostupa.ru/images/products/dorma/mehanicheskij_fop_dlja_g96n20.png	The operation was aborted due to timeout
+275	https://garrisonlocks.co.uk/images/dormakaba-electric-lock-svp6278-1224v-dc-flfu-outwards-din-right-inwards-din-left-p10875-74398_medium.jpg	not image: text/html; charset=UTF-8
+285	https://sheriff.market/content/images/23/1280x847l80mc0/seven-systems-ynternet-mahazyn-system-bezopasnosty-80457241792350.png	HTTP 403
+289	https://accordsb.ru:443/upload/iblock/898/j7xrkhcdjlc48baksjqurvdbhkbeoj06/beb8b8d6-0abd-11ea-afe0-a4bf01347322_eb0afced-6fbf-11ef-8328-000c29832a55.resize1.jpg	HTTP 404
+279	https://www.electriclock.net/app/uploads/2018/04/EL561-ABLOY-ELECTRIC-SOLENOID-LOCK-MAIN.jpg	not image: text/html; charset=UTF-8
+261	https://nora-m.ru/upload/iblock/a64/k20fudvvzhp5a2y801rghfsd5gdp9rzq.jpg	The operation was aborted due to timeout
+281	https://www.rir.ru/upload/iblock/55a/55a1db6ec98baeeee1d85a1a7baa2dbc.jpg	The operation was aborted due to timeout

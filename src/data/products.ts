@@ -19,7 +19,7 @@ export const products: Product[] = [
     brand: "PHA",
     stock: 6,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/DDS/PHA%202501_VB_%D0%A0%D1%8B%D1%87%D0%B0%D0%B3%D0%B8-600x315.jpg",
+    image: "/images/1.jpg",
     description: "Антипан. PHA 2501 арт.446230101 (серый) рычаг д/сплош — антипаника для входных и технических дверей. В наличии 6 шт. Бренд: PHA. Доставка по РФ и самовывоз."
   },
   {
@@ -41,7 +41,7 @@ export const products: Product[] = [
     brand: "PHA",
     stock: 2,
     status: 'in_stock',
-    image: "https://mp-loks.ru/image/cache/catalog/2019/antipanika/pha2500vb_1-336x289.jpg",
+    image: "/images/3.jpg",
     description: "Антипаника PHA 2560 VB арт 6223304 — антипаника для входных и технических дверей. В наличии 2 шт. Бренд: PHA. Доставка по РФ и самовывоз."
   },
   {
@@ -52,7 +52,7 @@ export const products: Product[] = [
     brand: "PHA",
     stock: 2,
     status: 'in_stock',
-    image: "https://www.nuessing.de/images/product/large/1163300_0.jpg",
+    image: "/images/4.jpg",
     description: "Антипаника PHA 2570 VB арт 6240304 — антипаника для входных и технических дверей. В наличии 2 шт. Бренд: PHA. Доставка по РФ и самовывоз."
   },
   {
@@ -63,7 +63,7 @@ export const products: Product[] = [
     brand: "PROTECTOR",
     stock: 1,
     status: 'in_stock',
-    image: "https://img.zamki34.ru/images/products/1/4851/615961331/Броненакладка_APECS_Protector_Pro_5027-G.jpg",
+    image: "/images/5.jpg",
     description: "Броненакладка Protector Pro 50/27 золото — броненакладки для входных и технических дверей. В наличии 1 шт. Бренд: PROTECTOR. Доставка по РФ и самовывоз."
   },
   {
@@ -74,7 +74,7 @@ export const products: Product[] = [
     brand: "SECUREMME",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://content2.rozetka.com.ua/goods/images/big/88567219.jpg",
+    image: "/images/6.webp",
     description: "Броненакладка врезная для цилиндра Securemme 25мм мат.хром — цилиндровые механизмы для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд:…"
   },
   {
@@ -96,7 +96,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/707030/1200x800/52382857.jpg",
+    image: "/images/8.jpg",
     description: "Глазок APECS 3016/70-110-G-золото — дверные глазки для входных и технических дверей. В наличии 1 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -107,7 +107,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 42,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/13583743/1000x1000/163177795.jpg",
+    image: "/images/9.jpg",
     description: "Глазок дв. Аверс 2216/75-135-черный — дверные глазки для входных и технических дверей. В наличии 42 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -140,7 +140,7 @@ export const products: Product[] = [
     brand: "ARMADILLO",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/8102246/68x60/93928508.jpg",
+    image: "/images/12.jpg",
     description: "Глазок дверной ARMADILLO DY/PRO 3/100-60/В хром — дверные глазки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: ARMADILLO. Доставка…"
   },
   {
@@ -151,7 +151,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/15740494/1000x1000/178214944.jpg",
+    image: "/images/13.jpg",
     description: "Глазок п/пожарная дверная лат.хром FP — дверные глазки для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -162,7 +162,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://www.21vek.by/img/up/logo_21vek.by.png",
+    image: "/images/14.png",
     description: "Глазок дверной п/пож.АВЕРС 4014/45-75-хром — дверные глазки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по…"
   },
   {
@@ -173,7 +173,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://images.zakupka.com/i3/firms/27/5323/5323892/deviator-gardian-100t_0fb92ce20256423_800x600_1.webp.jpg",
+    image: "/images/15.jpg",
     description: "Девиатор Гардиан100 — девиаторы для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -195,7 +195,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 24,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/9884006/1200x800/181924835.jpg",
+    image: "/images/17.jpg",
     description: "Доводчик Notedo DC025-095 (серебро) — доводчики для входных и технических дверей. В наличии 24 шт. Бренд: NOTEDO. Доставка по РФ и самовывоз."
   },
   {
@@ -206,7 +206,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 8,
     status: 'in_stock',
-    image: "http://notedo.ru/files/gallery/68/big/dc-045-155_sl-ho_white_1650958488.jpg",
+    image: "/images/18.jpg",
     description: "Доводчик Notedo DC045-155 (белый) — доводчики для входных и технических дверей. В наличии 8 шт. Бренд: NOTEDO. Доставка по РФ и самовывоз."
   },
   {
@@ -217,7 +217,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 4,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/cache/catalog/notedo/NOTEDO-DC-055-IN-HO-1300x800-product_popup.jpg",
+    image: "/images/19.jpg",
     description: "Доводчик Notedo DC055 IN+HO (серебро) — доводчики для входных и технических дверей. В наличии 4 шт. Бренд: NOTEDO. Доставка по РФ и самовывоз."
   },
   {
@@ -228,7 +228,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 60,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/2002054/1000x1000/54022373.jpg",
+    image: "/images/20.jpg",
     description: "Доводчик дверной NOTEDO DC-080 cеребро — доводчики для входных и технических дверей. В наличии 60 шт. Бренд: NOTEDO. Доставка по РФ и самовывоз."
   },
   {
@@ -239,7 +239,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 49,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-s/c1000/6896866600.jpg",
+    image: "/images/21.jpg",
     description: "Доводчик дверной NOTEDO DC-080 черный — доводчики для входных и технических дверей. В наличии 49 шт. Бренд: NOTEDO. Доставка по РФ и самовывоз."
   },
   {
@@ -250,7 +250,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 0,
     status: 'out_of_stock',
-    image: "http://notedo.ru/files/gallery/308/small/dc-088-188-in-ho-cammode_1673252508.jpg",
+    image: "/images/22.jpg",
     description: "Доводчик дверной NOTEDO DC-088 CAMMODE серебро — доводчики для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: NOTEDO. Доставка по РФ и…"
   },
   {
@@ -261,7 +261,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 4,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-o/c1000/6855836136.jpg",
+    image: "/images/23.jpg",
     description: "Доводчик дверной NOTEDO DC-150 легкий характер, серебро — доводчики для входных и технических дверей. В наличии 4 шт. Бренд: NOTEDO. Доставка по РФ и самовывоз."
   },
   {
@@ -283,7 +283,7 @@ export const products: Product[] = [
     brand: "ASSA ABLOY",
     stock: 22,
     status: 'in_stock',
-    image: "https://ventum.lv/image/cache/catalog/products/1779/full-dc500-1000x1000.jpg",
+    image: "/images/25.jpg",
     description: "Доводчик ASSA Abloy DC-500 — доводчики для входных и технических дверей. В наличии 22 шт. Бренд: ASSA ABLOY. Доставка по РФ и самовывоз."
   },
   {
@@ -294,7 +294,7 @@ export const products: Product[] = [
     brand: "ASSA ABLOY",
     stock: 2,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/Abloy/fire_door_systems/dc840_g880_assa_abloy-800x800.jpg",
+    image: "/images/26.jpg",
     description: "Доводчик ASSA ABLOY DC-840 — доводчики для входных и технических дверей. В наличии 2 шт. Бренд: ASSA ABLOY. Доставка по РФ и самовывоз."
   },
   {
@@ -305,7 +305,7 @@ export const products: Product[] = [
     brand: "ASSA",
     stock: 2,
     status: 'in_stock',
-    image: "https://www.smart-doors.su/upload/iblock/5b3/DC860.jpg",
+    image: "/images/27.jpg",
     description: "Доводчик ASSA ABLOI ДС-860 — доводчики для входных и технических дверей. В наличии 2 шт. Бренд: ASSA. Доставка по РФ и самовывоз."
   },
   {
@@ -316,7 +316,7 @@ export const products: Product[] = [
     brand: "DORMAKABA",
     stock: 13,
     status: 'in_stock',
-    image: "https://lemonadd.ru/wa-data/public/shop/products/29/13/1329/images/2859/2859.750x0.jpg",
+    image: "/images/28.jpg",
     description: "Доводчик Dormakaba Silver P600 TS MATCH — доводчики для входных и технических дверей. В наличии 13 шт. Бренд: DORMAKABA. Доставка по РФ и самовывоз."
   },
   {
@@ -327,7 +327,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://cdn.meesenburg.ru/v1/image/upload/66c78a393438de9506dd5e32/RU/Products/01-00011995/5wDm5Wv4bKJ7qQt5USDve1.jpg?w=775&h=775&fit=inside",
+    image: "/images/29.jpg",
     description: "Доводчик ТS93 В ВС+DC EN 2-5,RAL9005 — доводчики для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -338,7 +338,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-1-7/c600/7241213347.jpg",
+    image: "/images/30.jpg",
     description: "Доводчик ТS93 В В EN 2-5,серый арт.043020001 — доводчики для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -360,7 +360,7 @@ export const products: Product[] = [
     brand: "IMPULSE",
     stock: 40,
     status: 'in_stock',
-    image: "https://videoglaz.ru/imgs/dc/37/12/b6/167922/97505/original.jpg",
+    image: "/images/32.jpg",
     description: "Доводчик TS90 Impulse черный — доводчики для входных и технических дверей. В наличии 40 шт. Бренд: IMPULSE. Доставка по РФ и самовывоз."
   },
   {
@@ -371,7 +371,7 @@ export const products: Product[] = [
     brand: "DORMA",
     stock: 3,
     status: 'in_stock',
-    image: "https://static.tbmmarket.com/risunok1024x768/Evrocilindr_s_vertushkoi_DORMA_CBR1_80_40x40V_NIKEL_dormakaba_DRM0186_001.jpg",
+    image: "/images/33.jpg",
     description: "Ев/цилиндр с вертушкой Dorma CBF-1 80 (40*40)-никель — цилиндровые механизмы для входных и технических дверей. В наличии 3 шт. Бренд: DORMA. Доставка по РФ и…"
   },
   {
@@ -382,7 +382,7 @@ export const products: Product[] = [
     brand: "DORMA",
     stock: 22,
     status: 'in_stock',
-    image: "https://redmaster.by/upload/iblock/c7a/57dfyygdq5toqs62t80iqf98ltxehxek/evrotsilindr_cbf_1_80_35x45_nikel_angliyskiy_klyuch_dorma_7039000000009.jpg",
+    image: "/images/34.jpg",
     description: "Ев/цилиндр Dorma CBF-1 80 (35*45)-никель — цилиндровые механизмы для входных и технических дверей. В наличии 22 шт. Бренд: DORMA. Доставка по РФ и самовывоз."
   },
   {
@@ -404,7 +404,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://handyhouse.ru:443/upload/iblock/05d/0jt1m39oxgvgb5byq5qugpj8or0rhvbc.jpg",
+    image: "/images/36.jpg",
     description: "ЕD 100 привод распашной двери арт.29222311 — приводы двери для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -415,7 +415,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/catalog/123/doork-shop5.png",
+    image: "/images/294.png",
     description: "ЕD базовая крышка ,серая арт.29241001 — дверная фурнитура для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -426,7 +426,7 @@ export const products: Product[] = [
     brand: "VARIO",
     stock: 1,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/cache/catalog/komplect-automatic/ED_VARIO_dorma-500x500-1300x800-product_popup.jpg",
+    image: "/images/38.jpg",
     description: "ЕD VARIO крышка 2200мм серая арт.29242001 — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: VARIO. Доставка по РФ и самовывоз."
   },
   {
@@ -437,7 +437,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://www.tinko.ru/local/templates/.default/img/logo.png",
+    image: "/images/231.png",
     description: "ED Стандартная тяга 225 мм арт.29271021 — дверная фурнитура для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -448,7 +448,7 @@ export const products: Product[] = [
     brand: "BLACK",
     stock: 4,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/10467278/1000x1000/143097692.jpg",
+    image: "/images/40.jpg",
     description: "Завертка NL Black — дверная фурнитура для входных и технических дверей. В наличии 4 шт. Бренд: BLACK. Доставка по РФ и самовывоз."
   },
   {
@@ -470,7 +470,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 400,
     status: 'in_stock',
-    image: "https://images.satu.kz/216120946_w700_h500_df-zaglushka-pod.jpg",
+    image: "/images/42.jpg",
     description: "Заглушка под противосьем Ф24 черный — дверная фурнитура для входных и технических дверей. В наличии 400 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -492,7 +492,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/stroitelnye-materialy/zabory-i-ograzhdeniya/19191459/1200x800/197014551.jpg",
+    image: "/images/44.jpg",
     description: "Заглушка для труб квадрат. 60*60мм — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -503,7 +503,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-1-7/c1000/7030310155.jpg",
+    image: "/images/45.jpg",
     description: "Заглушка для автопорогов МИНИ — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -514,7 +514,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 2,
     status: 'in_stock',
-    image: "http://apecs.com/img/detail_9074.jpg",
+    image: "/images/46.jpg",
     description: "Задвижка врезная Apecs L 0260 хром — дверная фурнитура для входных и технических дверей. В наличии 2 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -525,7 +525,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 30,
     status: 'in_stock',
-    image: "https://ir-3.ozone.ru/s3/multimedia-b/c1000/6639507659.jpg",
+    image: "/images/47.jpg",
     description: "Замок Apecs 5300Р-NIS — дверные замки для входных и технических дверей. В наличии 30 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -536,7 +536,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 35,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/707232/1200x800/56832560.jpg",
+    image: "/images/48.jpg",
     description: "Замок межкомн. Apecs 5300-WC-NI — дверные замки для входных и технических дверей. В наличии 35 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -547,7 +547,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 33,
     status: 'in_stock',
-    image: "https://lemonadd.ru/wa-data/public/shop/products/82/85/8582/images/14556/14556.750x0.jpg",
+    image: "/images/49.jpg",
     description: "Замок 170/WC 78/55/8/8 F =20скр+отв.планка под фиксатор — дверные замки для входных и технических дверей. В наличии 33 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -558,7 +558,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 81,
     status: 'in_stock',
-    image: "https://handyhouse.ru:443/upload/iblock/159/77mbv7m9667hng0w18q08u6fwgulltao.jpg",
+    image: "/images/50.jpg",
     description: "Замок 170/WZ 72/55/8/8 F =20скр — дверные замки для входных и технических дверей. В наличии 81 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -569,7 +569,7 @@ export const products: Product[] = [
     brand: "GEQE",
     stock: 300,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/dormakaba_locks/dormakaba%20gege/GEGE%20170%2051000603-600x315.JPG",
+    image: "/images/51.jpg",
     description: "Замок Geqe 170 PZ 72/55/8 F под цилиндр — цилиндровые механизмы для входных и технических дверей. В наличии 300 шт. Бренд: GEQE. Доставка по РФ и самовывоз."
   },
   {
@@ -580,7 +580,7 @@ export const products: Product[] = [
     brand: "GEQE",
     stock: 500,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/DORMA/Gege%20ERGO-600x315.jpg",
+    image: "/images/52.jpg",
     description: "Замок Geqe ERGO PZ 72/55/8 F под цилиндр с пластиковым язычком — цилиндровые механизмы для входных и технических дверей. В наличии 500 шт. Бренд: GEQE. Доставка по…"
   },
   {
@@ -591,7 +591,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 2,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1238404/1000x1000/52439059.jpg",
+    image: "/images/53.jpg",
     description: "Замок врезной Apecs 30-R-CR — дверные замки для входных и технических дверей. В наличии 2 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -602,7 +602,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://static.insales-cdn.com/images/products/1/3309/999484653/1.webp",
+    image: "/images/54.webp",
     description: "Замок Гардиан 20.01 Т — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -613,7 +613,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://magazin-krepost.ru/image/cache/catalog/Gardian/zamok_gardian_20_02_t(1)-240x240.jpg",
+    image: "/images/55.jpg",
     description: "Замок Гардиан 20.02 никель — дверные замки для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -624,7 +624,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://zamochniki.com.ua/image/cache/catalog/parsed/product/zamky-dverne/hardyan/zamky-hardyan/vyr4337vyr4337f5d40ffa2defdfb6257269a7b5697b47-700x700.jpg",
+    image: "/images/56.jpg",
     description: "Замок Гардиан 22.12 Т — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -657,7 +657,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://mirzamkov.com/images/stories/virtuemart/product/photo/Exchenge/810988.jpg",
+    image: "/images/59.jpg",
     description: "Замок Гардиан 102.11Т без цил. — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -679,7 +679,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 3,
     status: 'in_stock',
-    image: "https://goods-photos.static1-sima-land.com/items/2140096/0/1600.jpg?v=0",
+    image: "/images/61.jpg",
     description: "Замок Гардиан 3201 б/накл под цилиндр — цилиндровые механизмы для входных и технических дверей. В наличии 3 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -690,7 +690,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 18,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-1-6/c1000/7132575894.jpg",
+    image: "/images/62.jpg",
     description: "Замок Гардиан 32.11 п/мех под ручку — дверные ручки для входных и технических дверей. В наличии 18 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -701,7 +701,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://zamochniki.com.ua/image/cache/catalog/parsed/product/zamky-dverne/hardyan/komplekt-hardyan-s-ruchkamy/vyrp1110136vyr33307759dc0ae19be3696663f4d792d0418e-700x700.jpg",
+    image: "/images/63.jpg",
     description: "Замок Гардиан 32.21 п/мех под ручку — дверные ручки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -712,7 +712,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://zamochniki.com.ua/image/cache/catalog/parsed/product/zamky-dverne/hardyan/zamky-hardyan/vyrp12434131bdd8092f22491d7306951cb0a6d927-700x700.jpg",
+    image: "/images/64.jpg",
     description: "Замок врезной Гардиан 33.11 левый п/мех,под ручку — дверные ручки для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -723,7 +723,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://images.satu.kz/161510916_tsilindricheskij-vreznoj-zamok.jpg",
+    image: "/images/65.jpg",
     description: "Замок врезной Гардиан 33.11 правый п/мех,под ручку — дверные ручки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный.…"
   },
   {
@@ -734,7 +734,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 11,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/12802954/1000x1000/197915787.jpg",
+    image: "/images/66.jpg",
     description: "Замок Гардиан72.16ZT без цилиндра — цилиндровые механизмы для входных и технических дверей. В наличии 11 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -745,7 +745,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 12,
     status: 'in_stock',
-    image: "https://www.stadissa.fi/images/stadissa/stadissa_fi_logo.png",
+    image: "/images/67.png",
     description: "Замок Гардиан 75.14 — дверные замки для входных и технических дверей. В наличии 12 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -767,7 +767,7 @@ export const products: Product[] = [
     brand: "PROFI",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1361703/560x504/52151189.jpg",
+    image: "/images/69.jpg",
     description: "Замок Гардиан серия Profi 351/24 — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: PROFI. Доставка по РФ и самовывоз."
   },
   {
@@ -778,7 +778,7 @@ export const products: Product[] = [
     brand: "SOFT",
     stock: 1,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/APECS-FOto/zamki-vreznye/IMGcced3a0ac34968d0dcad1a670f682f5c-1200x800.jpg",
+    image: "/images/70.jpg",
     description: "Замок Гардиан SOFT 11 M черный — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: SOFT. Доставка по РФ и самовывоз."
   },
   {
@@ -789,7 +789,7 @@ export const products: Product[] = [
     brand: "SOFT",
     stock: 1,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/YML1cfebbafa7ffcc3f87cc74f74e5f270a/zamki-mezhkomnatnye/IMG9f35accf26a58a953621dd79c9c37c7a-1200x800.jpg",
+    image: "/images/71.jpg",
     description: "Замок Гардиан Soft 11 М Ni под цилиндр — цилиндровые механизмы для входных и технических дверей. В наличии 1 шт. Бренд: SOFT. Доставка по РФ и самовывоз."
   },
   {
@@ -800,7 +800,7 @@ export const products: Product[] = [
     brand: "INOX",
     stock: 48,
     status: 'in_stock',
-    image: "https://inoxproducts.ru/wp-content/uploads/2021/04/Магнитный-замок-INOX-MG9250-10R.jpg",
+    image: "/images/72.jpg",
     description: "Замок магнитный INOX MG9250 — дверные замки для входных и технических дверей. В наличии 48 шт. Бренд: INOX. Доставка по РФ и самовывоз."
   },
   {
@@ -822,7 +822,7 @@ export const products: Product[] = [
     brand: "BORDER",
     stock: 36,
     status: 'in_stock',
-    image: "https://images.satu.kz/185086402_zamok-border-77412.jpg",
+    image: "/images/74.jpg",
     description: "Замок BORDER 42 — дверные замки для входных и технических дверей. В наличии 36 шт. Бренд: BORDER. Доставка по РФ и самовывоз."
   },
   {
@@ -833,7 +833,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 3,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1250859/1200x800/55579150.jpg",
+    image: "/images/75.jpg",
     description: "Замок DL401/55 PZ72 Rt реверсивный с запор.планкой — дверные замки для входных и технических дверей. В наличии 3 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -844,7 +844,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 37,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-1-j/c600/7021590787.jpg",
+    image: "/images/76.jpg",
     description: "Замок DL403/55 WC 75 — дверные замки для входных и технических дверей. В наличии 37 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -855,7 +855,7 @@ export const products: Product[] = [
     brand: "STV",
     stock: 20,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-h/c600/6857184581.jpg",
+    image: "/images/77.jpg",
     description: "Замок STV серый с магнитной ответ.планкой — дверные замки для входных и технических дверей. В наличии 20 шт. Бренд: STV. Доставка по РФ и самовывоз."
   },
   {
@@ -866,7 +866,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://12.kz/pictures/product/big/97696_big.jpg",
+    image: "/images/78.jpg",
     description: "Замок с электрон.ручкой с видодомофон,черный — дверные ручки для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -877,7 +877,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://zamkitut.ru/upload/iblock/341/34119181f4552c070c6b05b91b4b8919.jpg",
+    image: "/images/79.jpg",
     description: "Замок Кале 252R — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -888,7 +888,7 @@ export const products: Product[] = [
     brand: "MEU",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/7446901/1200x800/85675417.jpg",
+    image: "/images/80.jpg",
     description: "Замок врез.двухсистем. 54.J919MJ-D Meu Keu Моттура правый — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: MEU.…"
   },
   {
@@ -899,7 +899,7 @@ export const products: Product[] = [
     brand: "MEU",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://expensive-locks.ru:443/upload/iblock/4c0/u5jbrrea909q3z0ju2uzlyb2ll3fzhd7.jpg",
+    image: "/images/81.jpg",
     description: "Замок врез.двухсистем. 54.J919MJ-D Meu Keu Моттура левый — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: MEU. Доставка…"
   },
   {
@@ -921,7 +921,7 @@ export const products: Product[] = [
     brand: "BASARA",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://assets.f-secure.com/i/illustrations/vacuum-monitor.png",
+    image: "/images/83.png",
     description: "Замок врезной BASARA A18-01 R правый,с прямоуг. риге. хром — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: BASARA.…"
   },
   {
@@ -932,7 +932,7 @@ export const products: Product[] = [
     brand: "AJAX",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://ajax-msk.ru/wp-content/uploads/2024/12/57317_01.jpg",
+    image: "/images/84.jpg",
     description: "Замок накладной кодовыйRIM-200 code SN мат. Никель (AJAX) — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: AJAX.…"
   },
   {
@@ -943,7 +943,7 @@ export const products: Product[] = [
     brand: "MLT",
     stock: 2,
     status: 'in_stock',
-    image: "https://www.secrets.ru/sites/default/files/steklo/st-db510mlt._komplekt.jpg",
+    image: "/images/85.jpg",
     description: "Замок соленоидного типа с таймером Смартек ST-DB 510 MLT (скуд) — дверные замки для входных и технических дверей. В наличии 2 шт. Бренд: MLT. Доставка по РФ и…"
   },
   {
@@ -954,7 +954,7 @@ export const products: Product[] = [
     brand: "ISEO",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://lock-shop.ru/upload/iblock/840/8402490a51354df655b17f69ec420dcf.jpg",
+    image: "/images/86.jpg",
     description: "Замок моторный ISEO 28 X1R EASY с лицевой планкой — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: ISEO. Доставка по РФ…"
   },
   {
@@ -965,7 +965,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 32,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/rashodnye-materialy-i-osnastka/rashodniki-dlya-stroitelnogo-oborudovaniya/7337827/1200x800/74462029.jpg",
+    image: "/images/87.jpg",
     description: "Защитный чехол с молнией на входные двери — дверная фурнитура для входных и технических дверей. В наличии 32 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -976,7 +976,7 @@ export const products: Product[] = [
     brand: "SOFT",
     stock: 126,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/12600948/1200x800/157562823.jpg",
+    image: "/images/88.jpg",
     description: "Защелка магнитная Гардиан SOFT 1 M никель WC — защелки для входных и технических дверей. В наличии 126 шт. Бренд: SOFT. Доставка по РФ и самовывоз."
   },
   {
@@ -998,7 +998,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 3,
     status: 'in_stock',
-    image: "https://www.windowo.ru/data/thumb_cache/_data_prod_img_758_jpg_r_1000_1000.jpg",
+    image: "/images/90.jpg",
     description: "Иллюминатор из нерж.ст.ф581*440(мм0 — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1020,7 +1020,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 107,
     status: 'in_stock',
-    image: "https://secbuy.ru/upload/iblock/145/rl0omjsbet3isebm0mevjbhjk21jfd0f.jpeg",
+    image: "/images/92.jpg",
     description: "ИО 102-6 (извещатель магнитоконтактный0 (ГП) — дверная фурнитура для входных и технических дверей. В наличии 107 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -1031,7 +1031,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 10,
     status: 'in_stock',
-    image: "https://www.smartec-security.ru/docs/catalog/st-dm030_sizes(1).jpg",
+    image: "/images/93.jpg",
     description: "Извещатель м/контактный ST-DM030NC-WT — дверная фурнитура для входных и технических дверей. В наличии 10 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1053,7 +1053,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 32,
     status: 'in_stock',
-    image: "https://abloy-sean.ru/wa-data/public/shop/products/79/06/679/images/116/116.970.png",
+    image: "/images/95.png",
     description: "Кабель 6м от эл.мех.замков EL-420-EL 560 — дверная фурнитура для входных и технических дверей. В наличии 32 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1064,7 +1064,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 51,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/NEQ/KU-300x300.jpg",
+    image: "/images/96.jpg",
     description: "Кабель канал KU 480 — дверная фурнитура для входных и технических дверей. В наличии 51 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1075,7 +1075,7 @@ export const products: Product[] = [
     brand: "DORMA",
     stock: 1,
     status: 'in_stock',
-    image: "https://skl-trade.ru/d/253170-028.jpg",
+    image: "/images/97.jpg",
     description: "Кабель канал Smartek DORMA — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: DORMA. Доставка по РФ и самовывоз."
   },
   {
@@ -1086,7 +1086,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 32,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/elektrika-i-svet/kabel-i-provod/14802131/1000x1000/171189641.jpg",
+    image: "/images/98.jpg",
     description: "Кабель переход КП300 — дверная фурнитура для входных и технических дверей. В наличии 32 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1097,7 +1097,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 7,
     status: 'in_stock',
-    image: "https://avatars.mds.yandex.net/get-mpic/7394206/img_id5068456659562143198.jpeg/orig",
+    image: "/images/99.jpg",
     description: "Комплект ручек для калитки+1пара накладок (усиленная,черный) — дверная фурнитура для входных и технических дверей. В наличии 7 шт. Бренд: Универсальный. Доставка…"
   },
   {
@@ -1130,7 +1130,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 9,
     status: 'in_stock',
-    image: "https://tiflocentre.ru/magazin/images/product/50078-58-AISI_7028.jpg",
+    image: "/images/102.jpg",
     description: "Комплект поручни из шлиф.нерж. Стали для дверей — дверная фурнитура для входных и технических дверей. В наличии 9 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -1141,7 +1141,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 31,
     status: 'in_stock',
-    image: "https://apekspace.com/upload/iblock/229/artfq01k3bq8sgaf1djs1vqjfjtmu40o/sr_392.webp",
+    image: "/images/103.webp",
     description: "Координатор SR 392 650 мм артикул 47000012 — дверная фурнитура для входных и технических дверей. В наличии 31 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1152,7 +1152,7 @@ export const products: Product[] = [
     brand: "GSR",
     stock: 3,
     status: 'in_stock',
-    image: "https://all-bez.ru/upload/iblock/344/8ojgk6bmrbn0g81stm9rx6tmeplo4j1n.jpg",
+    image: "/images/104.jpg",
     description: "Координатор G-GSR/V серый арт.064102001 — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: GSR. Доставка по РФ и самовывоз."
   },
   {
@@ -1163,7 +1163,7 @@ export const products: Product[] = [
     brand: "GSR",
     stock: 4,
     status: 'in_stock',
-    image: "https://images.sf.craft.supply/v7/_img_/Lieferanten_Assets/970344_Dormakaba_eDC/LGCKCECV10032874332.jpg?p=normal",
+    image: "/images/105.png",
     description: "Координатор G-GSR/V/ BG серый арт.64144001 — дверная фурнитура для входных и технических дверей. В наличии 4 шт. Бренд: GSR. Доставка по РФ и самовывоз."
   },
   {
@@ -1174,7 +1174,7 @@ export const products: Product[] = [
     brand: "ASSA ABLOY",
     stock: 12,
     status: 'in_stock',
-    image: "https://d-lock.ru/upload/iblock/5a3/5a35cfc4a51d1b6f5097b014b2f23d44.JPG",
+    image: "/images/106.jpg",
     description: "Координатор ASSA ABLOY FD48 100500(доводчик 2-х ств) — доводчики для входных и технических дверей. В наличии 12 шт. Бренд: ASSA ABLOY. Доставка по РФ и самовывоз."
   },
   {
@@ -1185,7 +1185,7 @@ export const products: Product[] = [
     brand: "NOTEDO",
     stock: 1,
     status: 'in_stock',
-    image: "https://static.insales-cdn.com/images/products/1/6569/2547775913/coordinator-c-i-silver_20_1761308928.jpg",
+    image: "/images/107.jpg",
     description: "Координатор Notedo для 2-х створчатых дверей послед.закрыв. — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: NOTEDO. Доставка по РФ и…"
   },
   {
@@ -1196,7 +1196,7 @@ export const products: Product[] = [
     brand: "AJAX",
     stock: 1,
     status: 'in_stock',
-    image: "https://www.mirar-group.ru/images/it/d21b68eacf43_b.webp",
+    image: "/images/108.webp",
     description: "Корпус врезного замка цилиндровыйСН-08 (AJAX) + отв планка пришли к замку — цилиндровые механизмы для входных и технических дверей. В наличии 1 шт. Бренд: AJAX.…"
   },
   {
@@ -1218,7 +1218,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 3,
     status: 'in_stock',
-    image: "https://cdn.prodiel.ru/images/tovar/7680_1.jpg",
+    image: "/images/110.jpg",
     description: "Латунь — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1229,7 +1229,7 @@ export const products: Product[] = [
     brand: "KFT",
     stock: 1,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-x/c1000/6762803361.jpg",
+    image: "/images/111.jpg",
     description: "Локтевой выключатель KFT белый — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: KFT. Доставка по РФ и самовывоз."
   },
   {
@@ -1240,7 +1240,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://magnitof.com/wp-content/uploads/2019/08/b20.jpg",
+    image: "/images/112.jpg",
     description: "Магнитное крепление с отверстием В20 — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ…"
   },
   {
@@ -1262,7 +1262,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 49,
     status: 'in_stock',
-    image: "https://www.autoopt.ru/product_pictures/big/aa6/002148_2.jpg",
+    image: "/images/114.jpg",
     description: "Наж. планка РНА 2105 VB арт. 01421050004 (нержав) — дверная фурнитура для входных и технических дверей. В наличии 49 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -1273,7 +1273,7 @@ export const products: Product[] = [
     brand: "COLOMBO",
     stock: 20,
     status: 'in_stock',
-    image: "https://todoor.ru/shop-photos/nakladka-pod-cilindr-na-kruglom-osnovanii-colombo-cc13-c03-matovyj-chernyj-2-sht.jpg",
+    image: "/images/115.jpg",
     description: "Наклад. под цил. На круг.основ.Colombo CC13-CO3 мат.черный — дверная фурнитура для входных и технических дверей. В наличии 20 шт. Бренд: COLOMBO. Доставка по РФ и…"
   },
   {
@@ -1284,7 +1284,7 @@ export const products: Product[] = [
     brand: "INOX",
     stock: 600,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/APECS-FOto/nakladki-dvernye/IMG0f8f797aeebfe39bc5285fa81a67280b-1200x800.jpg",
+    image: "/images/116.jpg",
     description: "Накладка вертушка 0203-INOX (для туалета) — накладки для входных и технических дверей. В наличии 600 шт. Бренд: INOX. Доставка по РФ и самовывоз."
   },
   {
@@ -1295,7 +1295,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 6,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1127822/1000x1000/52399742.jpg",
+    image: "/images/117.jpg",
     description: "Накладка вертушка Нора-М НФ-К графит — накладки для входных и технических дверей. В наличии 6 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1306,7 +1306,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 44,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/APECS-FOto/nakladki-dvernye/IMG4998c160e472b673cf7b0fbd76f8a705-1200x800.jpg",
+    image: "/images/118.jpg",
     description: "Накладка декоративная Apecs DP-15-C-CRS — накладки для входных и технических дверей. В наличии 44 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1317,7 +1317,7 @@ export const products: Product[] = [
     brand: "ABRISS",
     stock: 2,
     status: 'in_stock',
-    image: "https://cdn.27.ua/sc--media--prod/default/10/6a/0a/106a0a62-33d1-489a-a8a5-5ca1b705e5f3.jpg",
+    image: "/images/119.jpg",
     description: "Накладка декор. под цилиндр ABRISS ET2101 сатинир.золото — цилиндровые механизмы для входных и технических дверей. В наличии 2 шт. Бренд: ABRISS. Доставка по РФ и…"
   },
   {
@@ -1339,7 +1339,7 @@ export const products: Product[] = [
     brand: "ROSETTA",
     stock: 2,
     status: 'in_stock',
-    image: "https://colombo.pro/wa-data/public/shop/products/03/26/2603/images/7737/7737.750x0.png",
+    image: "/images/121.png",
     description: "Накладка для анг.замкаColombo Rosetta PT13мат.черный — накладки для входных и технических дверей. В наличии 2 шт. Бренд: ROSETTA. Доставка по РФ и самовывоз."
   },
   {
@@ -1361,7 +1361,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 109,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/3514902/1200x800/59542602.jpg",
+    image: "/images/123.jpg",
     description: "Накладка на цилиндр Нора-М графит — цилиндровые механизмы для входных и технических дверей. В наличии 109 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1372,7 +1372,7 @@ export const products: Product[] = [
     brand: "COLOMBO",
     stock: 1,
     status: 'in_stock',
-    image: "https://protect-system.pro/wa-data/public/shop/products/72/34/3472/images/6763/6763.970.png",
+    image: "/images/124.png",
     description: "Накладка стопор Colombo Rosetta PT19 черный — накладки для входных и технических дверей. В наличии 1 шт. Бренд: COLOMBO. Доставка по РФ и самовывоз."
   },
   {
@@ -1383,7 +1383,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/APECS-FOto/nakladki-dvernye/IMGd369424edf640e68e73305cb8f7df396-1200x800.jpg",
+    image: "/images/125.jpg",
     description: "Накладка под сувальд.кл. 4300+4000 — накладки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1394,7 +1394,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn.27.ua/799/cf/83/6672259_1.jpeg",
+    image: "/images/126.jpg",
     description: "Накладка 4300+4010 декорат.под цилиндр (матовый хром) — цилиндровые механизмы для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд:…"
   },
   {
@@ -1405,7 +1405,7 @@ export const products: Product[] = [
     brand: "CODE",
     stock: 2,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/Screenshot_33-192x192.png",
+    image: "/images/127.png",
     description: "Накладка сувальдные Code Deco DP-22-S-Auto-NIS — накладки для входных и технических дверей. В наличии 2 шт. Бренд: CODE. Доставка по РФ и самовывоз."
   },
   {
@@ -1427,7 +1427,7 @@ export const products: Product[] = [
     brand: "CODE",
     stock: 4,
     status: 'in_stock',
-    image: "https://mrmag.ru/files/products/nakladki-tsilindrovye-code-deco-slim-dp-c-30-blm.330x300.jpg",
+    image: "/images/129.jpg",
     description: "Накладка цилиндровая CODE DECO Slim DP-C-30-BLM — цилиндровые механизмы для входных и технических дверей. В наличии 4 шт. Бренд: CODE. Доставка по РФ и самовывоз."
   },
   {
@@ -1438,7 +1438,7 @@ export const products: Product[] = [
     brand: "BLM",
     stock: 1,
     status: 'in_stock',
-    image: "https://www.zamki-mira.ru/imagecache/photo/61/28241-1-1.jpg",
+    image: "/images/130.jpg",
     description: "Накладка под цм декоративная DP-C-22-BLM мат.черн. — накладки для входных и технических дверей. В наличии 1 шт. Бренд: BLM. Доставка по РФ и самовывоз."
   },
   {
@@ -1449,7 +1449,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 19,
     status: 'in_stock',
-    image: "https://apecs.kiev.ua/1357-thickbox_default/apecs-dp-c0402-ab.jpg",
+    image: "/images/131.jpg",
     description: "Накладка дверная под цилиндр Apecs DP-C-02 — цилиндровые механизмы для входных и технических дверей. В наличии 19 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1460,7 +1460,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 100,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/APECS-FOto/nakladki-dvernye/IMG4b6a87276eb809c9ce1627d57be69ca3-1200x800.jpg",
+    image: "/images/132.jpg",
     description: "Накладка дверная под цилиндр Apecs DP-C-06 хром — цилиндровые механизмы для входных и технических дверей. В наличии 100 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1471,7 +1471,7 @@ export const products: Product[] = [
     brand: "FORME",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-f/c600/6256071507.jpg",
+    image: "/images/133.jpg",
     description: "Накладка дверная под цилиндр квадрат.FORME черн.мат. — цилиндровые механизмы для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: FORME.…"
   },
   {
@@ -1482,7 +1482,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 30,
     status: 'in_stock',
-    image: "https://api.e-server.com.ua/storage/111907/rs/gabaritnye-razmery-asko-ukrem-nakonechnik-dl-50-photo___rs_1200_1115.jpg",
+    image: "/images/134.jpg",
     description: "Наконечник для тяг (DL1932) — дверная фурнитура для входных и технических дверей. В наличии 30 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1493,7 +1493,7 @@ export const products: Product[] = [
     brand: "GBS",
     stock: 1,
     status: 'in_stock',
-    image: "https://www.zamki-mira.ru/workdir/zamki.png",
+    image: "/images/270.png",
     description: "Огнестойкий дверн.замок ЕСО GBS 81 нержав.ст. — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: GBS. Доставка по РФ и самовывоз."
   },
   {
@@ -1515,7 +1515,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/5662861/1200x800/102448244.jpg",
+    image: "/images/137.jpg",
     description: "Ограничитель дверной DS3 SC мат.хром — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ…"
   },
   {
@@ -1526,7 +1526,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 18,
     status: 'in_stock',
-    image: "https://img.youtube.com/vi/zLsuK8Kc-BE/sddefault.jpg",
+    image: "/images/138.jpg",
     description: "Ответная планка магнитная 3ВМ серая — дверная фурнитура для входных и технических дверей. В наличии 18 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1548,7 +1548,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 58,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/data/dormakaba_locks/vreznie/51000328.png",
+    image: "/images/140.png",
     description: "Ответ.планка 020 скр — дверная фурнитура для входных и технических дверей. В наличии 58 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1559,7 +1559,7 @@ export const products: Product[] = [
     brand: "ISEO",
     stock: 71,
     status: 'in_stock',
-    image: "https://vortek.ru/wp-content/webp-express/webp-images/uploads/2020/06/otvetnaya-planka-029_2.jpg.webp",
+    image: "/images/141.webp",
     description: "Ответная планка ISEO — дверная фурнитура для входных и технических дверей. В наличии 71 шт. Бренд: ISEO. Доставка по РФ и самовывоз."
   },
   {
@@ -1570,7 +1570,7 @@ export const products: Product[] = [
     brand: "PHA",
     stock: 90,
     status: 'in_stock',
-    image: "https://handyhouse.ru:443/upload/iblock/7e6/3r8zlt4p1p03735zcc2flxgfk00w5y2p.jpg",
+    image: "/images/142.jpg",
     description: "Ответная пластина нижней тяги PHA2122-0 — дверная фурнитура для входных и технических дверей. В наличии 90 шт. Бренд: PHA. Доставка по РФ и самовывоз."
   },
   {
@@ -1581,7 +1581,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://st.aestatic.net/items-img/R/3/A/I/A33fdac10a3384d21a1d317f7095c4346j.jpg_960x960.jpg",
+    image: "/images/143.jpg",
     description: "Ответная часть для порогов — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -1592,7 +1592,7 @@ export const products: Product[] = [
     brand: "ELBOW",
     stock: 1,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/catalog/123/doork-shop5.png",
+    image: "/images/294.png",
     description: "Переключатель ELBOW Contact Switch белый — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: ELBOW. Доставка по РФ и самовывоз."
   },
   {
@@ -1614,7 +1614,7 @@ export const products: Product[] = [
     brand: "ESTETIC",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://normalnodelai.com.ua/image/cache/catalog/image/products/petli/oth/oad-ammina-optimizer-jpg-q80-upload-iblock-55b-Zavis-CEMOM-Estetic-978-3D-ME-matovii-hrom-1-1000x1000.jpg",
+    image: "/images/146.jpg",
     description: "Петля скрытая универ.СЕМОМ ESTETIC 130+8 3D 8060мат.хр.,130кг — дверные петли для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: ESTETIC.…"
   },
   {
@@ -1625,7 +1625,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 120,
     status: 'in_stock',
-    image: "https://apecs.kiev.ua/1646-thickbox_default/apecs-3d-14-v2-zink.jpg",
+    image: "/images/147.jpg",
     description: "Петли ввертные Apecs — дверные петли для входных и технических дверей. В наличии 120 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1636,7 +1636,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 18,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/4872708/1200x800/64445910.jpg",
+    image: "/images/148.jpg",
     description: "Петли Нора-М бабочка — дверные петли для входных и технических дверей. В наличии 18 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1647,7 +1647,7 @@ export const products: Product[] = [
     brand: "MORELLI",
     stock: 153,
     status: 'in_stock',
-    image: "https://toomart.ru/image/catalog/HH-5.jpg",
+    image: "/images/149.jpg",
     description: "Петли скрытые MORELLI серые НН-18 Anselmi с накладками 1-4 — дверные петли для входных и технических дверей. В наличии 153 шт. Бренд: MORELLI. Доставка по РФ и…"
   },
   {
@@ -1669,7 +1669,7 @@ export const products: Product[] = [
     brand: "DIRCODE",
     stock: 2,
     status: 'in_stock',
-    image: "https://www.oma.by/upload/iblock/e81/e815e1c28fd45f64f227276d8242d7f3.jpg",
+    image: "/images/151.jpg",
     description: "Петля скрытая Dircode ,черный — дверные петли для входных и технических дверей. В наличии 2 шт. Бренд: DIRCODE. Доставка по РФ и самовывоз."
   },
   {
@@ -1680,7 +1680,7 @@ export const products: Product[] = [
     brand: "AMIG",
     stock: 6,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/2112973/1000x1000/54377633.jpg",
+    image: "/images/152.jpg",
     description: "Петли AMIG — дверные петли для входных и технических дверей. В наличии 6 шт. Бренд: AMIG. Доставка по РФ и самовывоз."
   },
   {
@@ -1691,7 +1691,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 2,
     status: 'in_stock',
-    image: "http://apecs.com/img/detail_18559.jpg",
+    image: "/images/153.jpg",
     description: "Петля врезная Apecs110*30-3D-Z-C RM — дверные петли для входных и технических дверей. В наличии 2 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1702,7 +1702,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 2,
     status: 'in_stock',
-    image: "https://apecs.com/img/detail_19393.jpg",
+    image: "/images/154.jpg",
     description: "Петля врезная Apecs115-3D-Z-C RM — дверные петли для входных и технических дверей. В наличии 2 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1713,7 +1713,7 @@ export const products: Product[] = [
     brand: "ALDECHI",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://toomart.ru/image/catalog/12nov.png",
+    image: "/images/155.png",
     description: "Петля пружинная маятниковая 155*50мм оцинк.арт.87 (ALDECHI) — дверные петли для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: ALDECHI.…"
   },
   {
@@ -1735,7 +1735,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1439035/1200x800/garazhnaya-petlya-s-sharom-strojbat-25h110-1-sht-537710_228854.jpg",
+    image: "/images/157.jpg",
     description: "Петля гаражная с шаром 160*25 — дверные петли для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1746,7 +1746,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://1000mvbg.ru/uploads/product/57800/57872/98ccf82d4b09d774546977907c353464_2021-03-30_17-34-50.jpg",
+    image: "/images/158.jpg",
     description: "Петля гаражная с шаром 25*110 — дверные петли для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1757,7 +1757,7 @@ export const products: Product[] = [
     brand: "SIMONSWERK",
     stock: 40,
     status: 'in_stock',
-    image: "https://content2.rozetka.com.ua/goods/images/big/276370634.jpg",
+    image: "/images/159.webp",
     description: "Петли SIMONSWERK ТЕ340-3D серый — дверные петли для входных и технических дверей. В наличии 40 шт. Бренд: SIMONSWERK. Доставка по РФ и самовывоз."
   },
   {
@@ -1768,7 +1768,7 @@ export const products: Product[] = [
     brand: "TECTUS",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://toomart.ru/image/cache/catalog/mycatalogs/dvernaya-furnitura/proizvoditeli-dvernoj-furnituri/furnitura-simonswerk/skritie-petli-tectus/te_541_3d_fvz_erlook500x500-785x1000-1200x800.jpg",
+    image: "/images/160.jpg",
     description: "Петля скрыт.TECTUS TE 541 3D серый (хром матовый) — дверные петли для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: TECTUS. Доставка по…"
   },
   {
@@ -1779,7 +1779,7 @@ export const products: Product[] = [
     brand: "TECTUS",
     stock: 6,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/6837139/1000x1000/71621671.jpg",
+    image: "/images/161.jpg",
     description: "Петля скрыт. TECTUS TE 640 3D серый — дверные петли для входных и технических дверей. В наличии 6 шт. Бренд: TECTUS. Доставка по РФ и самовывоз."
   },
   {
@@ -1790,7 +1790,7 @@ export const products: Product[] = [
     brand: "TECTUS",
     stock: 9,
     status: 'in_stock',
-    image: "https://made-italy.ru/shop-photos/petlja-skrytaja-universalnaja-tectus-te-640-3d-do-200-kg-simonswerk-f1-hrom-matovyj.jpg",
+    image: "/images/162.jpg",
     description: "Петля скрытая TECTUS TE 640 3D (окраш.RAL9005)матовый черный — дверные петли для входных и технических дверей. В наличии 9 шт. Бренд: TECTUS. Доставка по РФ и…"
   },
   {
@@ -1801,7 +1801,7 @@ export const products: Product[] = [
     brand: "BAND",
     stock: 3,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-1-u/c1000/7184397810.jpg",
+    image: "/images/163.jpg",
     description: "Петля скрытая VL Band 180 матовый хром — дверные петли для входных и технических дверей. В наличии 3 шт. Бренд: BAND. Доставка по РФ и самовывоз."
   },
   {
@@ -1812,7 +1812,7 @@ export const products: Product[] = [
     brand: "OTLAV",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://static.tbmmarket.com/risunok1024x768/Petlya_skritaya_dlya_komplanarnih_dverei_universalnaya_3D_130x3225_mm_60_kg_camak_i_aluminii_s_4_nakladkami_i_4_vintami_dlya_krepleniya_nakladok_se_OTLAV_OTL0570_01_012.jpg",
+    image: "/images/164.jpg",
     description: "Петля скрытая OTLAV IN570 серебро матовое — дверные петли для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: OTLAV. Доставка по РФ и…"
   },
   {
@@ -1823,7 +1823,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://api.ultradom.com.ua/media/cache/sylius_shop_product_original/89/28/ea99bc8f93bcd2c48db0bc249ea1.jpeg",
+    image: "/images/165.jpg",
     description: "Петля скрытая ассиметричная ,для дверей толщиной 38мм,черный — дверные петли для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по РФ…"
   },
   {
@@ -1845,7 +1845,7 @@ export const products: Product[] = [
     brand: "EASY",
     stock: 1,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/DORMA/Lucky/FLR-25_FLM-25-600x315.png",
+    image: "/images/167.png",
     description: "Планка лицевая плоская FLM25-Easy Adapt артикул 15180925 — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: EASY. Доставка по РФ и…"
   },
   {
@@ -1856,7 +1856,7 @@ export const products: Product[] = [
     brand: "EASY",
     stock: 7,
     status: 'in_stock',
-    image: "https://avatars.mds.yandex.net/get-mpic/4863739/img_id9157777365959208331.jpeg/orig",
+    image: "/images/168.jpg",
     description: "Планка лицевая плоская FКM25 XS -Easy Adapt артикул 15180937 — дверная фурнитура для входных и технических дверей. В наличии 7 шт. Бренд: EASY. Доставка по РФ и…"
   },
   {
@@ -1878,7 +1878,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 63,
     status: 'in_stock',
-    image: "https://www.tinko.ru/local/templates/.default/img/logo.png",
+    image: "/images/231.png",
     description: "Планка плоская FKH24 артикул 15180324 — дверная фурнитура для входных и технических дверей. В наличии 63 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -1889,7 +1889,7 @@ export const products: Product[] = [
     brand: "EASY",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://fwater.ru/upload/iblock/88a/0i78fptwt8c2xq1uvqkst5yail0k0o2q/Dizayn-bez-nazvaniya.jpg",
+    image: "/images/171.jpg",
     description: "Планка лицевая плоская FКM25 XS -Easy Adapt 25*135*3 — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: EASY.…"
   },
   {
@@ -1911,7 +1911,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 1,
     status: 'in_stock',
-    image: "https://furniturapro.ru/image/cache/catalog/APECS-FOto/nakladki-dvernye/IMG72f9d3f2d84d6364e55ac4d6ea38f1ce-1200x800.jpg",
+    image: "/images/173.jpg",
     description: "Поворотник Apecs TT-0705-8/75-AB — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1922,7 +1922,7 @@ export const products: Product[] = [
     brand: "NIS",
     stock: 21,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/2013271/1000x1000/54077531.jpg",
+    image: "/images/174.jpg",
     description: "Поворотник ТТ-1403-8/75- NIS CODE DECO — дверная фурнитура для входных и технических дверей. В наличии 21 шт. Бренд: NIS. Доставка по РФ и самовывоз."
   },
   {
@@ -1933,7 +1933,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/12440789/560x504/156771461.jpg",
+    image: "/images/175.jpg",
     description: "Поворотник Apecs TT-1516-8/75-CR — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1955,7 +1955,7 @@ export const products: Product[] = [
     brand: "FLAT",
     stock: 1,
     status: 'in_stock',
-    image: "https://images.deal.by/276468921_w640_h640_t-obraznyj-porog-20.jpg",
+    image: "/images/177.jpg",
     description: "Порог FLAT (12*20)1020mm — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: FLAT. Доставка по РФ и самовывоз."
   },
   {
@@ -1966,7 +1966,7 @@ export const products: Product[] = [
     brand: "FORBSA",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://dveri-postroyka.ru/wp-content/uploads/2023/02/1_avtoporog-vreznoj-forbsa-uni_2.png",
+    image: "/images/178.png",
     description: "Порог FORBSA MINI (12*12) 1020mm — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: FORBSA. Доставка по РФ и самовывоз."
   },
   {
@@ -1977,7 +1977,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://www.pack-euro.ru/upload/resize_cache/iblock/ad4/1000_1000_1ae975590c29321462d0b30cdb2d09888/9ntwiyauwveis960lghqxhmqf9sdi8rp.jpg",
+    image: "/images/179.jpg",
     description: "Програмный переключатель ES внешний арт.135602150 — дверная фурнитура для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -1988,7 +1988,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/706908/1200x800/51322681.jpg",
+    image: "/images/180.jpg",
     description: "Роликовый фиксатор R-0002-CR Apecs — фиксаторы для входных и технических дверей. В наличии 1 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -1999,7 +1999,7 @@ export const products: Product[] = [
     brand: "HOPPE",
     stock: 16,
     status: 'in_stock',
-    image: "https://www.jh-profishop.at/hoppe-rosettengarnitur-paris-e138z-42kv-42kvs--908557--1000x1000--p.jpg",
+    image: "/images/181.jpg",
     description: "Ручка комплект HOPPE E138Z/42KV/KVS PZ F69 под цил. Квад.8мм — дверные ручки для входных и технических дверей. В наличии 16 шт. Бренд: HOPPE. Доставка по РФ и…"
   },
   {
@@ -2010,7 +2010,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-1-y/c1000/7296184438.jpg",
+    image: "/images/182.jpg",
     description: "Ручка дверная стальная 110мм — дверные ручки для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -2043,7 +2043,7 @@ export const products: Product[] = [
     brand: "FUARO",
     stock: 74,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-w/c600/6307018220.jpg",
+    image: "/images/185.jpg",
     description: "Ручка дверн.в компл Fuaro Red Line Rl SSC-16 черный — дверные ручки для входных и технических дверей. В наличии 74 шт. Бренд: FUARO. Доставка по РФ и самовывоз."
   },
   {
@@ -2054,7 +2054,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 5,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1250807/1200x800/51571839.jpg",
+    image: "/images/186.jpg",
     description: "Ручка дверная на короткой наклад.DL038 /U с отверстием для цилиндра — цилиндровые механизмы для входных и технических дверей. В наличии 5 шт. Бренд: Универсальный.…"
   },
   {
@@ -2065,7 +2065,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://dve-ruchki.ru/image/cache/catalog/i/pk/od/e288b066324729d7de17375131eaaaaf-1000x1340.jpg",
+    image: "/images/187.jpg",
     description: "Ручка дверная на розетке DL 040/F-55 PZ L Doоrlock — дверные ручки для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -2076,7 +2076,7 @@ export const products: Product[] = [
     brand: "SOLARIS",
     stock: 1,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-2/c1000/6355481822.jpg",
+    image: "/images/188.jpg",
     description: "Ручка дверная на круглом розетке 1230 Solaris Q8 R/SB сатин — дверные ручки для входных и технических дверей. В наличии 1 шт. Бренд: SOLARIS. Доставка по РФ и…"
   },
   {
@@ -2098,7 +2098,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1518964/1200x800/53754441.jpg",
+    image: "/images/190.jpg",
     description: "Ручка дверная Apecs H-0203-BL(DP-C-02черный) — дверные ручки для входных и технических дверей. В наличии 1 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -2120,7 +2120,7 @@ export const products: Product[] = [
     brand: "FORME",
     stock: 3,
     status: 'in_stock',
-    image: "https://ruchki.by/wp-content/uploads/data/data_0-0422mat.zoloto-Dvernaa-rucka-Forme-422-Boston-matovoe-zoloto-scaled.jpg",
+    image: "/images/192.jpg",
     description: "Ручка дверная Forme 422 RFQ 51119 матовая бронза — дверные ручки для входных и технических дверей. В наличии 3 шт. Бренд: FORME. Доставка по РФ и самовывоз."
   },
   {
@@ -2131,7 +2131,7 @@ export const products: Product[] = [
     brand: "HAFELE",
     stock: 5,
     status: 'in_stock',
-    image: "https://www.hafele.com.de/prod-live/static/WFS/Haefele-HEX-Site/-/Haefele/en_VA/pim/images/default/ppic-04088563.jpg",
+    image: "/images/193.jpg",
     description: "Ручка дверная HAFELE Startec LDH 2171 — дверные ручки для входных и технических дверей. В наличии 5 шт. Бренд: HAFELE. Доставка по РФ и самовывоз."
   },
   {
@@ -2153,7 +2153,7 @@ export const products: Product[] = [
     brand: "DORMA",
     stock: 32,
     status: 'in_stock',
-    image: "https://lemonadd.ru/wa-data/public/shop/products/92/11/1192/images/1118/1118.750x0.jpg",
+    image: "/images/195.jpg",
     description: "Ручка на планке PURE 8906/7051 DORMA — дверные ручки для входных и технических дверей. В наличии 32 шт. Бренд: DORMA. Доставка по РФ и самовывоз."
   },
   {
@@ -2164,7 +2164,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 13,
     status: 'in_stock',
-    image: "https://zamkitut.ru/upload/iblock/6a2/6a2ece47eb90fcdf27945ed9dfb4dede.jpg",
+    image: "/images/196.jpg",
     description: "Ручка раздельная Apecs 0201-INOX хром — дверные ручки для входных и технических дверей. В наличии 13 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -2175,7 +2175,7 @@ export const products: Product[] = [
     brand: "PYRAMIDE",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://expensive-locks.ru/upload/iblock/df8/mrc6q5elvgw31qgjibmd2zqzi7tkjf6t.jpg",
+    image: "/images/197.jpg",
     description: "Ручка раздельная Pyramide Velox-FIX БРОНЗА МАТ.(С 2-МЯ РОЗеТКАМИ 55ММ) — дверные ручки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд:…"
   },
   {
@@ -2197,7 +2197,7 @@ export const products: Product[] = [
     brand: "FORMANI",
     stock: 1,
     status: 'in_stock',
-    image: "https://nasp.ru/img/product/42354/photo_sq_2-18577-400.jpg",
+    image: "/images/199.jpg",
     description: "Ручка дверн.Formani BASICS LB -19 матиров.нерж.ст. — дверные ручки для входных и технических дверей. В наличии 1 шт. Бренд: FORMANI. Доставка по РФ и самовывоз."
   },
   {
@@ -2219,7 +2219,7 @@ export const products: Product[] = [
     brand: "FRATELLI",
     stock: 1,
     status: 'in_stock',
-    image: "https://todoor.ru/shop-photos/900x900/dvernaja-ruchka-na-kruglom-osnovanii-fratelli-cattini-nevada-7fs-cs-matovyj-hrom.1.jpg",
+    image: "/images/201.jpg",
     description: "Ручка Fratelli Cattini Невада-7 мат.хром — дверные ручки для входных и технических дверей. В наличии 1 шт. Бренд: FRATELLI. Доставка по РФ и самовывоз."
   },
   {
@@ -2252,7 +2252,7 @@ export const products: Product[] = [
     brand: "PUNTO",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://glavsnab.net/media/catalog/product/cache/1/image/200x/040ec09b1e35df139433887a97daa66f/0/1/01_145_95.jpg?kar=1&kf=0&kt=1&co=1&rgb%5B0%5D=255&rgb%5B1%5D=255&rgb%5B2%5D=255&ang=ang&qua=90",
+    image: "/images/204.jpg",
     description: "Ручка поворотная ВК6.К.ZQ51 BL-24 черный (PUNTO) (41069) — дверные ручки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: PUNTO.…"
   },
   {
@@ -2263,7 +2263,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 3,
     status: 'in_stock',
-    image: "https://abloycenter.ru/upload/CNext/865/865de666d7cb5b88819cadfd2af9e36b.png",
+    image: "/images/205.png",
     description: "Щиток LH042 — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -2285,7 +2285,7 @@ export const products: Product[] = [
     brand: "BASIS",
     stock: 3,
     status: 'in_stock',
-    image: "https://fp-systems.ru/upload/iblock/0eb/wa27p8wyuav4j0ks8bk21qfvthhnxf1u.png",
+    image: "/images/207.png",
     description: "Синхронизатор закрыв. ЕСО SR-Basis для 2-х створчатой двери Коорд. — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: BASIS. Доставка по…"
   },
   {
@@ -2307,7 +2307,7 @@ export const products: Product[] = [
     brand: "ASSA ABLOY",
     stock: 22,
     status: 'in_stock',
-    image: "https://abloy-sean.ru/wa-data/public/shop/products/00/07/700/images/735/735.750x0.jpg",
+    image: "/images/209.jpg",
     description: "Скользящая тяга ASSA Abloy G-195 — дверная фурнитура для входных и технических дверей. В наличии 22 шт. Бренд: ASSA ABLOY. Доставка по РФ и самовывоз."
   },
   {
@@ -2318,7 +2318,7 @@ export const products: Product[] = [
     brand: "ASSA ABLOY",
     stock: 17,
     status: 'in_stock',
-    image: "https://www.smart-doors.su/upload/iblock/bbf/DC892.jpg",
+    image: "/images/210.jpg",
     description: "Скользящая тяга ASSA Abloy G-892 — дверная фурнитура для входных и технических дверей. В наличии 17 шт. Бренд: ASSA ABLOY. Доставка по РФ и самовывоз."
   },
   {
@@ -2329,7 +2329,7 @@ export const products: Product[] = [
     brand: "SVP",
     stock: 39,
     status: 'in_stock',
-    image: "https://dorma-sec.ru/image/cache/data/%D0%BA%D0%B0%D0%B1-310x310.jpg",
+    image: "/images/211.jpg",
     description: "Соединительный кабель SVP-A 1100 арт.070932992 — дверная фурнитура для входных и технических дверей. В наличии 39 шт. Бренд: SVP. Доставка по РФ и самовывоз."
   },
   {
@@ -2340,7 +2340,7 @@ export const products: Product[] = [
     brand: "ASSA ABLOY",
     stock: 13,
     status: 'in_stock',
-    image: "https://www.windowdrives.com/media/image/67/58/a3/EX118P-01.jpg",
+    image: "/images/212.jpg",
     description: "Толкатель ASSA Abloy FD101 — дверная фурнитура для входных и технических дверей. В наличии 13 шт. Бренд: ASSA ABLOY. Доставка по РФ и самовывоз."
   },
   {
@@ -2351,7 +2351,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 635,
     status: 'in_stock',
-    image: "http://zavod-doors.ru/upload/resize_cache/iblock/3fa/ndcmtannrl42j7sn57jtqo1s7q8fo3fx/160_160_1/43155_01.jpg",
+    image: "/images/213.jpg",
     description: "Удлинитель полный дверного глазка EX DV-1/3 черная пластмас. — дверная фурнитура для входных и технических дверей. В наличии 635 шт. Бренд: Универсальный. Доставка…"
   },
   {
@@ -2362,7 +2362,7 @@ export const products: Product[] = [
     brand: "HDVE",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://s.dou.ua/img/avatars/200x200_150092_Gi9csZD.jpg",
+    image: "/images/214.jpg",
     description: "Удлинитель полный дв.глазка HDVE-14/30 — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: HDVE. Доставка по РФ и…"
   },
   {
@@ -2373,7 +2373,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/rashodnye-materialy-i-osnastka/rashodnye-materialy-dlya-ruchnogo-instrumenta/1560238/1200x800/52681417.jpg",
+    image: "/images/215.jpg",
     description: "Удлиняющий стержень для верхней точки запирания РНА 2160 — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ…"
   },
   {
@@ -2384,7 +2384,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://www.locks.ru/photo_cache/f1db7d87b86dbac51948f505cca3f2ec-d7318846814ba475e3aaa0ba84ffd3d5.jpg",
+    image: "/images/216.jpg",
     description: "Удлиняющий стержень для нижней точки запирания РНА 2161 — дверная фурнитура для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ…"
   },
   {
@@ -2406,7 +2406,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 180,
     status: 'in_stock',
-    image: "https://rtihim.ru/d/rg-127.png",
+    image: "/images/218.png",
     description: "Уплотнитель двери РГ-127 ( 1 в бабине 180м ) — дверная фурнитура для входных и технических дверей. В наличии 180 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -2417,7 +2417,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://tradess.com.ua/image/cache/catalog/easyphoto/551/uplotnitel-rezinovyy-r-obraznyy-2-800x800.jpg",
+    image: "/images/219.jpg",
     description: "Уплотнитель черный 110/34 Р-образный — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный. Доставка по РФ…"
   },
   {
@@ -2439,7 +2439,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 185,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-1-6/c1000/7200487158.jpg",
+    image: "/images/221.jpg",
     description: "Уплотнитель УК-117Ф серый УФ и ОС (ультрафиолето и озоностойкий) — дверная фурнитура для входных и технических дверей. В наличии 185 шт. Бренд: Универсальный.…"
   },
   {
@@ -2461,7 +2461,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 250,
     status: 'in_stock',
-    image: "https://cdn.mdm-complect.ru/CONTENT/catalogue/shkafy/BR4P6GR.jpg",
+    image: "/images/223.jpg",
     description: "Уплотнитель серый Шпуля — дверная фурнитура для входных и технических дверей. В наличии 250 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -2472,7 +2472,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 100,
     status: 'in_stock',
-    image: "https://www.tgsmit.ru/upload/iblock/f4f/ioevzjxf48y9vfzaee9fm0jb6e3prknj.jpg",
+    image: "/images/224.jpg",
     description: "Уплотнитель черный D-профиль,9*8мм(100м)-1шт — дверная фурнитура для входных и технических дверей. В наличии 100 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -2494,7 +2494,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/montazhnye-lenty/7444045/1000x1000/155694119.jpg",
+    image: "/images/226.jpg",
     description: "Уплотнитель терморасширяющийся 15*1,5*100000 — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный.…"
   },
   {
@@ -2516,7 +2516,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 2,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1606628/1000x1000/52844096.jpg",
+    image: "/images/228.jpg",
     description: "Упор дверной DL DS 005 SS,напольный Ф 60мм — дверная фурнитура для входных и технических дверей. В наличии 2 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -2538,7 +2538,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://biot.ru/files/products/main_a56016c2d10edd3fd05f5177b9361513.2000x2000.png",
+    image: "/images/230.png",
     description: "Устройство д/отпечатывания «Ревиласил Макси» черные — дверная фурнитура для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -2549,7 +2549,7 @@ export const products: Product[] = [
     brand: "ALH",
     stock: 4,
     status: 'in_stock',
-    image: "https://www.tinko.ru/local/templates/.default/img/logo.png",
+    image: "/images/231.png",
     description: "Удерживающая пластина для ЕМС 600 ALH — дверная фурнитура для входных и технических дверей. В наличии 4 шт. Бренд: ALH. Доставка по РФ и самовывоз."
   },
   {
@@ -2593,7 +2593,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://satro-paladin.com/_img/satro/goods/0/505/00-00178505/11.jpg",
+    image: "/images/235.jpg",
     description: "Фиксатор открытого положения для скольз.канала G-N (ФОП) комплект — фиксаторы для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по…"
   },
   {
@@ -2604,7 +2604,7 @@ export const products: Product[] = [
     brand: "AVERS",
     stock: 2,
     status: 'in_stock',
-    image: "https://dvernie-zamki.ru/image/cache/catalog/unixml/86/7611/fiksator_avers_wc_1403_nis_b2b-1100x1100.jpg",
+    image: "/images/236.jpg",
     description: "Фиксатор Avers WC-1403-Nis -6мм — фиксаторы для входных и технических дверей. В наличии 2 шт. Бренд: AVERS. Доставка по РФ и самовывоз."
   },
   {
@@ -2615,7 +2615,7 @@ export const products: Product[] = [
     brand: "CODE",
     stock: 1,
     status: 'in_stock',
-    image: "https://so32.ru/upload/iblock/833/45031009_8567_11eb_a2fb_1c1b0d0c6b8d_45031011_8567_11eb_a2fb_1c1b0d0c6b8d.jpg",
+    image: "/images/237.jpg",
     description: "Фиксатор Code Deco WC-2207-CRM/CR — фиксаторы для входных и технических дверей. В наличии 1 шт. Бренд: CODE. Доставка по РФ и самовывоз."
   },
   {
@@ -2626,7 +2626,7 @@ export const products: Product[] = [
     brand: "INOX",
     stock: 41,
     status: 'in_stock',
-    image: "https://dailysatthep.com/wp-content/uploads/2023/05/hop-inox-30x30-1.jpg",
+    image: "/images/238.jpg",
     description: "Цил.INOX 30*30 поворот. кнопка/мех-зм разблок — дверная фурнитура для входных и технических дверей. В наличии 41 шт. Бренд: INOX. Доставка по РФ и самовывоз."
   },
   {
@@ -2637,7 +2637,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 2,
     status: 'in_stock',
-    image: "https://img.bazzar.cloud/Vqj5q0U/rs:fit:500:500:1:1:ce/fn:sigurnosni-cilindar-apecs-sm-60-30-30-blm-blister-5keys-00033525/czM6Ly9kYXRhc3Rv/cmUuYmF6emFyLmhy/Lzg0eHQxMjI5eTNv/ZXBqYTdoaHc2NDhi/eW9oa3M",
+    image: "/images/239.jpg",
     description: "Цм 60 2201.22.05-60 (30*30) кл/кл под 3-гран.к Apecs — дверная фурнитура для входных и технических дверей. В наличии 2 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -2648,7 +2648,7 @@ export const products: Product[] = [
     brand: "VANGER",
     stock: 12,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-1-z/c600/7072775207.jpg",
+    image: "/images/240.jpg",
     description: "Ц/м Vanger EL-60никель кл/верт 25/10/25 — дверная фурнитура для входных и технических дверей. В наличии 12 шт. Бренд: VANGER. Доставка по РФ и самовывоз."
   },
   {
@@ -2659,7 +2659,7 @@ export const products: Product[] = [
     brand: "AVERS",
     stock: 7,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/1569920/1200x800/52714793.jpg",
+    image: "/images/241.jpg",
     description: "Ц/м Avers 70 30/40хром25/10/35 — дверная фурнитура для входных и технических дверей. В наличии 7 шт. Бренд: AVERS. Доставка по РФ и самовывоз."
   },
   {
@@ -2670,7 +2670,7 @@ export const products: Product[] = [
     brand: "AVERS",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://images.prom.ua/4518622555_w640_h640_chugunnyj-navesnoj-zamok.jpg",
+    image: "/images/242.jpg",
     description: "Ц/м Avers 80 кл/кл 30/50верт — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: AVERS. Доставка по РФ и самовывоз."
   },
   {
@@ -2681,7 +2681,7 @@ export const products: Product[] = [
     brand: "AVERS",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-1-u/c600/7347231570.jpg",
+    image: "/images/243.jpg",
     description: "Ц/м Avers 80 45 верт/35 кл — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: AVERS. Доставка по РФ и самовывоз."
   },
   {
@@ -2692,7 +2692,7 @@ export const products: Product[] = [
     brand: "AVERS",
     stock: 320,
     status: 'in_stock',
-    image: "https://goods-photos.static1-sima-land.com/items/4546011/0/1600.jpg?v=1600449069",
+    image: "/images/244.jpg",
     description: "Ц/м Avers 85 кл/кл 35/50 хром — дверная фурнитура для входных и технических дверей. В наличии 320 шт. Бренд: AVERS. Доставка по РФ и самовывоз."
   },
   {
@@ -2703,7 +2703,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 3,
     status: 'in_stock',
-    image: "https://zamki59.ru/4448-thickbox_default/avers-am-7535c40-c-g-klvert-cilindrovyj-mekhanizm.jpg",
+    image: "/images/245.jpg",
     description: "Ц/м Аверс 90 40/50 кл/кл — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -2736,7 +2736,7 @@ export const products: Product[] = [
     brand: "AVERS",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-b/c600/6571297775.jpg",
+    image: "/images/248.jpg",
     description: "Ц/м Avers 95 30 верт/65 кл черный — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: AVERS. Доставка по РФ и самовывоз."
   },
   {
@@ -2747,7 +2747,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/3929652/1200x800/102439556.jpg",
+    image: "/images/249.jpg",
     description: "ЦМ Аверс 100 (45/55 С) кл/верт хром (45/55кл/верт) — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -2769,7 +2769,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-6/c600/6245149062.jpg",
+    image: "/images/251.jpg",
     description: "Цм Apecs SM-110 50/60 кл/кл никель — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: APECS. Доставка по РФ и…"
   },
   {
@@ -2780,7 +2780,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 1,
     status: 'in_stock',
-    image: "https://www.cdiscount.com/pdt2/9/0/3/1/700x700/auc1707109089903/rw/apecs-cylindre-de-serrure-profile-30-35-mm-pour-se.jpg",
+    image: "/images/252.jpg",
     description: "Цм Apecs SM-130(65/65 ) кл/кл — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -2791,7 +2791,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://img.zamki34.ru/images/products/1/5601/2213041633/00035080.jpg",
+    image: "/images/253.jpg",
     description: "Ц/м Apecs Premier XP-100 35/65 кл/кл никель — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: APECS. Доставка по РФ…"
   },
   {
@@ -2802,7 +2802,7 @@ export const products: Product[] = [
     brand: "APECS",
     stock: 6,
     status: 'in_stock',
-    image: "https://dvernoyekb.ru/files/resized/products/3868.330x300.jpg",
+    image: "/images/254.jpg",
     description: "Ц/м Apecs Premier XP-80 35/45 кл/кл никель — дверная фурнитура для входных и технических дверей. В наличии 6 шт. Бренд: APECS. Доставка по РФ и самовывоз."
   },
   {
@@ -2813,7 +2813,7 @@ export const products: Product[] = [
     brand: "VETTORE",
     stock: 295,
     status: 'in_stock',
-    image: "https://mktools.ru/f/store/item/56/8434356/1/fullsize.jpg",
+    image: "/images/255.jpg",
     description: "Ц/м VETTORE 80 30/50 кл/кл (25/10/45) — дверная фурнитура для входных и технических дверей. В наличии 295 шт. Бренд: VETTORE. Доставка по РФ и самовывоз."
   },
   {
@@ -2824,7 +2824,7 @@ export const products: Product[] = [
     brand: "VETTORE",
     stock: 14,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-l/c600/6634506189.jpg",
+    image: "/images/256.jpg",
     description: "Ц/м VETTORE 100 35/65 кл/кл — дверная фурнитура для входных и технических дверей. В наличии 14 шт. Бренд: VETTORE. Доставка по РФ и самовывоз."
   },
   {
@@ -2857,7 +2857,7 @@ export const products: Product[] = [
     brand: "VETTORE",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://cdn21vek.by/imgproxy/preview_b/plain/img/galleries/7636/255/znm120zni60x605_vettore_62eb86d35651f.jpeg",
+    image: "/images/259.jpg",
     description: "Ц/м VETTORE 120 60/60 кл/кл — дверная фурнитура для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: VETTORE. Доставка по РФ и самовывоз."
   },
   {
@@ -2868,7 +2868,7 @@ export const products: Product[] = [
     brand: "FUARO",
     stock: 1,
     status: 'in_stock',
-    image: "https://www.mirar-group.ru/images/itb/22c84acf4ebd_b.webp",
+    image: "/images/260.webp",
     description: "Ц/м Fuaro D-PRO5007-8Tanq 85(50+10+25)-черный — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: FUARO. Доставка по РФ и самовывоз."
   },
   {
@@ -2890,7 +2890,7 @@ export const products: Product[] = [
     brand: "STD",
     stock: 9,
     status: 'in_stock',
-    image: "https://cdn1.ozone.ru/s3/multimedia-8/c600/6649010072.jpg",
+    image: "/images/262.jpg",
     description: "Ц/м STD AL-ЛПВ -100 (50/50) черный кл/верт — дверная фурнитура для входных и технических дверей. В наличии 9 шт. Бренд: STD. Доставка по РФ и самовывоз."
   },
   {
@@ -2901,7 +2901,7 @@ export const products: Product[] = [
     brand: "STD",
     stock: 3,
     status: 'in_stock',
-    image: "https://nora-m.ru/upload/iblock/daa/vlnsqe4nlmio1qtyi47mvjqof1b173eh.jpg",
+    image: "/images/263.jpg",
     description: "Ц/м STD Z ЛП-110(60/50) хром кл/кл — дверная фурнитура для входных и технических дверей. В наличии 3 шт. Бренд: STD. Доставка по РФ и самовывоз."
   },
   {
@@ -2912,7 +2912,7 @@ export const products: Product[] = [
     brand: "STD",
     stock: 13,
     status: 'in_stock',
-    image: "https://img.zamki34.ru/images/products/1/7034/721148794/Цилиндровый_механизм_НОРА-М_STD_Z_ЛП-120__60-60__черный.jpg",
+    image: "/images/264.jpg",
     description: "Ц/м STD ЛП-120(60-60) черный кл/кл — дверная фурнитура для входных и технических дверей. В наличии 13 шт. Бренд: STD. Доставка по РФ и самовывоз."
   },
   {
@@ -2923,7 +2923,7 @@ export const products: Product[] = [
     brand: "STD",
     stock: 1,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-3/c1000/6690116595.jpg",
+    image: "/images/265.jpg",
     description: "Ц/м STD ЛП-120(60-60) черный кл/верт — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: STD. Доставка по РФ и самовывоз."
   },
   {
@@ -2934,7 +2934,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/12802942/1000x1000/175461586.jpg",
+    image: "/images/266.jpg",
     description: "Ц/М Гардиан GB (61/31/60SH)G 5кл. (ключ-шток, цвет: латунь) — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по…"
   },
   {
@@ -2945,7 +2945,7 @@ export const products: Product[] = [
     brand: "DIN",
     stock: 27,
     status: 'in_stock',
-    image: "https://pro-locks.ru/image/cache/data/pr/HZ_43_F22_dorma-600x315.png",
+    image: "/images/267.png",
     description: "Шпингалет автоматический HZ43-F24 DIN-L (лев.) арт.015199004 — шпингалеты для входных и технических дверей. В наличии 27 шт. Бренд: DIN. Доставка по РФ и самовывоз."
   },
   {
@@ -2956,7 +2956,7 @@ export const products: Product[] = [
     brand: "DIN",
     stock: 9,
     status: 'in_stock',
-    image: "https://online.centrumokuc.pl/26879-large_default/rygiel-automatyczny-dormakaba-hz-43-f24-din-prawe.jpg",
+    image: "/images/268.jpg",
     description: "Шпингалет автоматический HZ43-F24 DIN-R (прав) арт.015199005 — шпингалеты для входных и технических дверей. В наличии 9 шт. Бренд: DIN. Доставка по РФ и самовывоз."
   },
   {
@@ -2967,7 +2967,7 @@ export const products: Product[] = [
     brand: "VETTORE",
     stock: 60,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/krepezh/metizy/3780024/1000x1000/60659604.jpg",
+    image: "/images/269.jpg",
     description: "Шпингалет Vettore CH 140 Ni — шпингалеты для входных и технических дверей. В наличии 60 шт. Бренд: VETTORE. Доставка по РФ и самовывоз."
   },
   {
@@ -2978,7 +2978,7 @@ export const products: Product[] = [
     brand: "FAB",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://www.zamki-mira.ru/workdir/zamki.png",
+    image: "/images/270.png",
     description: "Шпингалет автоматический DL FAB/M200/SSS,дл.хода 16мм,пл.26*171 — шпингалеты для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: FAB.…"
   },
   {
@@ -2989,7 +2989,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://mspf-argo.ru/upload/iblock/042/22jf1cgi867vrqmb23d03rinidbp4t82.jpg",
+    image: "/images/271.jpg",
     description: "Шток раздельный 8мм/65*65мм для антипаниковых замков — антипаника для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: Универсальный.…"
   },
   {
@@ -3000,7 +3000,7 @@ export const products: Product[] = [
     brand: "SVP",
     stock: 1,
     status: 'in_stock',
-    image: "https://secbuy.ru/upload/iblock/ce5/5ccicu0ktfi5j5o11pa7cc5s1lhznuni.jpeg",
+    image: "/images/272.jpg",
     description: "Эл.замок SVP 6257 — дверные замки для входных и технических дверей. В наличии 1 шт. Бренд: SVP. Доставка по РФ и самовывоз."
   },
   {
@@ -3011,7 +3011,7 @@ export const products: Product[] = [
     brand: "SVP",
     stock: 4,
     status: 'in_stock',
-    image: "https://cdn.adiglobaldistribution.co.uk/pim/500X500/10033/6258.jpg",
+    image: "/images/273.jpg",
     description: "Эл.замок SVP 6258 — дверные замки для входных и технических дверей. В наличии 4 шт. Бренд: SVP. Доставка по РФ и самовывоз."
   },
   {
@@ -3022,7 +3022,7 @@ export const products: Product[] = [
     brand: "SVP",
     stock: 3,
     status: 'in_stock',
-    image: "https://www.tor7.de/media/image/4e/12/e5/dor-70627700-dormakaba-panikschloss-svp-6276-6277-lieferumfang.jpg",
+    image: "/images/274.jpg",
     description: "Эл.замок SVP 6277 — дверные замки для входных и технических дверей. В наличии 3 шт. Бренд: SVP. Доставка по РФ и самовывоз."
   },
   {
@@ -3044,7 +3044,7 @@ export const products: Product[] = [
     brand: "BASIC",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://safetyguide.de/wp-content/uploads/2022/12/dorma-basic-xs-e-12-24v-ac-dc.jpg",
+    image: "/images/276.jpg",
     description: "Эл.защелка Basic-XS S EA 12VDC HO артикул 15112113 — защелки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: BASIC. Доставка по РФ и…"
   },
   {
@@ -3055,7 +3055,7 @@ export const products: Product[] = [
     brand: "FIRE",
     stock: 11,
     status: 'in_stock',
-    image: "https://securityrussia.com/upload/iblock/88b/iz913h9en7kq93764grd3xatteou6tnl/tueroeffner_basic_smoke_fire_easy_adapt_1200x1200_jpg_image_slider_product_image_slider_zoom_jpg.jpg",
+    image: "/images/277.jpg",
     description: "Электрозащелка Fire 448 — защелки для входных и технических дверей. В наличии 11 шт. Бренд: FIRE. Доставка по РФ и самовывоз."
   },
   {
@@ -3066,7 +3066,7 @@ export const products: Product[] = [
     brand: "ISO",
     stock: 4,
     status: 'in_stock',
-    image: "https://brassnwind.com/wp-content/uploads/2021/06/Horn.png",
+    image: "/images/278.png",
     description: "Элзащелка д/путей эвак.TV506 (ISO 5) арт.15150624 — защелки для входных и технических дверей. В наличии 4 шт. Бренд: ISO. Доставка по РФ и самовывоз."
   },
   {
@@ -3088,7 +3088,7 @@ export const products: Product[] = [
     brand: "SVA",
     stock: 5,
     status: 'in_stock',
-    image: "https://ir.ozone.ru/s3/multimedia-3/c1000/6371075727.jpg",
+    image: "/images/280.jpg",
     description: "Эл.мех.соленоидный замок SVA 6273 арт.70010101 — дверные замки для входных и технических дверей. В наличии 5 шт. Бренд: SVA. Доставка по РФ и самовывоз."
   },
   {
@@ -3110,7 +3110,7 @@ export const products: Product[] = [
     brand: "SVZ",
     stock: 82,
     status: 'in_stock',
-    image: "https://td-sean.ru/wa-data/public/shop/products/11/98/9811/images/6400/6400.750x0.jpg",
+    image: "/images/282.jpg",
     description: "Эл.мех.замок SVZ Basic PZDIN бэксет 30мм — дверные замки для входных и технических дверей. В наличии 82 шт. Бренд: SVZ. Доставка по РФ и самовывоз."
   },
   {
@@ -3121,7 +3121,7 @@ export const products: Product[] = [
     brand: "SVZ",
     stock: 0,
     status: 'out_of_stock',
-    image: "https://www.automatikshop.de/media/image/75/4d/90/70625110.jpg",
+    image: "/images/283.jpg",
     description: "Эл.мех.замок SVZ 6277/6278 — дверные замки для входных и технических дверей. Поставка под заказ, уточняйте срок. Бренд: SVZ. Доставка по РФ и самовывоз."
   },
   {
@@ -3132,7 +3132,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://cdn.vseinstrumenti.ru/images/goods/elektrika-i-svet/sistemy-bezopasnosti-i-umnyj-dom/9334820/1000x1000/126781094.jpg",
+    image: "/images/284.jpg",
     description: "Электромагнитный замок AL400SM — дверные замки для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -3154,7 +3154,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 26,
     status: 'in_stock',
-    image: "http://enigme.ru/images/uploads/catalog/2889/big/1660135207.jpg",
+    image: "/images/286.jpg",
     description: "Эксцентрик цам Z-06 — дверная фурнитура для входных и технических дверей. В наличии 26 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -3165,7 +3165,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 65,
     status: 'in_stock',
-    image: "https://img.freepik.com/premium-photo/blank-white-paper-price-tag-gift-tag-label-with-cord_851674-63349.jpg?w=2000",
+    image: "/images/287.jpg",
     description: "Этикетка -наклейка бумажная 400*150 — дверная фурнитура для входных и технических дверей. В наличии 65 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -3176,7 +3176,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 1,
     status: 'in_stock',
-    image: "https://dveriavtomat.ru/image/cache/catalog/1knopki/okna/811/1001/ed-pereklyuchatel-rezhimov-s-klyuchom-4-poz-228x228.jpg",
+    image: "/images/288.jpg",
     description: "ED переключатель — дверная фурнитура для входных и технических дверей. В наличии 1 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -3198,7 +3198,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 6,
     status: 'in_stock',
-    image: "https://skobmir.ru/upload/resize_cache/iblock/20a/450_450_1d853ce73f9ca2c151c0261cb091c1711/0tkwpjoor2zq60ubhu438nudgcagojdv.jpg",
+    image: "/images/290.jpg",
     description: "Огнестойкий корпус замка,антипаник РНА 2505 арт.476630101 — антипаника для входных и технических дверей. В наличии 6 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -3209,7 +3209,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 15,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/catalog/123/doork-shop5.png",
+    image: "/images/294.png",
     description: "Замок врезной антипаника РНА 2575 арт.476640101 — дверные замки для входных и технических дверей. В наличии 15 шт. Бренд: Универсальный. Доставка по РФ и самовывоз."
   },
   {
@@ -3220,7 +3220,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 6,
     status: 'in_stock',
-    image: "https://cesis.ru/wp-content/uploads/2018/08/Prepona_ZU_03_1.jpg",
+    image: "/images/292.jpg",
     description: "Запирающее автомат устройство РНА 2301 арт.478640101 — дверная фурнитура для входных и технических дверей. В наличии 6 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -3231,7 +3231,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 7,
     status: 'in_stock',
-    image: "https://doko.ru/files/products/DK08336.1024x768w.jpg",
+    image: "/images/293.jpg",
     description: "Комплект для врезной антипаники РНА 2310 арт.478640501 — антипаника для входных и технических дверей. В наличии 7 шт. Бренд: Универсальный. Доставка по РФ и…"
   },
   {
@@ -3242,7 +3242,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 5,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/catalog/123/doork-shop5.png",
+    image: "/images/294.png",
     description: "Ответная часть напольная для врез.антипаники РНА 2321 арт.478640801 — антипаника для входных и технических дверей. В наличии 5 шт. Бренд: Универсальный. Доставка…"
   },
   {
@@ -3253,7 +3253,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 4,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/catalog/123/doork-shop5.png",
+    image: "/images/294.png",
     description: "Нижняя направляющая для врезной антипаники РНА 2311 арт.478640601 — антипаника для входных и технических дверей. В наличии 4 шт. Бренд: Универсальный. Доставка по…"
   },
   {
@@ -3264,7 +3264,7 @@ export const products: Product[] = [
     brand: "Универсальный",
     stock: 16,
     status: 'in_stock',
-    image: "https://doork-shop.ru/image/catalog/123/doork-shop5.png",
+    image: "/images/294.png",
     description: "Верхняя ответная часть для врезной антипаники РНА 2322 арт.478640901 — антипаника для входных и технических дверей. В наличии 16 шт. Бренд: Универсальный. Доставка…"
   }
 ];

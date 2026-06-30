@@ -14,12 +14,12 @@ import requests
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT_CSV = ROOT / "public" / "Остатки Доррен - Лист1 (1).csv"
-OUTPUT_CSV = ROOT / "public" / "product_cards.csv"
-OUTPUT_JSON = ROOT / "public" / "product_cards.json"
+INPUT_CSV = ROOT / "scripts" / "data" / "Остатки Доррен - Лист1 (1).csv"
+OUTPUT_CSV = ROOT / "scripts" / "data" / "product_cards.csv"
+OUTPUT_JSON = ROOT / "scripts" / "data" / "product_cards.json"
 
 TAVILY_API_URL = "https://api.tavily.com/search"
-DEFAULT_CACHE = ROOT / "public" / "tavily_image_cache.json"
+DEFAULT_CACHE = ROOT / "scripts" / "data" / "tavily_image_cache.json"
 
 
 BRANDS = [

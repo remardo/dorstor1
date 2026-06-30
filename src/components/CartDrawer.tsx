@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { X, Minus, Plus, ShoppingCart, Trash2, Send, CheckCircle } from 'lucide-react';
 import type { Product } from '../data/products';
 
@@ -148,8 +149,8 @@ function CartItem({ product, qty, onAdd, onRemove, onClose }: {
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 p-3 flex gap-3">
-      <a
-        href={`#/product/${product.slug}`}
+      <Link
+        to={`/product/${product.slug}`}
         onClick={onClose}
         className="w-16 h-16 rounded-lg bg-slate-50 overflow-hidden shrink-0 hover:ring-2 hover:ring-brand-200 transition-all"
       >
@@ -162,16 +163,16 @@ function CartItem({ product, qty, onAdd, onRemove, onClose }: {
             </svg>
           </div>
         )}
-      </a>
+      </Link>
       <div className="flex-1 min-w-0">
         <p className="text-xs text-brand-600 font-medium">{product.brand}</p>
-        <a
-          href={`#/product/${product.slug}`}
+        <Link
+          to={`/product/${product.slug}`}
           onClick={onClose}
           className="text-sm font-medium text-slate-900 truncate block hover:text-brand-700 transition-colors"
         >
           {product.name}
-        </a>
+        </Link>
         <div className="flex items-center gap-2 mt-2">
           <button onClick={() => onRemove(product.id)} className="w-7 h-7 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50">
             <Minus className="w-3 h-3" />

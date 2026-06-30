@@ -5,7 +5,8 @@ import {
   CreditCard, Truck, AlertTriangle, RotateCcw, FileText,
   Clock, BadgeCheck, Award, Wrench, XCircle, Scale, Sparkles
 } from 'lucide-react';
-import { useSEO, generateBreadcrumbs, generateFAQSchema } from '../hooks/useSEO';
+import { useSEO, generateFAQSchema } from '../hooks/useSEO';
+import { STATIC_SEO } from '../data/seo';
 
 const FAQ_ITEMS = [
   {
@@ -27,21 +28,10 @@ const FAQ_ITEMS = [
 ];
 
 export function WarrantyPage() {
-  const structuredData = useMemo(() => [
-    generateBreadcrumbs([
-      { name: 'Главная', url: '/' },
-      { name: 'Гарантия и возврат' },
-    ]),
-    generateFAQSchema(FAQ_ITEMS),
-  ], []);
-
-  useSEO({
-    title: 'Гарантия и возврат дверной фурнитуры — условия, сроки, порядок',
-    description: 'Гарантийные условия на дверную фурнитуру Доррен. 100% оригинальная продукция. Гарантия производителя до 5 лет (ASSA ABLOY, DORMA). Возврат в течение 14 дней. Обмен, ремонт, рекламации. Прозрачные условия для B2B клиентов.',
-    keywords: 'гарантия дверная фурнитура, возврат фурнитуры, гарантия ASSA ABLOY, гарантия DORMA, гарантия NOTEDO, возврат товара, обмен фурнитуры, рекламация, Доррен гарантия, оригинальная продукция',
-    canonical: 'https://dorren.ru/#/warranty',
-    structuredData,
-  });
+  useSEO(useMemo(() => {
+    const seo = STATIC_SEO['/warranty'];
+    return { ...seo, structuredData: [...seo.structuredData, generateFAQSchema(FAQ_ITEMS)] };
+  }, []));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -419,11 +409,11 @@ export function WarrantyPage() {
               8 (800) 123-45-67
             </a>
             <a
-              href="mailto:b2b@dorren.ru"
+              href="mailto:b2b@doorstore.shop"
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@dorren.ru
+              b2b@doorstore.shop
             </a>
           </div>
         </div>

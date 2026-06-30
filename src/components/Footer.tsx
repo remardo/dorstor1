@@ -25,7 +25,7 @@ export function Footer() {
                 Позвонить
               </a>
               <a
-                href="mailto:b2b@dorren.ru"
+                href="mailto:b2b@doorstore.shop"
                 className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
               >
                 <Mail className="w-4 h-4" />
@@ -102,7 +102,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
-                <a href="mailto:b2b@dorren.ru" className="text-sm hover:text-white transition-colors">b2b@dorren.ru</a>
+                <a href="mailto:b2b@doorstore.shop" className="text-sm hover:text-white transition-colors">b2b@doorstore.shop</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
