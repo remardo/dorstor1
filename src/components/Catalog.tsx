@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Filter, X, ChevronDown, SlidersHorizontal, LayoutGrid, List, Package } from 'lucide-react';
+import { Filter, X, ChevronDown, SlidersHorizontal, LayoutGrid, List, Package, DoorOpen } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import type { Product } from '../data/products';
-import { categories, brands } from '../data/products';
-import { categorySlugs, slugToCategory } from '../data/categories';
+import { brands } from '../data/products';
+import { categorySlugs, slugToCategory, hardwareCategories, DOOR_CATEGORY } from '../data/categories';
 import { ProductCard } from './ProductCard';
 
 interface CatalogProps {
@@ -44,13 +44,18 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
     setTimeout(scrollToCatalogTop, 100);
   };
 
-  const filtered = useMemo(() => products.filter(p => {
-    if (selectedCategory && p.category !== selectedCategory) return false;
-    if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
-    if (stockFilter === 'in_stock' && p.status !== 'in_stock') return false;
-    if (stockFilter === 'out_of_stock' && p.status !== 'out_of_stock') return false;
-    return true;
-  }), [products, selectedCategory, selectedBrands, stockFilter]);
+  const filtered = useMemo(() => {
+    const base = products.filter(p => {
+      if (selectedCategory && p.category !== selectedCategory) return false;
+      if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
+      if (stockFilter === 'in_stock' && p.status !== 'in_stock') return false;
+      if (stockFilter === 'out_of_stock' && p.status !== 'out_of_stock') return false;
+      return true;
+    });
+    if (selectedCategory) return base;
+    // Doors are a separate product line — surface them above hardware in the unfiltered view.
+    return [...base].sort((a, b) => (a.category === DOOR_CATEGORY ? 0 : 1) - (b.category === DOOR_CATEGORY ? 0 : 1));
+  }, [products, selectedCategory, selectedBrands, stockFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
   const visibleCount = Math.min(currentPage * ITEMS_PER_PAGE, filtered.length);
@@ -91,7 +96,8 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
     setCurrentPage(1);
   };
 
-  const categoryCounts = categories.map(cat => ({
+  const doorCount = products.filter(p => p.category === DOOR_CATEGORY).length;
+  const hardwareCategoryCounts = hardwareCategories.map(cat => ({
     name: cat,
     count: products.filter(p => p.category === cat).length
   }));
@@ -160,19 +166,45 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                 )}
               </div>
 
-              {/* Categories */}
+              {/* All categories toggle */}
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Категория</h4>
+                <button
+                  onClick={() => selectCategory(null)}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
+                    !selectedCategory ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:bg-slate-50'
+                  }`}
+                >
+                  Все категории
+                </button>
+              </div>
+
+              {/* Doors - separate, elevated segment */}
+              <div>
+                <button
+                  onClick={() => selectCategory(selectedCategory === DOOR_CATEGORY ? null : DOOR_CATEGORY)}
+                  className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
+                    selectedCategory === DOOR_CATEGORY
+                      ? 'bg-slate-900 border-slate-900 text-white'
+                      : 'bg-amber-50 border-amber-200 text-slate-900 hover:border-amber-300'
+                  }`}
+                >
+                  <span className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
+                    selectedCategory === DOOR_CATEGORY ? 'bg-white/10' : 'bg-white'
+                  }`}>
+                    <DoorOpen className={`w-5 h-5 ${selectedCategory === DOOR_CATEGORY ? 'text-white' : 'text-amber-600'}`} />
+                  </span>
+                  <span className="flex-1 text-left">
+                    <span className="block font-semibold text-sm">Двери</span>
+                    <span className={`block text-xs ${selectedCategory === DOOR_CATEGORY ? 'text-slate-300' : 'text-slate-500'}`}>{doorCount} позиций</span>
+                  </span>
+                </button>
+              </div>
+
+              {/* Hardware categories */}
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Дверная фурнитура</h4>
                 <div className="space-y-1">
-                  <button
-                    onClick={() => selectCategory(null)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
-                      !selectedCategory ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    Все категории
-                  </button>
-                  {categoryCounts.map(({ name, count }) => (
+                  {hardwareCategoryCounts.map(({ name, count }) => (
                     <button
                       key={name}
                       onClick={() => selectCategory(name === selectedCategory ? null : name)}

@@ -2,13 +2,26 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Plus, Minus, PackageCheck, PackageX, Tag, Layers,
-  Building2, Truck, Shield, ChevronRight, Share2, FileText, Phone
+  Building2, Truck, Shield, ChevronRight, Share2, FileText, Phone,
+  Ruler, DoorClosed, Frame, KeyRound, Hand, MoveHorizontal, Palette, AirVent,
+  type LucideIcon,
 } from 'lucide-react';
 import { products } from '../data/products';
-import type { Product } from '../data/products';
+import type { Product, PropIcon } from '../data/products';
 import { categorySlugs } from '../data/categories';
 import { useSEO } from '../hooks/useSEO';
 import { productSeo, BASE_URL } from '../data/seo';
+
+const PROP_ICONS: Record<PropIcon, LucideIcon> = {
+  size: Ruler,
+  leaf: DoorClosed,
+  frame: Frame,
+  lock: KeyRound,
+  handle: Hand,
+  opening: MoveHorizontal,
+  finish: Palette,
+  vent: AirVent,
+};
 
 interface ProductPageProps {
   cart: Record<number, number>;
@@ -80,6 +93,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
     .slice(0, 4);
 
   const specs = [
+    ...(product.props ?? []).map(p => ({ label: p.label, value: p.value, icon: PROP_ICONS[p.icon] })),
     { label: 'Артикул', value: product.slug, icon: Tag },
     { label: 'Категория', value: product.category, icon: Layers },
     { label: 'Бренд', value: product.brand, icon: Building2 },
@@ -196,9 +210,28 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
             </h1>
 
             {/* Description */}
-            <p className="text-base text-slate-600 leading-relaxed mb-8">
-              {product.description} Подходит для установки на входные и технические двери. Оптовые поставки для производственных предприятий.
-            </p>
+            {product.props && product.props.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                {product.props.map((prop, i) => {
+                  const Icon = PROP_ICONS[prop.icon];
+                  return (
+                    <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                      <span className="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-amber-600" aria-hidden="true" />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-xs text-slate-500">{prop.label}</div>
+                        <div className="text-sm font-medium text-slate-900 truncate">{prop.value}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="text-base text-slate-600 leading-relaxed mb-8">
+                {product.description} Подходит для установки на входные и технические двери. Оптовые поставки для производственных предприятий.
+              </p>
+            )}
 
             {/* Price section */}
             <div className="bg-gradient-to-br from-slate-50 to-amber-50/30 rounded-2xl border border-slate-200 p-6 mb-6">

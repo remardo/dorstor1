@@ -28,4 +28,9 @@ export const slugToCategory: Record<string, string> = Object.fromEntries(
   categories.map((c) => [slugifyCategory(c), c])
 );
 
+// Doors are a distinct product line from door hardware/fittings — kept as its
+// own segment in the catalog sidebar instead of alphabetized with the rest.
+export const DOOR_CATEGORY = 'Двери';
+export const hardwareCategories = categories.filter((c) => c !== DOOR_CATEGORY);
+
 export { categories };
