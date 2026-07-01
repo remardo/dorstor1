@@ -45,10 +45,10 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0 group">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-slate-800 to-slate-950 rounded-xl flex items-center justify-center shadow-lg shadow-slate-900/20 group-hover:shadow-xl transition-shadow">
-              <span className="text-white font-bold text-lg md:text-xl tracking-tighter">Д</span>
+              <span className="text-white font-bold text-lg md:text-xl tracking-tighter">D</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900">ДОРРЕН</span>
+              <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900">DOORSTORE</span>
               <span className="text-[10px] md:text-xs text-slate-500 tracking-widest uppercase -mt-0.5">дверная фурнитура</span>
             </div>
           </Link>

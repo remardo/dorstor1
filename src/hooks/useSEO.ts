@@ -12,7 +12,7 @@ interface SEOProps {
 }
 
 const BASE_URL = 'https://doorstore.shop';
-const SITE_NAME = 'Доррен';
+const SITE_NAME = 'DoorStore';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 function setMeta(name: string, content: string, isProperty = false) {
@@ -147,7 +147,7 @@ export function generateProductSchema(product: {
       priceValidUntil: new Date(Date.now() + 30 * 24 * 3600 * 1000).toISOString().split('T')[0],
       seller: {
         '@type': 'Organization',
-        name: 'Доррен',
+        name: 'DoorStore',
       },
       itemCondition: 'https://schema.org/NewCondition',
     },
@@ -183,7 +183,7 @@ export function generateItemListSchema(
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Каталог дверной фурнитуры Доррен',
+    name: 'Каталог дверной фурнитуры DoorStore',
     numberOfItems: products.length,
     itemListElement: products.map(p => ({
       '@type': 'ListItem',

@@ -43,10 +43,10 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4 group">
               <div className="w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center border border-slate-600/50">
-                <span className="text-white font-bold text-lg">Д</span>
+                <span className="text-white font-bold text-lg">D</span>
               </div>
               <div>
-                <div className="text-lg font-bold text-white tracking-tight">ДОРРЕН</div>
+                <div className="text-lg font-bold text-white tracking-tight">DOORSTORE</div>
                 <div className="text-[10px] text-slate-500 uppercase tracking-widest">дверная фурнитура</div>
               </div>
             </Link>
@@ -120,7 +120,7 @@ export function Footer() {
       {/* Bottom */}
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-600">© 2024 ДОРРЕН. Все права защищены.</p>
+          <p className="text-xs text-slate-600">© 2024 DOORSTORE. Все права защищены.</p>
           <div className="flex items-center gap-4 text-xs text-slate-600">
             <span className="hover:text-slate-400 cursor-pointer transition-colors">Политика конфиденциальности</span>
             <span className="hover:text-slate-400 cursor-pointer transition-colors">Пользовательское соглашение</span>

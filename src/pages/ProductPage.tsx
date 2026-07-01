@@ -31,7 +31,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
           : {
               title: 'Товар не найден',
               description:
-                'Запрашиваемый товар не найден в каталоге. Вернитесь в каталог дверной фурнитуры Доррен.',
+                'Запрашиваемый товар не найден в каталоге. Вернитесь в каталог дверной фурнитуры DoorStore.',
               canonical: `${BASE_URL}/`,
               noindex: true,
               structuredData: [],

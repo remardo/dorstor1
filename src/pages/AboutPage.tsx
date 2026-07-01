@@ -44,7 +44,7 @@ export function AboutPage() {
               О компании
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6">
-              ДОРРЕН — поставщик дверной фурнитуры для бизнеса
+              DOORSTORE — поставщик дверной фурнитуры для бизнеса
             </h1>
             <p className="text-lg text-slate-400 leading-relaxed">
               Помогаем производственным предприятиям и дверным фабрикам стабильно закупать фурнитуру:
