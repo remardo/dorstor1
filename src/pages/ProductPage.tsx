@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { products } from '../data/products';
 import type { Product } from '../data/products';
+import { categorySlugs } from '../data/categories';
 import { useSEO } from '../hooks/useSEO';
 import { productSeo, BASE_URL } from '../data/seo';
 
@@ -113,7 +114,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
             </li>
             <li aria-hidden="true"><ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" /></li>
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link to="/" itemProp="item" className="hover:text-slate-900 transition-colors whitespace-nowrap">
+              <Link to={`/category/${categorySlugs[product.category]}`} itemProp="item" className="hover:text-slate-900 transition-colors whitespace-nowrap">
                 <span itemProp="name">{product.category}</span>
               </Link>
               <meta itemProp="position" content="2" />

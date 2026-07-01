@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Filter, X, ChevronDown, SlidersHorizontal, LayoutGrid, List, Package } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import type { Product } from '../data/products';
 import { categories, brands } from '../data/products';
+import { categorySlugs, slugToCategory } from '../data/categories';
 import { ProductCard } from './ProductCard';
 
 interface CatalogProps {
@@ -17,7 +18,9 @@ type StockFilter = 'all' | 'in_stock' | 'out_of_stock';
 const ITEMS_PER_PAGE = 24;
 
 export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: CatalogProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { categorySlug } = useParams<{ categorySlug?: string }>();
+  const selectedCategory = categorySlug ? slugToCategory[categorySlug] ?? null : null;
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [stockFilter, setStockFilter] = useState<StockFilter>('all');
   const [showFilters, setShowFilters] = useState(false);
@@ -37,8 +40,8 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
   };
 
   const selectCategory = (category: string | null) => {
-    setSelectedCategory(category);
-    scrollToCatalogTop();
+    navigate(category ? `/category/${categorySlugs[category]}` : '/');
+    setTimeout(scrollToCatalogTop, 100);
   };
 
   const filtered = useMemo(() => products.filter(p => {
@@ -82,7 +85,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
   const activeFiltersCount = (selectedCategory ? 1 : 0) + selectedBrands.length + (stockFilter !== 'all' ? 1 : 0);
 
   const clearFilters = () => {
-    setSelectedCategory(null);
+    if (selectedCategory) navigate('/');
     setSelectedBrands([]);
     setStockFilter('all');
     setCurrentPage(1);
@@ -245,7 +248,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                 {selectedCategory && (
                   <span className="inline-flex items-center gap-1.5 h-8 px-3 bg-brand-50 text-brand-700 text-xs font-medium rounded-lg border border-brand-200">
                     {selectedCategory}
-                    <button onClick={() => setSelectedCategory(null)}>
+                    <button onClick={() => navigate('/')}>
                       <X className="w-3.5 h-3.5" />
                     </button>
                   </span>

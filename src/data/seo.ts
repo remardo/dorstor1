@@ -2,7 +2,8 @@
 // Consumed by pages (client-side useSEO) AND scripts/prerender.mjs (build-time baking).
 // Keep route meta here so the two never drift.
 import type { Product } from './products.ts';
-import { products } from './products.ts';
+import { products, categories } from './products.ts';
+import { categorySlugs } from './categories.ts';
 import {
   generateBreadcrumbs,
   generateProductSchema,
@@ -46,6 +47,31 @@ export function homeSeo(): RouteSeo {
   };
 }
 
+export function categorySeo(category: string): RouteSeo {
+  const catProducts = products.filter((p) => p.category === category);
+  const slug = categorySlugs[category];
+  return {
+    title: `${category} купить оптом — каталог`,
+    description: `${category} оптом от DoorStore: ${catProducts.length} позиций в наличии и под заказ. Доставка по РФ, B2B поставки для производственных предприятий и дверных фабрик.`,
+    keywords: `${category.toLowerCase()}, ${category.toLowerCase()} оптом, купить ${category.toLowerCase()}, дверная фурнитура оптом, DoorStore`,
+    canonical: `${BASE_URL}/category/${slug}`,
+    structuredData: [
+      generateBreadcrumbs([
+        { name: 'Главная', url: '/' },
+        { name: category },
+      ]),
+      generateItemListSchema(
+        catProducts.slice(0, 20).map((p, i) => ({
+          name: p.name,
+          url: `/product/${p.slug}`,
+          image: abs(p.image),
+          position: i + 1,
+        }))
+      ),
+    ],
+  };
+}
+
 export function productSeo(product: Product): RouteSeo {
   return {
     title: `${product.name} купить оптом — ${product.brand} | ${product.category}`,
@@ -59,7 +85,7 @@ export function productSeo(product: Product): RouteSeo {
     structuredData: [
       generateBreadcrumbs([
         { name: 'Главная', url: '/' },
-        { name: product.category, url: '/' },
+        { name: product.category, url: `/category/${categorySlugs[product.category]}` },
         { name: product.name },
       ]),
       generateProductSchema({
@@ -138,6 +164,7 @@ export function allRoutes(): { url: string; seo: RouteSeo }[] {
   return [
     { url: '/', seo: homeSeo() },
     ...Object.entries(STATIC_SEO).map(([url, seo]) => ({ url, seo })),
+    ...categories.map((c) => ({ url: `/category/${categorySlugs[c]}`, seo: categorySeo(c) })),
     ...products.map((p) => ({ url: `/product/${p.slug}`, seo: productSeo(p) })),
   ];
 }

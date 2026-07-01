@@ -1,7 +1,8 @@
 import { useState, useRef, useMemo, useCallback, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { products } from './data/products';
 import type { Product } from './data/products';
+import { slugToCategory } from './data/categories';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Catalog } from './components/Catalog';
@@ -13,7 +14,7 @@ import { DeliveryPage } from './pages/DeliveryPage';
 import { WarrantyPage } from './pages/WarrantyPage';
 import { AboutPage } from './pages/AboutPage';
 import { useSEO } from './hooks/useSEO';
-import { homeSeo } from './data/seo';
+import { homeSeo, categorySeo } from './data/seo';
 
 function HomePage({
   cart,
@@ -28,6 +29,9 @@ function HomePage({
   onRemove: (productId: number) => void;
   catalogRef: React.RefObject<HTMLDivElement | null>;
 }) {
+  const { categorySlug } = useParams<{ categorySlug?: string }>();
+  const categoryName = categorySlug ? slugToCategory[categorySlug] : undefined;
+
   const normalize = (value: string) =>
     value.toLowerCase().replace(/ё/g, 'е').replace(/\s+/g, ' ').trim();
 
@@ -43,7 +47,7 @@ function HomePage({
     });
   }, [searchQuery]);
 
-  useSEO(useMemo(() => homeSeo(), []));
+  useSEO(useMemo(() => (categoryName ? categorySeo(categoryName) : homeSeo()), [categoryName]));
 
   return (
     <>
@@ -156,6 +160,18 @@ function AppContent() {
         <Routes>
           <Route
             path="/"
+            element={
+              <HomePage
+                cart={cart}
+                searchQuery={searchQuery}
+                onAdd={addToCart}
+                onRemove={removeFromCart}
+                catalogRef={catalogRef}
+              />
+            }
+          />
+          <Route
+            path="/category/:categorySlug"
             element={
               <HomePage
                 cart={cart}
