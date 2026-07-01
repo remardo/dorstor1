@@ -221,7 +221,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                       </span>
                       <div className="min-w-0">
                         <div className="text-xs text-slate-500">{prop.label}</div>
-                        <div className="text-sm font-medium text-slate-900 truncate">{prop.value}</div>
+                        <div className="text-sm font-medium text-slate-900">{prop.value}</div>
                       </div>
                     </div>
                   );
@@ -412,7 +412,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                       </div>
                       <div className="flex-1 min-w-0">
                         <dt className="text-sm text-slate-500">{spec.label}</dt>
-                        <dd className="text-sm font-medium text-slate-900 truncate">{spec.value}</dd>
+                        <dd className="text-sm font-medium text-slate-900">{spec.value}</dd>
                       </div>
                     </div>
                   ))}
