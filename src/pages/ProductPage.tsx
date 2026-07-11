@@ -11,6 +11,8 @@ import type { Product, PropIcon } from '../data/products';
 import { categorySlugs } from '../data/categories';
 import { useSEO } from '../hooks/useSEO';
 import { productSeo, BASE_URL } from '../data/seo';
+import { site } from '../data/site';
+import { categoryContent } from '../data/categoryContent';
 
 const PROP_ICONS: Record<PropIcon, LucideIcon> = {
   size: Ruler,
@@ -81,6 +83,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
 
   const inStock = product.status === 'in_stock';
   const cartQty = cart[product.id] || 0;
+  const selectionGuide = categoryContent[product.category];
 
   // Related products - same category, excluding current
   const relatedProducts = products
@@ -109,11 +112,6 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
       <meta itemProp="category" content={product.category} />
       <div itemProp="brand" itemScope itemType="https://schema.org/Brand">
         <meta itemProp="name" content={product.brand} />
-      </div>
-      <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
-        <meta itemProp="availability" content={inStock ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder'} />
-        <meta itemProp="priceCurrency" content="RUB" />
-        <meta itemProp="itemCondition" content="https://schema.org/NewCondition" />
       </div>
 
       {/* Breadcrumbs */}
@@ -296,7 +294,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
             {/* Action buttons */}
             <div className="flex gap-3 mb-8">
               <a
-                href="tel:+78001234567"
+                href={site.phone.href}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-xl hover:bg-slate-50 transition-all"
                 aria-label="Позвонить для уточнения цены"
               >
@@ -376,28 +374,25 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                     {product.description}
                   </p>
                   <p className="text-slate-600 leading-relaxed text-base mb-4">
-                    Данный товар предназначен для профессионального применения в производстве дверных конструкций.
-                    Изготовлен из высококачественных материалов, отвечает всем требованиям ГОСТ и техническим регламентам.
+                    Товар предназначен для профессионального применения в дверных конструкциях. Перед закупкой
+                    проверьте размеры, совместимость и требования проекта по паспорту производителя.
                   </p>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-3">Область применения</h3>
-                  <ul className="space-y-2 text-slate-600">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true" />
-                      <span>Входные двери для жилых помещений</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true" />
-                      <span>Технические двери промышленных объектов</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true" />
-                      <span>Противопожарные дверные конструкции</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true" />
-                      <span>Серийное производство на дверных фабриках</span>
-                    </li>
-                  </ul>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-3">Что проверить перед заказом</h3>
+                  {selectionGuide ? (
+                    <>
+                      <p className="text-slate-600 leading-relaxed text-base mb-4">{selectionGuide.answer}</p>
+                      <ul className="space-y-2 text-slate-600">
+                        {selectionGuide.checks.map((item) => (
+                          <li key={item.label} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true" />
+                            <span><strong>{item.label}:</strong> {item.value}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <p className="text-slate-600 leading-relaxed text-base">Запросите у менеджера паспорт, установочные размеры, комплектность и подтверждение совместимости с вашей дверной конструкцией.</p>
+                  )}
                 </div>
               </div>
             )}
@@ -448,7 +443,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                     <h4 className="text-lg font-semibold text-slate-900 mb-2">Доставка</h4>
                     <ul className="space-y-2 text-sm text-slate-600 mb-4">
                       <li>• Доставка транспортными компаниями по всей России</li>
-                      <li>• Отгрузка со склада от 1 рабочего дня</li>
+                      <li>• Срок отгрузки подтверждается в предложении</li>
                       <li>• Самовывоз со склада в Москве</li>
                       <li>• Стоимость доставки рассчитывается индивидуально</li>
                     </ul>
@@ -467,8 +462,8 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                     <h4 className="text-lg font-semibold text-slate-900 mb-2">Оплата</h4>
                     <ul className="space-y-2 text-sm text-slate-600 mb-4">
                       <li>• Безналичный расчёт для юридических лиц</li>
-                      <li>• Работаем с НДС и без НДС</li>
-                      <li>• Отсрочка платежа для постоянных клиентов</li>
+                      <li>• Налоговый режим указывается в счёте</li>
+                      <li>• Индивидуальные условия фиксируются в договоре</li>
                       <li>• Полный пакет бухгалтерских документов</li>
                     </ul>
                     <Link
@@ -486,10 +481,10 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                   </div>
                   <h4 className="text-lg font-semibold text-slate-900 mb-2">Гарантия</h4>
                   <ul className="space-y-2 text-sm text-slate-600 mb-4">
-                    <li>• Полная гарантия производителя на все товары</li>
-                    <li>• Возврат и обмен в течение 14 дней</li>
+                    <li>• Гарантия по паспорту и условиям производителя</li>
+                    <li>• Условия возврата фиксируются в договоре поставки</li>
                     <li>• Оперативное рассмотрение рекламаций</li>
-                    <li>• 100% оригинальная сертифицированная продукция</li>
+                    <li>• Документы производителя предоставляются при наличии</li>
                   </ul>
                   <Link
                     to="/warranty"

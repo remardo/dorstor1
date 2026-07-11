@@ -1,37 +1,16 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronRight, ShieldCheck, CheckCircle, Phone, Mail, ArrowRight,
   CreditCard, Truck, AlertTriangle, RotateCcw, FileText,
   Clock, BadgeCheck, Award, Wrench, XCircle, Scale, Sparkles
 } from 'lucide-react';
-import { useSEO, generateFAQSchema } from '../hooks/useSEO';
-import { STATIC_SEO } from '../data/seo';
-
-const FAQ_ITEMS = [
-  {
-    question: 'Как подтвердить покупку для гарантийного обращения?',
-    answer: 'Для подтверждения покупки необходимо предоставить товарную накладную (ТОРГ-12), счёт-фактуру или иной документ, подтверждающий приобретение товара у нашей компании. Все документы хранятся в нашей системе, поэтому достаточно сообщить номер заказа.'
-  },
-  {
-    question: 'Можно ли вернуть товар, если он не подошёл по размеру?',
-    answer: 'Да, в течение 14 дней вы можете вернуть товар надлежащего качества, если он не подошёл по размеру, цвету или комплектации. Главное условие — товар не должен быть в эксплуатации и должен сохранить оригинальную упаковку.'
-  },
-  {
-    question: 'Распространяется ли гарантия на товары со скидкой?',
-    answer: 'Да, гарантийные условия распространяются на все товары вне зависимости от цены покупки и наличия скидки. Исключение составляют товары, проданные как уценённые по причине выявленных дефектов — о таких случаях клиент уведомляется заранее.'
-  },
-  {
-    question: 'Куда обращаться по гарантии — к вам или производителю?',
-    answer: 'Обращайтесь к нам — мы являемся авторизованным дистрибьютором и берём на себя все вопросы гарантийного обслуживания. Мы самостоятельно взаимодействуем с производителем для решения вашего вопроса.'
-  },
-];
+import { useSEO } from '../hooks/useSEO';
+import { STATIC_SEO, WARRANTY_FAQ as FAQ_ITEMS } from '../data/seo';
+import { site } from '../data/site';
 
 export function WarrantyPage() {
-  useSEO(useMemo(() => {
-    const seo = STATIC_SEO['/warranty'];
-    return { ...seo, structuredData: [...seo.structuredData, generateFAQSchema(FAQ_ITEMS)] };
-  }, []));
+  useSEO(STATIC_SEO['/warranty']);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -72,7 +51,7 @@ export function WarrantyPage() {
               Гарантия и возврат
             </h1>
             <p className="text-lg text-slate-400 leading-relaxed">
-              Мы поставляем только оригинальную продукцию ведущих производителей и гарантируем качество каждого изделия. Прозрачные условия возврата и обмена.
+              Условия гарантии зависят от производителя и конкретного товара. Порядок возврата и обмена фиксируется в договоре поставки.
             </p>
           </div>
         </div>
@@ -83,10 +62,10 @@ export function WarrantyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 -mx-4">
             {[
-              { icon: BadgeCheck, title: '100% оригинал', desc: 'Только сертифицированная продукция' },
-              { icon: Award, title: 'Гарантия бренда', desc: 'Полная гарантия производителя' },
-              { icon: RotateCcw, title: 'Обмен и возврат', desc: '14 дней на возврат' },
-              { icon: Scale, title: 'Защита прав', desc: 'По закону о защите прав потребителей' },
+              { icon: BadgeCheck, title: 'Документы', desc: 'По конкретной партии товара' },
+              { icon: Award, title: 'Гарантия бренда', desc: 'По паспорту производителя' },
+              { icon: RotateCcw, title: 'Обмен и возврат', desc: 'По договору поставки' },
+              { icon: Scale, title: 'Условия поставки', desc: 'По договору между сторонами' },
             ].map((item, i) => (
               <div key={i} className="px-4 py-8 md:py-10 flex flex-col items-center text-center border-r border-slate-100 last:border-r-0">
                 <item.icon className="w-6 h-6 text-amber-500 mb-3" />
@@ -105,7 +84,7 @@ export function WarrantyPage() {
         <div className="mb-16 md:mb-24">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Гарантийные условия</h2>
-            <p className="text-slate-500 max-w-xl mx-auto">Мы несём полную ответственность за качество поставляемой продукции</p>
+            <p className="text-slate-500 max-w-xl mx-auto">Срок и порядок обращения проверяются по документам конкретной поставки</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg transition-all">
@@ -114,17 +93,17 @@ export function WarrantyPage() {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Гарантия производителя</h3>
               <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Вся продукция поставляется с полной гарантией производителя. Сроки гарантии зависят от бренда и категории товара.
+                Гарантийный срок и исключения определяются паспортом производителя и условиями конкретной поставки.
               </p>
               <div className="space-y-3">
                 {[
-                  { brand: 'ASSA ABLOY', period: 'до 5 лет' },
-                  { brand: 'DORMA / DORMAKABA', period: 'до 5 лет' },
-                  { brand: 'NOTEDO', period: '2 года' },
-                  { brand: 'ARMADILLO', period: '2 года' },
-                  { brand: 'APECS', period: '1 год' },
-                  { brand: 'IMPULSE', period: '2 года' },
-                  { brand: 'VANGER', period: '1 год' },
+                  { brand: 'ASSA ABLOY', period: 'по паспорту товара' },
+                  { brand: 'DORMA / DORMAKABA', period: 'по паспорту товара' },
+                  { brand: 'NOTEDO', period: 'по паспорту товара' },
+                  { brand: 'ARMADILLO', period: 'по паспорту товара' },
+                  { brand: 'APECS', period: 'по паспорту товара' },
+                  { brand: 'IMPULSE', period: 'по паспорту товара' },
+                  { brand: 'VANGER', period: 'по паспорту товара' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-b-0">
                     <span className="text-sm font-medium text-slate-900">{item.brand}</span>
@@ -199,7 +178,7 @@ export function WarrantyPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">Возврат товара надлежащего качества</h3>
-                  <p className="text-sm text-amber-700 font-medium">14 дней с момента получения</p>
+                  <p className="text-sm text-amber-700 font-medium">Срок определяется договором и основанием возврата</p>
                 </div>
               </div>
               <div className="space-y-4">
@@ -402,18 +381,18 @@ export function WarrantyPage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
-              href="tel:+78001234567"
+              href={site.phone.href}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
             >
               <Phone className="w-4 h-4" />
-              8 (800) 123-45-67
+              {site.phone.display}
             </a>
             <a
-              href="mailto:b2b@doorstore.shop"
+              href={`mailto:${site.email}`}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@doorstore.shop
+              {site.email}
             </a>
           </div>
         </div>

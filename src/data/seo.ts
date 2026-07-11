@@ -8,32 +8,119 @@ import {
   generateBreadcrumbs,
   generateProductSchema,
   generateItemListSchema,
+  generateFAQSchema,
 } from '../hooks/useSEO.ts';
+import { site } from './site.ts';
+import { categoryContent } from './categoryContent.ts';
 
-export const BASE_URL = 'https://doorstore.shop';
-export const EMAIL = 'b2b@doorstore.shop';
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export const PAYMENT_FAQ: FAQItem[] = [
+  {
+    question: 'Работаете ли вы с НДС?',
+    answer: 'Налоговый режим и комплект закрывающих документов будут указаны в счёте и договоре. До загрузки реквизитов уточните условия у менеджера.'
+  },
+  {
+    question: 'Какой минимальный размер заказа?',
+    answer: 'Минимальная сумма зависит от состава и условий поставки. Менеджер подтвердит её после получения перечня позиций.'
+  },
+  {
+    question: 'Как быстро выставляется счёт?',
+    answer: 'Счёт формируется после согласования состава заявки, наличия и срока поставки. Срок подготовки подтверждает менеджер.'
+  },
+  {
+    question: 'Можно ли получить отсрочку платежа?',
+    answer: 'Возможность отсрочки и лимит определяются индивидуально и фиксируются в договоре поставки.'
+  },
+  {
+    question: 'Предоставляете ли вы ЭДО?',
+    answer: 'Способ обмена закрывающими документами указывается в договоре. Доступные операторы ЭДО будут подтверждены после загрузки реквизитов.'
+  },
+];
+
+export const DELIVERY_FAQ: FAQItem[] = [
+  {
+    question: 'Как быстро вы отгружаете заказ?',
+    answer: 'Срок отгрузки зависит от наличия, комплектации и условий оплаты; подтверждённая дата указывается в коммерческом предложении.'
+  },
+  {
+    question: 'Можно ли организовать самовывоз?',
+    answer: 'Да, самовывоз доступен со склада в Москве по предварительному согласованию времени и номера машины.'
+  },
+  {
+    question: 'Какими ТК отправляете по России?',
+    answer: 'Работаем с основными федеральными перевозчиками и подбираем ТК под ваш регион, срок и бюджет доставки.'
+  },
+  {
+    question: 'Что делать, если груз приехал с повреждением?',
+    answer: 'При приемке зафиксируйте повреждение в акте ТК и сразу свяжитесь с менеджером DOORSTORE. Мы оперативно отработаем замену или компенсацию.'
+  },
+];
+
+export const WARRANTY_FAQ: FAQItem[] = [
+  {
+    question: 'Как подтвердить покупку для гарантийного обращения?',
+    answer: 'Для подтверждения покупки необходимо предоставить товарную накладную (ТОРГ-12), счёт-фактуру или иной документ, подтверждающий приобретение товара у нашей компании. Все документы хранятся в нашей системе, поэтому достаточно сообщить номер заказа.'
+  },
+  {
+    question: 'Можно ли вернуть товар, если он не подошёл по размеру?',
+    answer: 'Условия возврата для юридических лиц зависят от договора и основания обращения. Не устанавливайте товар, сохраните упаковку и направьте менеджеру документы по поставке.'
+  },
+  {
+    question: 'Распространяется ли гарантия на товары со скидкой?',
+    answer: 'Да, гарантийные условия распространяются на все товары вне зависимости от цены покупки и наличия скидки. Исключение составляют товары, проданные как уценённые по причине выявленных дефектов — о таких случаях клиент уведомляется заранее.'
+  },
+  {
+    question: 'Куда обращаться по гарантии — к вам или производителю?',
+    answer: 'Сначала обратитесь в DoorStore с номером поставки и описанием неисправности. Менеджер проверит условия конкретного производителя и согласует дальнейшие действия.'
+  },
+];
+
+export const BASE_URL = site.baseUrl;
+export const EMAIL = site.email;
 
 export interface RouteSeo {
   title: string;
   description: string;
-  keywords?: string;
   canonical: string;
   ogType?: string;
   ogImage?: string;
+  modified?: string;
+  noindex?: boolean;
   structuredData: Record<string, unknown>[];
 }
 
-const abs = (img: string) => (img.startsWith('http') ? img : `${BASE_URL}${img}`);
+const abs = (img: string) => !img ? '' : img.startsWith('http') ? img : `${BASE_URL}${img}`;
+const compact = (value: string, max: number) =>
+  value.length <= max ? value : `${value.slice(0, max - 1).trimEnd()}…`;
 
 export function homeSeo(): RouteSeo {
   return {
-    title: 'DoorStore — специализированная дверная фурнитура оптом для фабрик | B2B поставщик',
+    title: 'Дверная фурнитура оптом для фабрик | DoorStore',
     description:
-      'DoorStore — B2B поставщик дверной фурнитуры для производственных предприятий. Доводчики, глазки, цилиндры, приводы от ASSA ABLOY, DORMA, NOTEDO, DORMAKABA. Оптовые поставки по всей России. Отгрузка от 1 рабочего дня.',
-    keywords:
-      'дверная фурнитура оптом, фурнитура для дверей B2B, доводчики дверные, дверные глазки, цилиндровые механизмы, ASSA ABLOY, DORMA, NOTEDO, DORMAKABA, ARMADILLO, APECS, фурнитура для фабрик, комплектующие для дверей, DoorStore, купить дверную фурнитуру оптом',
+      'Дверная фурнитура оптом для фабрик и производств: 302 позиции, подбор комплектующих, поставка по России. Цена и срок — по запросу.',
     canonical: `${BASE_URL}/`,
+    modified: site.contentUpdatedAt,
     structuredData: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: site.name,
+        url: BASE_URL,
+        email: site.email,
+        areaServed: 'RU',
+        description: 'B2B поставщик дверной фурнитуры для производственных предприятий.',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: site.name,
+        url: BASE_URL,
+        inLanguage: 'ru-RU',
+      },
       generateBreadcrumbs([{ name: 'Главная', url: '/' }]),
       generateItemListSchema(
         products.slice(0, 20).map((p, i) => ({
@@ -51,10 +138,10 @@ export function categorySeo(category: string): RouteSeo {
   const catProducts = products.filter((p) => p.category === category);
   const slug = categorySlugs[category];
   return {
-    title: `${category} купить оптом — каталог`,
-    description: `${category} оптом от DoorStore: ${catProducts.length} позиций в наличии и под заказ. Доставка по РФ, B2B поставки для производственных предприятий и дверных фабрик.`,
-    keywords: `${category.toLowerCase()}, ${category.toLowerCase()} оптом, купить ${category.toLowerCase()}, дверная фурнитура оптом, DoorStore`,
+    title: compact(`${category} оптом — ${catProducts.length} моделей | DoorStore`, 65),
+    description: compact(`${category} оптом для дверных фабрик и производств. ${catProducts.length} позиций в наличии и под заказ, технический подбор и поставка по России.`, 160),
     canonical: `${BASE_URL}/category/${slug}`,
+    modified: site.contentUpdatedAt,
     structuredData: [
       generateBreadcrumbs([
         { name: 'Главная', url: '/' },
@@ -68,18 +155,19 @@ export function categorySeo(category: string): RouteSeo {
           position: i + 1,
         }))
       ),
+      ...(categoryContent[category] ? [generateFAQSchema(categoryContent[category].faq)] : []),
     ],
   };
 }
 
 export function productSeo(product: Product): RouteSeo {
   return {
-    title: `${product.name} купить оптом — ${product.brand} | ${product.category}`,
-    description: `${product.name} — ${product.category.toLowerCase()} бренда ${product.brand}. ${
+    title: compact(`${product.name} ${product.brand} оптом | DoorStore`, 65),
+    description: compact(`${product.name}, ${product.brand}. ${
       product.status === 'in_stock' ? `В наличии ${product.stock} шт.` : 'Поставка под заказ.'
-    } Оптовая цена по запросу. Доставка по РФ. B2B поставщик DoorStore.`,
-    keywords: `${product.name}, ${product.category}, ${product.brand}, купить ${product.category.toLowerCase()}, ${product.brand} фурнитура, дверная фурнитура оптом, ${product.slug}`,
+    } Цена по запросу, подбор совместимых комплектующих и доставка по России.`, 160),
     canonical: `${BASE_URL}/product/${product.slug}`,
+    modified: site.contentUpdatedAt,
     ogType: 'product',
     ogImage: abs(product.image),
     structuredData: [
@@ -104,45 +192,44 @@ export function productSeo(product: Product): RouteSeo {
 
 export const STATIC_SEO: Record<string, RouteSeo> = {
   '/payment': {
-    title: 'Условия оплаты — безналичный расчёт, отсрочка платежа для B2B',
+    title: 'Оплата дверной фурнитуры для B2B | DoorStore',
     description:
-      'Условия оплаты дверной фурнитуры в DoorStore. Безналичный расчёт с НДС и без НДС, отсрочка платежа до 30 дней, предоплата. Полный пакет документов для бухгалтерии. B2B расчёты для юридических лиц и ИП.',
-    keywords:
-      'оплата дверной фурнитуры, безналичный расчёт, B2B оплата, отсрочка платежа, оплата с НДС, оплата без НДС, счёт на оплату, документооборот, DoorStore оплата',
+      'Условия оплаты дверной фурнитуры для юридических лиц и ИП: безналичный расчёт, документы и порядок оформления заказа.',
     canonical: `${BASE_URL}/payment`,
+    modified: site.contentUpdatedAt,
     structuredData: [
       generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'Оплата' }]),
+      generateFAQSchema(PAYMENT_FAQ),
     ],
   },
   '/delivery': {
-    title: 'Доставка дверной фурнитуры по России — сроки, способы, логистика',
+    title: 'Доставка дверной фурнитуры по России | DoorStore',
     description:
-      'Доставка дверной фурнитуры от DOORSTORE по всей России: отгрузка со склада, самовывоз в Москве, отправка транспортными компаниями. Прозрачные сроки и сопровождение B2B поставок.',
-    keywords:
-      'доставка дверной фурнитуры, доставка по россии, самовывоз москва, логистика b2b, отгрузка со склада, doorstore доставка',
+      'Доставка дверной фурнитуры по России: отгрузка со склада, самовывоз и отправка транспортными компаниями для B2B-клиентов.',
     canonical: `${BASE_URL}/delivery`,
+    modified: site.contentUpdatedAt,
     structuredData: [
       generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'Доставка' }]),
+      generateFAQSchema(DELIVERY_FAQ),
     ],
   },
   '/warranty': {
-    title: 'Гарантия и возврат дверной фурнитуры — условия, сроки, порядок',
+    title: 'Гарантия и возврат дверной фурнитуры | DoorStore',
     description:
-      'Гарантийные условия на дверную фурнитуру DoorStore. 100% оригинальная продукция. Гарантия производителя до 5 лет (ASSA ABLOY, DORMA). Возврат в течение 14 дней. Обмен, ремонт, рекламации. Прозрачные условия для B2B клиентов.',
-    keywords:
-      'гарантия дверная фурнитура, возврат фурнитуры, гарантия ASSA ABLOY, гарантия DORMA, гарантия NOTEDO, возврат товара, обмен фурнитуры, рекламация, DoorStore гарантия, оригинальная продукция',
+      'Порядок гарантийного обращения, проверки комплектности и возврата дверной фурнитуры для B2B-клиентов DoorStore.',
     canonical: `${BASE_URL}/warranty`,
+    modified: site.contentUpdatedAt,
     structuredData: [
       generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'Гарантия и возврат' }]),
+      generateFAQSchema(WARRANTY_FAQ),
     ],
   },
   '/about': {
-    title: 'О компании DoorStore — B2B поставщик дверной фурнитуры для фабрик и производств',
+    title: 'О компании — B2B поставщик фурнитуры | DoorStore',
     description:
-      'DoorStore — поставщик дверной фурнитуры для предприятий и дверных фабрик. Комплексные B2B поставки, стабильный склад, техническая экспертиза и логистика по всей России.',
-    keywords:
-      'о компании doorstore, b2b поставщик дверной фурнитуры, поставщик фурнитуры для фабрик, дверная фурнитура оптом, doorstore москва',
+      'DoorStore — B2B поставщик дверной фурнитуры для предприятий и фабрик: технический подбор, комплектация заказов и доставка по России.',
     canonical: `${BASE_URL}/about`,
+    modified: site.contentUpdatedAt,
     structuredData: [
       generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'О компании' }]),
       {
@@ -151,11 +238,82 @@ export const STATIC_SEO: Record<string, RouteSeo> = {
         name: 'DOORSTORE',
         url: `${BASE_URL}/`,
         email: EMAIL,
-        telephone: '+7-800-123-45-67',
         areaServed: 'RU',
         description: 'B2B поставщик дверной фурнитуры для производственных предприятий.',
       },
     ],
+  },
+  '/contacts': {
+    title: 'Контакты и реквизиты | DoorStore',
+    description: 'Контакты отдела B2B-поставок DoorStore для запроса цены, подбора дверной фурнитуры и получения документов.',
+    canonical: `${BASE_URL}/contacts`,
+    modified: site.contentUpdatedAt,
+    noindex: site.detailsAreDummy,
+    structuredData: [generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'Контакты' }])],
+  },
+  '/privacy': {
+    title: 'Политика конфиденциальности | DoorStore',
+    description: 'Правила обработки персональных и технических данных посетителей сайта DoorStore.',
+    canonical: `${BASE_URL}/privacy`,
+    modified: site.contentUpdatedAt,
+    noindex: true,
+    structuredData: [],
+  },
+  '/terms': {
+    title: 'Условия использования сайта | DoorStore',
+    description: 'Условия использования каталога и технических материалов сайта DoorStore.',
+    canonical: `${BASE_URL}/terms`,
+    modified: site.contentUpdatedAt,
+    noindex: true,
+    structuredData: [],
+  },
+  '/guides': {
+    title: 'База знаний по дверной фурнитуре | DoorStore',
+    description: 'Инструкции по подбору дверных доводчиков, замков, цилиндров, антипаники и другой фурнитуры для производства.',
+    canonical: `${BASE_URL}/guides`,
+    modified: site.contentUpdatedAt,
+    structuredData: [generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'База знаний' }])],
+  },
+  '/guides/kak-vybrat-dovodchik': {
+    title: 'Как выбрать дверной доводчик: 5 шагов | DoorStore',
+    description: 'Как подобрать дверной доводчик по массе и ширине полотна, условиям эксплуатации, типу тяги и монтажной схеме.',
+    canonical: `${BASE_URL}/guides/kak-vybrat-dovodchik`,
+    modified: site.contentUpdatedAt,
+    structuredData: [
+      generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'База знаний', url: '/guides' }, { name: 'Как выбрать доводчик' }]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'Как выбрать дверной доводчик: 5 шагов',
+        datePublished: site.contentUpdatedAt,
+        dateModified: site.contentUpdatedAt,
+        author: { '@type': 'Organization', name: site.name },
+        publisher: { '@type': 'Organization', name: site.name },
+        mainEntityOfPage: `${BASE_URL}/guides/kak-vybrat-dovodchik`,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'Как подобрать дверной доводчик',
+        step: ['Соберите параметры двери', 'Определите условия эксплуатации', 'Выберите монтажную схему', 'Перечислите функции', 'Сверьте паспорт модели'].map((name, index) => ({ '@type': 'HowToStep', position: index + 1, name })),
+      },
+    ],
+  },
+  '/cases': {
+    title: 'Кейсы комплектации дверных производств | DoorStore',
+    description: 'Примеры комплектации дверных производств, монтажных компаний и технических дверей.',
+    canonical: `${BASE_URL}/cases`,
+    modified: site.contentUpdatedAt,
+    noindex: true,
+    structuredData: [],
+  },
+  '/documents': {
+    title: 'Документы и инструкции | DoorStore',
+    description: 'Сертификаты, декларации и инструкции производителей дверной фурнитуры.',
+    canonical: `${BASE_URL}/documents`,
+    modified: site.contentUpdatedAt,
+    noindex: true,
+    structuredData: [],
   },
 };
 

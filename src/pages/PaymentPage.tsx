@@ -1,41 +1,16 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronRight, FileText, Building2, CreditCard, Receipt,
   Clock, CheckCircle, Phone, Mail, ShieldCheck, HandshakeIcon,
   Banknote, FileCheck, ArrowRight
 } from 'lucide-react';
-import { useSEO, generateFAQSchema } from '../hooks/useSEO';
-import { STATIC_SEO } from '../data/seo';
-
-const FAQ_ITEMS = [
-  {
-    question: 'Работаете ли вы с НДС?',
-    answer: 'Да, мы работаем как с НДС 20%, так и по упрощённой системе налогообложения (без НДС). Выбор зависит от конкретного юридического лица нашей компании, уточняйте у менеджера.'
-  },
-  {
-    question: 'Какой минимальный размер заказа?',
-    answer: 'Минимальная сумма заказа для оптовых клиентов — от 10 000 рублей. Для постоянных партнёров минимальная сумма может быть снижена по индивидуальному соглашению.'
-  },
-  {
-    question: 'Как быстро выставляется счёт?',
-    answer: 'Счёт на оплату формируется и отправляется на вашу электронную почту в течение 1 часа после согласования заявки и подтверждения наличия товара на складе.'
-  },
-  {
-    question: 'Можно ли получить отсрочку платежа?',
-    answer: 'Да, для постоянных клиентов с подтверждённой историей закупок мы предоставляем отсрочку платежа до 30 дней. Условия оговариваются в индивидуальном договоре поставки.'
-  },
-  {
-    question: 'Предоставляете ли вы ЭДО?',
-    answer: 'Да, мы подключены к системам электронного документооборота. Работаем через Диадок и СБИС. Бумажные оригиналы также предоставляются по запросу.'
-  },
-];
+import { useSEO } from '../hooks/useSEO';
+import { STATIC_SEO, PAYMENT_FAQ as FAQ_ITEMS } from '../data/seo';
+import { site } from '../data/site';
 
 export function PaymentPage() {
-  useSEO(useMemo(() => {
-    const seo = STATIC_SEO['/payment'];
-    return { ...seo, structuredData: [...seo.structuredData, generateFAQSchema(FAQ_ITEMS)] };
-  }, []));
+  useSEO(STATIC_SEO['/payment']);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -106,15 +81,15 @@ export function PaymentPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span className="text-sm text-slate-700">Работаем с НДС 20%</span>
+                  <span className="text-sm text-slate-700">Налоговый режим указан в счёте</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span className="text-sm text-slate-700">Работаем без НДС (УСН)</span>
+                  <span className="text-sm text-slate-700">Условия подтверждаются до оплаты</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span className="text-sm text-slate-700">Счёт выставляется в течение 1 часа</span>
+                  <span className="text-sm text-slate-700">Счёт после подтверждения наличия</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
@@ -134,7 +109,7 @@ export function PaymentPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span className="text-sm text-slate-700">Отсрочка до 30 календарных дней</span>
+                  <span className="text-sm text-slate-700">Срок определяется индивидуально</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
@@ -162,7 +137,7 @@ export function PaymentPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                  <span className="text-sm text-slate-700">Предоплата от 30% до 100%</span>
+                  <span className="text-sm text-slate-700">Размер фиксируется в договоре</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
@@ -193,7 +168,7 @@ export function PaymentPage() {
                 step: '01',
                 icon: FileText,
                 title: 'Отправьте заявку',
-                desc: 'Добавьте нужные товары в заявку на сайте или отправьте список на почту b2b@doorstore.shop'
+                desc: `Добавьте товары в заявку на сайте или отправьте список на почту ${site.email}`
               },
               {
                 step: '02',
@@ -241,7 +216,7 @@ export function PaymentPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: FileCheck, title: 'Счёт на оплату', desc: 'Выставляется в течение 1 часа после подтверждения заявки' },
+              { icon: FileCheck, title: 'Счёт на оплату', desc: 'Выставляется после подтверждения состава и наличия' },
               { icon: FileText, title: 'Счёт-фактура', desc: 'Формируется автоматически при отгрузке товара со склада' },
               { icon: Receipt, title: 'Товарная накладная', desc: 'ТОРГ-12 предоставляется вместе с товаром при отгрузке' },
               { icon: ShieldCheck, title: 'Акт сверки', desc: 'Формируется по запросу за любой период сотрудничества' },
@@ -289,18 +264,18 @@ export function PaymentPage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
-              href="tel:+78001234567"
+              href={site.phone.href}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
             >
               <Phone className="w-4 h-4" />
-              8 (800) 123-45-67
+              {site.phone.display}
             </a>
             <a
-              href="mailto:b2b@doorstore.shop"
+              href={`mailto:${site.email}`}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@doorstore.shop
+              {site.email}
             </a>
           </div>
         </div>

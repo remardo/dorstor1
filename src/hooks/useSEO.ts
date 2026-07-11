@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
+import { site } from '../data/site.ts';
 
 interface SEOProps {
   title: string;
   description: string;
-  keywords?: string;
   canonical?: string;
   ogType?: string;
   ogImage?: string;
@@ -11,9 +11,9 @@ interface SEOProps {
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const BASE_URL = 'https://doorstore.shop';
+const BASE_URL = site.baseUrl;
 const SITE_NAME = 'DoorStore';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+const DEFAULT_IMAGE = `${BASE_URL}/images/door-technical-blind.png`;
 
 function setMeta(name: string, content: string, isProperty = false) {
   const attr = isProperty ? 'property' : 'name';
@@ -44,7 +44,6 @@ function addStructuredData(data: Record<string, unknown> | Record<string, unknow
 export function useSEO({
   title,
   description,
-  keywords,
   canonical,
   ogType = 'website',
   ogImage = DEFAULT_IMAGE,
@@ -58,7 +57,6 @@ export function useSEO({
 
     // Basic meta
     setMeta('description', description);
-    if (keywords) setMeta('keywords', keywords);
     setMeta('robots', noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1');
 
     // Canonical
@@ -94,7 +92,7 @@ export function useSEO({
     return () => {
       removeStructuredData();
     };
-  }, [title, description, keywords, canonical, ogType, ogImage, noindex, structuredData]);
+  }, [title, description, canonical, ogType, ogImage, noindex, structuredData]);
 }
 
 // Helper to generate BreadcrumbList structured data
@@ -137,23 +135,14 @@ export function generateProductSchema(product: {
     sku: product.sku,
     category: product.category,
     url: `${BASE_URL}${product.url}`,
-    offers: {
-      '@type': 'Offer',
-      availability: product.inStock
-        ? 'https://schema.org/InStock'
-        : 'https://schema.org/PreOrder',
-      priceCurrency: 'RUB',
-      price: '0',
-      priceValidUntil: new Date(Date.now() + 30 * 24 * 3600 * 1000).toISOString().split('T')[0],
-      seller: {
-        '@type': 'Organization',
-        name: 'DoorStore',
-      },
-      itemCondition: 'https://schema.org/NewCondition',
-    },
     manufacturer: {
       '@type': 'Organization',
       name: product.brand,
+    },
+    additionalProperty: {
+      '@type': 'PropertyValue',
+      name: 'Условия поставки',
+      value: product.inStock ? 'В наличии, оптовая цена по запросу' : 'Под заказ, цена по запросу',
     },
   };
 }

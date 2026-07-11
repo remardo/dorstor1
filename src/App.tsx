@@ -7,14 +7,19 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Catalog } from './components/Catalog';
 import { CartDrawer } from './components/CartDrawer';
+import { CategorySeoContent } from './components/CategorySeoContent';
 import { Footer } from './components/Footer';
 import { ProductPage } from './pages/ProductPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { DeliveryPage } from './pages/DeliveryPage';
 import { WarrantyPage } from './pages/WarrantyPage';
 import { AboutPage } from './pages/AboutPage';
+import {
+  CasesPage, ContactsPage, DocumentsPage, DoorCloserGuidePage, GuidesPage, PrivacyPage, TermsPage,
+} from './pages/SeoContentPages';
 import { useSEO } from './hooks/useSEO';
 import { homeSeo, categorySeo } from './data/seo';
+import { track } from './analytics';
 
 function HomePage({
   cart,
@@ -51,7 +56,10 @@ function HomePage({
 
   return (
     <>
-      <Hero onScrollToCatalog={() => catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })} />
+      <Hero
+        categoryName={categoryName}
+        onScrollToCatalog={() => catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+      />
 
       {/* Trusted brands section */}
       <section className="bg-white border-b border-slate-200" aria-label="Бренды-партнёры">
@@ -74,12 +82,14 @@ function HomePage({
         onRemove={onRemove}
         catalogRef={catalogRef}
       />
+      <CategorySeoContent category={categoryName} />
     </>
   );
 }
 
-function AppContent() {
+export function AppContent() {
   const [cart, setCart] = useState<Record<number, number>>(() => {
+    if (typeof window === 'undefined') return {};
     try {
       return JSON.parse(localStorage.getItem('cart') || '{}');
     } catch {
@@ -93,6 +103,7 @@ function AppContent() {
   const location = useLocation();
 
   const addToCart = useCallback((product: Product) => {
+    track('add_to_quote', { item_id: product.id, item_name: product.name, item_category: product.category });
     setCart(prev => {
       const current = prev[product.id] || 0;
       if (current >= product.stock) return prev;
@@ -101,6 +112,7 @@ function AppContent() {
   }, []);
 
   const removeFromCart = useCallback((productId: number) => {
+    track('remove_from_quote', { item_id: productId });
     setCart(prev => {
       const current = prev[productId] || 0;
       if (current <= 1) {
@@ -112,7 +124,10 @@ function AppContent() {
     });
   }, []);
 
-  const clearCart = useCallback(() => setCart({}), []);
+  const clearCart = useCallback(() => {
+    track('clear_quote');
+    setCart({});
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -196,6 +211,13 @@ function AppContent() {
           <Route path="/delivery" element={<DeliveryPage />} />
           <Route path="/warranty" element={<WarrantyPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/guides" element={<GuidesPage />} />
+          <Route path="/guides/kak-vybrat-dovodchik" element={<DoorCloserGuidePage />} />
+          <Route path="/cases" element={<CasesPage />} />
+          <Route path="/documents" element={<DocumentsPage />} />
         </Routes>
       </main>
 

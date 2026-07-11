@@ -1,36 +1,15 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronRight, Truck, Clock3, MapPin, PackageCheck, ShieldCheck,
   ArrowRight, Phone, Mail, Route, Warehouse, CheckCircle
 } from 'lucide-react';
-import { useSEO, generateFAQSchema } from '../hooks/useSEO';
-import { STATIC_SEO } from '../data/seo';
-
-const FAQ_ITEMS = [
-  {
-    question: 'Как быстро вы отгружаете заказ?',
-    answer: 'Позиции из складской программы отгружаем от 1 рабочего дня после подтверждения оплаты и комплектации заказа.'
-  },
-  {
-    question: 'Можно ли организовать самовывоз?',
-    answer: 'Да, самовывоз доступен со склада в Москве по предварительному согласованию времени и номера машины.'
-  },
-  {
-    question: 'Какими ТК отправляете по России?',
-    answer: 'Работаем с основными федеральными перевозчиками и подбираем ТК под ваш регион, срок и бюджет доставки.'
-  },
-  {
-    question: 'Что делать, если груз приехал с повреждением?',
-    answer: 'При приемке зафиксируйте повреждение в акте ТК и сразу свяжитесь с менеджером DOORSTORE. Мы оперативно отработаем замену или компенсацию.'
-  },
-];
+import { useSEO } from '../hooks/useSEO';
+import { STATIC_SEO, DELIVERY_FAQ as FAQ_ITEMS } from '../data/seo';
+import { site } from '../data/site';
 
 export function DeliveryPage() {
-  useSEO(useMemo(() => {
-    const seo = STATIC_SEO['/delivery'];
-    return { ...seo, structuredData: [...seo.structuredData, generateFAQSchema(FAQ_ITEMS)] };
-  }, []));
+  useSEO(STATIC_SEO['/delivery']);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -168,18 +147,18 @@ export function DeliveryPage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
-              href="tel:+78001234567"
+              href={site.phone.href}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
             >
               <Phone className="w-4 h-4" />
-              8 (800) 123-45-67
+              {site.phone.display}
             </a>
             <a
-              href="mailto:b2b@doorstore.shop"
+              href={`mailto:${site.email}`}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@doorstore.shop
+              {site.email}
             </a>
           </div>
         </div>

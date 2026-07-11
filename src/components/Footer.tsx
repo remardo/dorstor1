@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { categorySlugs } from '../data/categories';
+import { site } from '../data/site';
 
 export function Footer() {
   return (
@@ -18,14 +20,14 @@ export function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="tel:+78001234567"
+                href={site.phone.href}
                 className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
               >
                 <Phone className="w-4 h-4" />
                 Позвонить
               </a>
               <a
-                href="mailto:b2b@doorstore.shop"
+                href={`mailto:${site.email}`}
                 className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
               >
                 <Mail className="w-4 h-4" />
@@ -61,7 +63,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {['Доводчики', 'Дверные глазки', 'Цилиндровые механизмы', 'Приводы двери', 'Девиаторы', 'Дверная фурнитура'].map(item => (
                 <li key={item}>
-                  <Link to="/" className="text-sm hover:text-white transition-colors">{item}</Link>
+                  <Link to={`/category/${categorySlugs[item]}`} className="text-sm hover:text-white transition-colors">{item}</Link>
                 </li>
               ))}
             </ul>
@@ -84,7 +86,16 @@ export function Footer() {
                 <Link to="/about" className="text-sm hover:text-white transition-colors">О компании</Link>
               </li>
               <li>
-                <span className="text-sm hover:text-white transition-colors cursor-pointer">Контакты</span>
+                <Link to="/guides" className="text-sm hover:text-white transition-colors">База знаний</Link>
+              </li>
+              <li>
+                <Link to="/cases" className="text-sm hover:text-white transition-colors">Кейсы</Link>
+              </li>
+              <li>
+                <Link to="/documents" className="text-sm hover:text-white transition-colors">Документы</Link>
+              </li>
+              <li>
+                <Link to="/contacts" className="text-sm hover:text-white transition-colors">Контакты</Link>
               </li>
             </ul>
           </div>
@@ -96,21 +107,21 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
                 <div>
-                  <a href="tel:+78001234567" className="text-sm text-white hover:text-amber-400 transition-colors">8 (800) 123-45-67</a>
-                  <div className="text-xs text-slate-500">Бесплатно по РФ</div>
+                  <a href={site.phone.href} className="text-sm text-white hover:text-amber-400 transition-colors">{site.phone.display}</a>
+                  <div className="text-xs text-slate-500">Временный номер</div>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
-                <a href="mailto:b2b@doorstore.shop" className="text-sm hover:text-white transition-colors">b2b@doorstore.shop</a>
+                <a href={`mailto:${site.email}`} className="text-sm hover:text-white transition-colors">{site.email}</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
-                <span className="text-sm">г. Москва, ул. Промышленная, д. 10</span>
+                <span className="text-sm">{site.address}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
-                <span className="text-sm">Пн–Пт: 9:00–18:00</span>
+                <span className="text-sm">{site.hours}</span>
               </li>
             </ul>
           </div>
@@ -120,10 +131,10 @@ export function Footer() {
       {/* Bottom */}
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-600">© 2024 DOORSTORE. Все права защищены.</p>
+          <p className="text-xs text-slate-600">© {new Date().getFullYear()} DOORSTORE. Все права защищены.</p>
           <div className="flex items-center gap-4 text-xs text-slate-600">
-            <span className="hover:text-slate-400 cursor-pointer transition-colors">Политика конфиденциальности</span>
-            <span className="hover:text-slate-400 cursor-pointer transition-colors">Пользовательское соглашение</span>
+            <Link to="/privacy" className="hover:text-slate-400 transition-colors">Политика конфиденциальности</Link>
+            <Link to="/terms" className="hover:text-slate-400 transition-colors">Пользовательское соглашение</Link>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { STATIC_SEO } from '../data/seo';
+import { site } from '../data/site';
 
 export function AboutPage() {
   useSEO(STATIC_SEO['/about']);
@@ -58,9 +59,9 @@ export function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 -mx-4">
             {[
-              { value: '296+', label: 'Товарных позиций', icon: PackageCheck },
-              { value: '85+', label: 'Регионов поставки', icon: Truck },
-              { value: '1 день', label: 'Отгрузка со склада', icon: Clock3 },
+              { value: '302', label: 'Товарные позиции', icon: PackageCheck },
+              { value: 'РФ', label: 'География поставки', icon: Truck },
+              { value: 'По запросу', label: 'Срок отгрузки', icon: Clock3 },
               { value: 'B2B', label: 'Фокус на предприятия', icon: Factory },
             ].map((item, idx) => (
               <div key={idx} className="px-4 py-8 md:py-10 flex flex-col items-center text-center border-r border-slate-100 last:border-r-0">
@@ -136,18 +137,18 @@ export function AboutPage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
-              href="tel:+78001234567"
+              href={site.phone.href}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
             >
               <Phone className="w-4 h-4" />
-              8 (800) 123-45-67
+              {site.phone.display}
             </a>
             <a
-              href="mailto:b2b@doorstore.shop"
+              href={`mailto:${site.email}`}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all border border-white/10"
             >
               <Mail className="w-4 h-4" />
-              b2b@doorstore.shop
+              {site.email}
             </a>
           </div>
         </div>

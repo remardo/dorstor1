@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+  <title id="title">Изображение товара уточняется</title>
+  <rect width="800" height="800" fill="#f8fafc"/>
+  <path d="M250 300 400 220l150 80v200L400 580l-150-80V300Zm0 0 150 82 150-82M400 382v198" fill="none" stroke="#94a3b8" stroke-width="24" stroke-linejoin="round"/>
+  <text x="400" y="675" text-anchor="middle" fill="#64748b" font-family="Arial,sans-serif" font-size="30">Фото уточняется</text>
+</svg>

@@ -58,6 +58,7 @@ async function main() {
         rewrites.set(url, `/images/${name}`);
         ok++;
       } catch (e) {
+        rewrites.set(url, '/images/product-placeholder.svg');
         fail++; failed.push(`${id}\t${url}\t${e.message}`);
       }
     }

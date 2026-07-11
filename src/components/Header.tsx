@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ShoppingCart, Phone, Mail, Menu, X, Package } from 'lucide-react';
+import { site } from '../data/site';
 
 interface HeaderProps {
   cartCount: number;
@@ -23,13 +24,13 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
       <div className="bg-slate-900 text-slate-300 text-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
           <div className="flex items-center gap-5">
-            <a href="tel:+78001234567" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href={site.phone.href} className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Phone className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">8 (800) 123-45-67</span>
+              <span className="hidden sm:inline">{site.phone.display}</span>
             </a>
-            <a href="mailto:b2b@doorstore.shop" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href={`mailto:${site.email}`} className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">b2b@doorstore.shop</span>
+              <span className="hidden sm:inline">{site.email}</span>
             </a>
           </div>
           <div className="flex items-center gap-1.5 text-amber-400">
@@ -98,6 +99,12 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
               className="h-10 px-4 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-all flex items-center"
             >
               О компании
+            </Link>
+            <Link
+              to="/guides"
+              className="h-10 px-4 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-all flex items-center"
+            >
+              База знаний
             </Link>
           </nav>
 
@@ -178,6 +185,13 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
                 className="h-10 flex items-center justify-center bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:bg-slate-100 transition-colors"
               >
                 О компании
+              </Link>
+              <Link
+                to="/guides"
+                onClick={() => setMobileMenuOpen(false)}
+                className="h-10 flex items-center justify-center bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium rounded-lg hover:bg-slate-100 transition-colors"
+              >
+                База знаний
               </Link>
             </div>
           </div>

@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Truck, Factory, BadgeCheck } from 'lucide-react';
+import { site } from '../data/site';
 
 interface HeroProps {
   onScrollToCatalog: () => void;
+  categoryName?: string;
 }
 
-export function Hero({ onScrollToCatalog }: HeroProps) {
+export function Hero({ onScrollToCatalog, categoryName }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background pattern */}
@@ -25,16 +27,28 @@ export function Hero({ onScrollToCatalog }: HeroProps) {
             B2B поставщик для дверных фабрик
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
-            Специализированная
-            <br />
-            <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
-              дверная фурнитура
-            </span>
-          </h1>
+          {categoryName ? (
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+              {categoryName}
+              <br />
+              <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
+                оптом для производств
+              </span>
+            </h1>
+          ) : (
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+              Специализированная
+              <br />
+              <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">
+                дверная фурнитура
+              </span>
+            </h1>
+          )}
 
           <p className="text-lg md:text-xl text-slate-400 max-w-xl mb-10 leading-relaxed">
-            Комплектующие от ведущих брендов для производства входных и технических дверей. Оптовые поставки по всей России.
+            {categoryName
+              ? `${categoryName} оптом с доставкой по всей России. Комплектующие от ведущих брендов для производственных предприятий и дверных фабрик.`
+              : 'Комплектующие от ведущих брендов для производства входных и технических дверей. Оптовые поставки по всей России.'}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-16">
@@ -46,7 +60,7 @@ export function Hero({ onScrollToCatalog }: HeroProps) {
               <ArrowRight className="w-5 h-5" />
             </button>
             <a
-              href="tel:+78001234567"
+              href={site.phone.href}
               className="inline-flex items-center justify-center gap-2 h-13 px-8 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium rounded-xl transition-all border border-white/10"
             >
               Связаться с менеджером

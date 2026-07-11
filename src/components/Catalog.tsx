@@ -39,11 +39,6 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
     catalogRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const selectCategory = (category: string | null) => {
-    navigate(category ? `/category/${categorySlugs[category]}` : '/');
-    setTimeout(scrollToCatalogTop, 100);
-  };
-
   const filtered = useMemo(() => {
     const base = products.filter(p => {
       if (selectedCategory && p.category !== selectedCategory) return false;
@@ -168,20 +163,22 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
 
               {/* All categories toggle */}
               <div>
-                <button
-                  onClick={() => selectCategory(null)}
+                <Link
+                  to="/"
+                  onClick={() => setTimeout(scrollToCatalogTop, 100)}
                   className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
                     !selectedCategory ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:bg-slate-50'
                   }`}
                 >
                   Все категории
-                </button>
+                </Link>
               </div>
 
               {/* Doors - separate, elevated segment */}
               <div>
-                <button
-                  onClick={() => selectCategory(selectedCategory === DOOR_CATEGORY ? null : DOOR_CATEGORY)}
+                <Link
+                  to={selectedCategory === DOOR_CATEGORY ? '/' : `/category/${categorySlugs[DOOR_CATEGORY]}`}
+                  onClick={() => setTimeout(scrollToCatalogTop, 100)}
                   className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
                     selectedCategory === DOOR_CATEGORY
                       ? 'bg-slate-900 border-slate-900 text-white'
@@ -197,7 +194,7 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                     <span className="block font-semibold text-sm">Двери</span>
                     <span className={`block text-xs ${selectedCategory === DOOR_CATEGORY ? 'text-slate-300' : 'text-slate-500'}`}>{doorCount} позиций</span>
                   </span>
-                </button>
+                </Link>
               </div>
 
               {/* Hardware categories */}
@@ -205,16 +202,17 @@ export function Catalog({ products, cart, onAdd, onRemove, catalogRef }: Catalog
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Дверная фурнитура</h4>
                 <div className="space-y-1">
                   {hardwareCategoryCounts.map(({ name, count }) => (
-                    <button
+                    <Link
                       key={name}
-                      onClick={() => selectCategory(name === selectedCategory ? null : name)}
+                      to={name === selectedCategory ? '/' : `/category/${categorySlugs[name]}`}
+                      onClick={() => setTimeout(scrollToCatalogTop, 100)}
                       className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all flex items-center justify-between ${
                         selectedCategory === name ? 'bg-slate-900 text-white font-medium' : 'text-slate-600 hover:bg-slate-50'
                       }`}
                     >
                       <span className="truncate">{name}</span>
                       <span className={`text-xs ${selectedCategory === name ? 'text-slate-400' : 'text-slate-400'}`}>{count}</span>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
