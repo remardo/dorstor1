@@ -19,7 +19,7 @@ import {
 } from './pages/SeoContentPages';
 import { useSEO } from './hooks/useSEO';
 import { homeSeo, categorySeo } from './data/seo';
-import { track } from './analytics';
+import { track, trackPageView } from './analytics';
 
 function HomePage({
   cart,
@@ -132,6 +132,10 @@ export function AppContent() {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    trackPageView(`${location.pathname}${location.search}`);
+  }, [location.pathname, location.search]);
 
   const cartCount = useMemo(
     () => Object.values(cart).reduce((sum, qty) => sum + qty, 0),

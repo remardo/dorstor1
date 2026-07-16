@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { X, Minus, Plus, ShoppingCart, Trash2, Send, CheckCircle } from 'lucide-react';
 import type { Product } from '../data/products';
+import { track } from '../analytics';
 
 interface CartDrawerProps {
   open: boolean;
@@ -26,6 +27,7 @@ export function CartDrawer({ open, onClose, cart, products, onAdd, onRemove, onC
   const totalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
 
   const handleSubmit = () => {
+    track('quote_submitted', { items_count: cartItems.length, total_quantity: totalItems });
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
