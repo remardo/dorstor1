@@ -22,13 +22,14 @@ export function initAnalytics() {
     accurateTrackBounce: true,
     clickmap: true,
     defer: true,
+    ssr: true,
     trackLinks: true,
     webvisor: true,
   });
 
   const metrikaScript = document.createElement('script');
   metrikaScript.async = true;
-  metrikaScript.src = 'https://mc.yandex.ru/metrika/tag.js';
+  metrikaScript.src = `https://mc.yandex.ru/metrika/tag.js?id=${YANDEX_METRIKA_ID}`;
   document.head.appendChild(metrikaScript);
 
   const id = import.meta.env.VITE_GA_MEASUREMENT_ID;
