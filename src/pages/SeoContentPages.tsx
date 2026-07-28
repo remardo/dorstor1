@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { STATIC_SEO } from '../data/seo';
 import { site } from '../data/site';
+import { guideByPath, guides } from '../data/guides';
 
 function Page({ title, lead, children }: { title: string; lead: string; children: React.ReactNode }) {
   return (
@@ -86,37 +87,58 @@ export function TermsPage() {
 
 export function GuidesPage() {
   useSEO(STATIC_SEO['/guides']);
-  const guides = [
-    { href: '/guides/kak-vybrat-dovodchik', title: 'Как выбрать дверной доводчик', text: 'Параметры полотна, тип тяги, монтаж и данные для оптового подбора.' },
-    { href: '/category/tsilindrovye-mehanizmy', title: 'Как измерить цилиндровый механизм', text: 'Размеры A/B, тип привода и совместимость с защитной фурнитурой.' },
-    { href: '/category/antipanika', title: 'Как комплектовать систему антипаника', text: 'Створки, замки, тяги, внешняя ручка и проверка совместимости.' },
-  ];
   return (
     <Page title="База знаний по дверной фурнитуре" lead="Короткие инструкции для снабжения, конструкторов и производственных специалистов.">
-      <div className="grid md:grid-cols-3 gap-5">
-        {guides.map((guide) => <Link key={guide.href} to={guide.href} className="rounded-2xl border border-slate-200 p-6 hover:shadow-lg"><h2 className="font-bold text-slate-900 mb-2">{guide.title}</h2><p className="text-sm leading-relaxed text-slate-600">{guide.text}</p></Link>)}
+      <div className="grid md:grid-cols-2 gap-5">
+        {guides.map((guide) => (
+          <Link key={guide.path} to={guide.path} className="rounded-2xl border border-slate-200 p-6 hover:shadow-lg">
+            <h2 className="font-bold text-slate-900 mb-2">{guide.title}</h2>
+            <p className="text-sm leading-relaxed text-slate-600">{guide.lead}</p>
+          </Link>
+        ))}
       </div>
     </Page>
   );
 }
 
-export function DoorCloserGuidePage() {
-  useSEO(STATIC_SEO['/guides/kak-vybrat-dovodchik']);
-  const steps = [
-    ['Зафиксируйте параметры двери', 'Укажите массу, ширину, высоту, материал полотна и направление открывания.'],
-    ['Определите место эксплуатации', 'Отметьте внутреннюю или уличную установку, температурный диапазон и ветровую нагрузку.'],
-    ['Выберите монтажную схему', 'Согласуйте сторону монтажа, рычажную или скользящую тягу и доступное место крепления.'],
-    ['Перечислите функции', 'Укажите необходимость дохлопа, ветрового тормоза, фиксации и задержки закрывания.'],
-    ['Сверьте паспорт модели', 'Проверьте допустимые параметры двери, шаблон крепления и ограничения производителя.'],
-  ];
+export function GuideArticlePage({ path }: { path: string }) {
+  const guide = guideByPath[path];
+  useSEO(STATIC_SEO[path]);
   return (
-    <Page title="Как выбрать дверной доводчик" lead="Доводчик выбирают не только по массе: важны ширина полотна, условия эксплуатации, монтажная схема и функции регулировки.">
+    <Page title={guide.title} lead={guide.lead}>
       <article>
-        <p className="rounded-2xl bg-slate-50 p-6 text-lg leading-relaxed text-slate-700">Для точного подбора отправьте параметры дверного блока и количество. Совпадение одного параметра не подтверждает совместимость модели с дверью.</p>
-        <h2 className="mt-10 text-2xl font-bold text-slate-900">Пять шагов подбора</h2>
-        <ol className="mt-5 space-y-4">{steps.map(([title, text], i) => <li key={title} className="flex gap-4 rounded-xl border border-slate-200 p-5"><span className="font-bold text-brand-700">{i + 1}</span><div><h3 className="font-semibold text-slate-900">{title}</h3><p className="mt-1 text-sm text-slate-600">{text}</p></div></li>)}</ol>
+        <p className="rounded-2xl bg-slate-50 p-6 text-lg leading-relaxed text-slate-700">{guide.intro}</p>
+        <h2 className="mt-10 text-2xl font-bold text-slate-900">Порядок подбора</h2>
+        <ol className="mt-5 space-y-4">
+          {guide.steps.map(([title, text], i) => (
+            <li key={title} className="flex gap-4 rounded-xl border border-slate-200 p-5">
+              <span className="font-bold text-brand-700">{i + 1}</span>
+              <div>
+                <h3 className="font-semibold text-slate-900">{title}</h3>
+                <p className="mt-1 text-sm text-slate-600">{text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
         <h2 className="mt-12 text-2xl font-bold text-slate-900">Данные для заявки</h2>
-        <div className="mt-5 overflow-hidden rounded-xl border border-slate-200"><table className="w-full text-sm"><tbody className="divide-y divide-slate-200">{[['Количество','Число дверей и запас на объект'],['Полотно','Масса, ширина и материал'],['Эксплуатация','Помещение или улица, температура и поток'],['Монтаж','Сторона установки и тип тяги'],['Функции','Дохлоп, фиксация, торможение и задержка']].map(([a,b]) => <tr key={a}><th className="bg-slate-50 px-4 py-3 text-left">{a}</th><td className="px-4 py-3 text-slate-600">{b}</td></tr>)}</tbody></table></div>
+        <div className="mt-5 overflow-hidden rounded-xl border border-slate-200">
+          <table className="w-full text-sm">
+            <tbody className="divide-y divide-slate-200">
+              {guide.request.map(([a, b]) => (
+                <tr key={a}>
+                  <th scope="row" className="bg-slate-50 px-4 py-3 text-left">{a}</th>
+                  <td className="px-4 py-3 text-slate-600">{b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <h2 className="mt-12 text-2xl font-bold text-slate-900">Другие инструкции</h2>
+        <ul className="mt-4 space-y-2 text-sm">
+          {guides.filter((g) => g.path !== path).map((g) => (
+            <li key={g.path}><Link to={g.path} className="text-brand-700 hover:underline">{g.title}</Link></li>
+          ))}
+        </ul>
         <p className="mt-8 text-sm text-slate-500">Автор: техническая редакция DoorStore. Обновлено {site.contentUpdatedAtRu}. Перед заказом сверяйте параметры с актуальным паспортом производителя.</p>
       </article>
     </Page>

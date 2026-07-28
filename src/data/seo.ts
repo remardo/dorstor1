@@ -12,6 +12,7 @@ import {
 } from '../hooks/useSEO.ts';
 import { site } from './site.ts';
 import { categoryContent } from './categoryContent.ts';
+import { guides } from './guides.ts';
 import {
   displayName,
   productArticle,
@@ -101,6 +102,7 @@ export interface RouteSeo {
 }
 
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/images/og-cover.jpg`;
+export const LOGO = `${BASE_URL}/images/logo.png`;
 
 // SVG placeholders are not renderable as og:image and are useless in Product schema,
 // so anything without a real raster image falls back to the site-wide OG picture.
@@ -121,6 +123,7 @@ export const ORGANIZATION: Record<string, unknown> = {
   url: `${BASE_URL}/`,
   email: site.email,
   image: DEFAULT_OG_IMAGE,
+  logo: { '@type': 'ImageObject', url: LOGO, width: 512, height: 512 },
   areaServed: 'RU',
   description:
     'B2B поставщик дверной фурнитуры и технических дверей для производственных предприятий и дверных фабрик.',
@@ -303,28 +306,6 @@ export const STATIC_SEO: Record<string, RouteSeo> = {
     modified: site.contentUpdatedAt,
     structuredData: [generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'База знаний' }])],
   },
-  '/guides/kak-vybrat-dovodchik': {
-    title: 'Как выбрать дверной доводчик: 5 шагов | DoorStore',
-    description: 'Как подобрать дверной доводчик по массе и ширине полотна, условиям эксплуатации, типу тяги и монтажной схеме.',
-    canonical: `${BASE_URL}/guides/kak-vybrat-dovodchik`,
-    modified: site.contentUpdatedAt,
-    structuredData: [
-      generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'База знаний', url: '/guides' }, { name: 'Как выбрать доводчик' }]),
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: 'Как выбрать дверной доводчик: 5 шагов',
-        description: 'Пошаговый подбор дверного доводчика по массе и ширине полотна, условиям эксплуатации, типу тяги и монтажной схеме.',
-        image: DEFAULT_OG_IMAGE,
-        inLanguage: 'ru-RU',
-        datePublished: site.contentUpdatedAt,
-        dateModified: site.contentUpdatedAt,
-        author: { '@type': 'Organization', name: site.name, url: `${BASE_URL}/about` },
-        publisher: ORGANIZATION,
-        mainEntityOfPage: `${BASE_URL}/guides/kak-vybrat-dovodchik`,
-      },
-    ],
-  },
   '/cases': {
     title: 'Кейсы комплектации дверных производств | DoorStore',
     description: 'Примеры комплектации дверных производств, монтажных компаний и технических дверей.',
@@ -342,6 +323,38 @@ export const STATIC_SEO: Record<string, RouteSeo> = {
     structuredData: [],
   },
 };
+
+// Guide metadata is derived from the same source the pages render from, so a new guide
+// needs one entry in guides.ts and nothing else.
+for (const guide of guides) {
+  STATIC_SEO[guide.path] = {
+    title: compact(`${guide.title} | DoorStore`, 65),
+    description: guide.description,
+    canonical: `${BASE_URL}${guide.path}`,
+    modified: site.contentUpdatedAt,
+    ogType: 'article',
+    structuredData: [
+      generateBreadcrumbs([
+        { name: 'Главная', url: '/' },
+        { name: 'База знаний', url: '/guides' },
+        { name: guide.title },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: guide.title,
+        description: guide.description,
+        image: DEFAULT_OG_IMAGE,
+        inLanguage: 'ru-RU',
+        datePublished: site.contentUpdatedAt,
+        dateModified: site.contentUpdatedAt,
+        author: { '@type': 'Organization', name: site.name, url: `${BASE_URL}/about` },
+        publisher: ORGANIZATION,
+        mainEntityOfPage: `${BASE_URL}${guide.path}`,
+      },
+    ],
+  };
+}
 
 // All routes for sitemap generation.
 export function allRoutes(): { url: string; seo: RouteSeo }[] {

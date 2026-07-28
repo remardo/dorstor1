@@ -9,6 +9,7 @@ import { allRoutes, BASE_URL } from '../src/data/seo.ts';
 import { site } from '../src/data/site.ts';
 import { categories } from '../src/data/products.ts';
 import { categorySlugs } from '../src/data/categories.ts';
+import { guides } from '../src/data/guides.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '../dist');
@@ -120,7 +121,10 @@ async function main() {
       `- Условия оплаты: ${BASE_URL}/payment\n` +
       `- Доставка: ${BASE_URL}/delivery\n` +
       `- Гарантия и возврат: ${BASE_URL}/warranty\n` +
-      `- База знаний: ${BASE_URL}/guides\n`
+      `- База знаний: ${BASE_URL}/guides\n\n` +
+      `## Инструкции по подбору\n` +
+      guides.map((g) => `- ${g.title}: ${BASE_URL}${g.path}`).join('\n') +
+      `\n`
   );
 
   console.log(`prerendered ${routes.length} routes + sitemap.xml + robots.txt + llms.txt`);

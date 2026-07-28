@@ -9,14 +9,18 @@ import { Catalog } from './components/Catalog';
 import { CartDrawer } from './components/CartDrawer';
 import { CategorySeoContent } from './components/CategorySeoContent';
 import { Footer } from './components/Footer';
+// ponytail: routes stay eagerly imported. React.lazy makes the prerender emit the Suspense
+// fallback into <main> and stream the real markup into a <template>, which costs no-JS and
+// AI crawlers the content — not worth ~15 KB gzip. Revisit only with a streaming-aware SSG.
 import { ProductPage } from './pages/ProductPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { DeliveryPage } from './pages/DeliveryPage';
 import { WarrantyPage } from './pages/WarrantyPage';
 import { AboutPage } from './pages/AboutPage';
 import {
-  CasesPage, ContactsPage, DocumentsPage, DoorCloserGuidePage, GuidesPage, PrivacyPage, TermsPage,
+  CasesPage, ContactsPage, DocumentsPage, GuideArticlePage, GuidesPage, PrivacyPage, TermsPage,
 } from './pages/SeoContentPages';
+import { guides } from './data/guides';
 import { useSEO } from './hooks/useSEO';
 import { homeSeo, categorySeo } from './data/seo';
 import { track, trackPageView } from './analytics';
@@ -220,7 +224,9 @@ export function AppContent() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/guides" element={<GuidesPage />} />
-          <Route path="/guides/kak-vybrat-dovodchik" element={<DoorCloserGuidePage />} />
+          {guides.map((guide) => (
+            <Route key={guide.path} path={guide.path} element={<GuideArticlePage path={guide.path} />} />
+          ))}
           <Route path="/cases" element={<CasesPage />} />
           <Route path="/documents" element={<DocumentsPage />} />
         </Routes>

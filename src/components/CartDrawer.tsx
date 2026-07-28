@@ -4,6 +4,7 @@ import { X, Minus, Plus, ShoppingCart, Trash2, Send, CheckCircle } from 'lucide-
 import type { Product } from '../data/products';
 import { track } from '../analytics';
 import { displayName } from '../data/productNames';
+import { cardImage } from '../data/images';
 
 interface CartDrawerProps {
   open: boolean;
@@ -158,7 +159,7 @@ function CartItem({ product, qty, onAdd, onRemove, onClose }: {
         className="w-16 h-16 rounded-lg bg-slate-50 overflow-hidden shrink-0 hover:ring-2 hover:ring-brand-200 transition-all"
       >
         {product.image && !imgError ? (
-          <img src={product.image} alt={displayName(product)} className="w-full h-full object-contain p-1" onError={() => setImgError(true)} />
+          <img {...cardImage(product.image, "64px")} alt={displayName(product)} className="w-full h-full object-contain p-1" onError={() => setImgError(true)} loading="lazy" width="64" height="64" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-300">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>

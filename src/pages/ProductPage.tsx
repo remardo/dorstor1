@@ -14,6 +14,7 @@ import { site } from '../data/site';
 import { categoryContent } from '../data/categoryContent';
 import { ContactIcon } from '../components/ContactIcon';
 import { displayName, productArticle, productDescription } from '../data/productNames';
+import { cardImage, heroImage } from '../data/images';
 
 const PROP_ICONS: Record<PropIcon, LucideIcon> = {
   size: Ruler,
@@ -164,7 +165,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
               <figure className="aspect-square bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 flex items-center justify-center">
                 {product.image && !imgError ? (
                   <img
-                    src={product.image}
+                    {...heroImage(product.image)}
                     alt={`${name} — ${product.category} ${product.brand}. Фото товара.`}
                     title={name}
                     className="w-full h-full object-contain p-8 md:p-12"
@@ -555,7 +556,7 @@ function RelatedCard({ product, cartQty, onAdd }: { product: Product; cartQty: n
       <div className="aspect-square bg-slate-50 overflow-hidden relative">
         {product.image && !imgError ? (
           <img
-            src={product.image}
+            {...cardImage(product.image)}
             alt={`${displayName(product)} — ${product.category} ${product.brand}`}
             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
             onError={() => setImgError(true)}

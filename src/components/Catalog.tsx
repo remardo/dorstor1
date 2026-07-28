@@ -6,6 +6,7 @@ import { brands } from '../data/products';
 import { categorySlugs, slugToCategory, hardwareCategories, DOOR_CATEGORY } from '../data/categories';
 import { ProductCard } from './ProductCard';
 import { displayName } from '../data/productNames';
+import { cardImage } from '../data/images';
 
 interface CatalogProps {
   products: Product[];
@@ -416,7 +417,7 @@ function ListProductCard({ product, cartQty, onAdd, onRemove }: {
         className="w-20 h-20 rounded-lg bg-slate-50 overflow-hidden shrink-0"
       >
         {product.image && !imgError ? (
-          <img src={product.image} alt={displayName(product)} className="w-full h-full object-contain p-2" onError={() => setImgError(true)} loading="lazy" />
+          <img {...cardImage(product.image, "(max-width: 640px) 30vw, 160px")} alt={displayName(product)} className="w-full h-full object-contain p-2" onError={() => setImgError(true)} loading="lazy" width="160" height="160" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-300">
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>

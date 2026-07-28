@@ -12,6 +12,7 @@ const IMAGES = path.resolve(__dirname, '../public/images');
 const PRODUCTS_TS = path.resolve(__dirname, '../src/data/products.ts');
 
 const MAX_EDGE = 1200; // product photos are never displayed larger than 600 CSS px
+const CARD_EDGE = 400; // catalog cards render at ~300 CSS px, so they get their own variant
 const QUALITY = 80;
 
 // A few catalog downloads are 24-bit BMPs wearing a .jpg extension. libvips does not read
@@ -50,8 +51,22 @@ async function load(src) {
   return bmp ? sharp(bmp.data, { raw: bmp.info }) : sharp(buffer);
 }
 
+// Every raster image gets a 400w sibling unconditionally, so components can build a
+// srcset by naming convention without knowing each image's original size.
+async function writeCardVariant(webpPath) {
+  const card = webpPath.replace(/\.webp$/, `-${CARD_EDGE}.webp`);
+  await sharp(webpPath)
+    .resize({ width: CARD_EDGE, height: CARD_EDGE, fit: 'inside', withoutEnlargement: true })
+    .webp({ quality: QUALITY })
+    .toFile(card);
+}
+
 async function main() {
-  const files = (await fs.readdir(IMAGES)).filter((f) => /\.(jpe?g|png)$/i.test(f));
+  // og-cover stays a JPEG: not every social crawler renders WebP previews.
+  const KEEP = new Set(['og-cover.jpg', 'logo.png']);
+  const files = (await fs.readdir(IMAGES)).filter(
+    (f) => /\.(jpe?g|png)$/i.test(f) && !KEEP.has(f)
+  );
   let before = 0;
   let after = 0;
   const renamed = new Map();
@@ -87,8 +102,18 @@ async function main() {
     }
     await fs.unlink(src);
     renamed.set(`/images/${file}`, `/images/${path.basename(out)}`);
+    await writeCardVariant(out);
     before += original;
     after += converted;
+  }
+
+  // Backfill card variants for images converted before this step existed.
+  for (const f of await fs.readdir(IMAGES)) {
+    if (!f.endsWith('.webp') || f.endsWith(`-${CARD_EDGE}.webp`)) continue;
+    if (f.startsWith('og-') || f.startsWith('logo')) continue;
+    const card = path.join(IMAGES, f.replace(/\.webp$/, `-${CARD_EDGE}.webp`));
+    if (await fs.stat(card).then(() => true, () => false)) continue;
+    await writeCardVariant(path.join(IMAGES, f));
   }
 
   let ts = await fs.readFile(PRODUCTS_TS, 'utf8');

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Plus, Minus, PackageCheck, PackageX, ArrowRight } from 'lucide-react';
 import type { Product } from '../data/products';
 import { displayName } from '../data/productNames';
+import { cardImage } from '../data/images';
 
 interface ProductCardProps {
   product: Product;
@@ -24,7 +25,7 @@ export function ProductCard({ product, cartQty, onAdd, onRemove }: ProductCardPr
       >
         {product.image && !imgError ? (
           <img
-            src={product.image}
+            {...cardImage(product.image)}
             alt={`${displayName(product)} — ${product.category} ${product.brand}`}
             title={displayName(product)}
             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"

@@ -11,7 +11,7 @@
     "optimize:images": "node scripts/optimize_images.mjs",
     "download:images": "node scripts/download_images.mjs",
     "preview": "vite preview",
-    "start": "serve dist -l 3000"
+    "start": "node scripts/server.mjs"
   },
   "engines": {
     "node": ">=22.6"
@@ -22,7 +22,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-router-dom": "^7.13.0",
-    "serve": "^14.2.5",
+    "serve-handler": "^6.1.7",
     "tailwind-merge": "3.4.0"
   },
   "devDependencies": {
