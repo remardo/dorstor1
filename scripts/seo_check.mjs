@@ -7,6 +7,7 @@ import { categoryContent } from '../src/data/categoryContent.ts';
 const routes = allRoutes();
 const errors = [];
 const canonicals = new Set();
+const verifications = [];
 const titles = new Map();
 const descriptions = new Map();
 
@@ -52,6 +53,11 @@ const expectedUrls = routes.filter(({ seo }) => !seo.noindex).length;
 if ((sitemap.match(/<loc>/g) || []).length !== expectedUrls) errors.push('sitemap: URL count mismatch');
 if (products.some((product) => product.image.startsWith('http'))) errors.push('products: external image remains');
 if (!fs.existsSync('dist/serve.json')) errors.push('dist: serve.json (cache headers) missing');
+// Verification files must ship; the server serves them verbatim past cleanUrls.
+for (const file of fs.readdirSync('dist')) {
+  if (/^(google[a-z0-9]+|yandex_[a-z0-9]+)\.html$/i.test(file)) verifications.push(file);
+}
+if (!verifications.length) errors.push('dist: no search-console verification file');
 
 // Every category page must carry unique editorial content, not just a product grid.
 for (const name of categories) {
@@ -64,5 +70,6 @@ if (errors.length) {
 }
 console.log(
   `SEO check passed: ${routes.length} prerendered routes, ${expectedUrls} indexable URLs, ` +
-    `${products.length} products across ${categories.length} categories, all with unique title+description.`
+    `${products.length} products across ${categories.length} categories, all with unique title+description, ` +
+    `${verifications.length} verification file(s).`
 );

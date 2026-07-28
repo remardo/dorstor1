@@ -3,6 +3,7 @@
 // answering 302 — are handled here before delegating to the same serve-handler engine
 // (and the same dist/serve.json cache rules) that `serve` itself uses.
 import fs from 'node:fs';
+import path from 'node:path';
 import http from 'node:http';
 import handler from 'serve-handler';
 
@@ -21,6 +22,11 @@ const TRUST_PROXY = process.env.TRUST_PROXY !== '0';
 
 // serve.json is a deploy detail, not content: it should not be crawlable.
 const HIDDEN = new Set(['/serve.json']);
+
+// Search-console verification files must answer 200 at their exact .html URL. Clean URLs
+// would 301 them to the extensionless path, which reads as "file not found" to Google and
+// Yandex, so they are served straight from disk before the static handler sees them.
+const VERIFICATION = /^\/(google[a-z0-9]+|yandex_[a-z0-9]+)\.html$/i;
 
 function redirectTarget(req) {
   const host = (req.headers.host ?? '').toLowerCase().split(':')[0];
@@ -50,6 +56,15 @@ const server = http.createServer((req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Not found');
     return;
+  }
+
+  if (VERIFICATION.test(pathname)) {
+    const file = path.join('dist', path.basename(pathname));
+    if (fs.existsSync(file)) {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(fs.readFileSync(file));
+      return;
+    }
   }
 
   return handler(req, res, config);
