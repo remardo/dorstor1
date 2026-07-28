@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { X, Minus, Plus, ShoppingCart, Trash2, Send, CheckCircle } from 'lucide-react';
 import type { Product } from '../data/products';
 import { track } from '../analytics';
+import { displayName } from '../data/productNames';
 
 interface CartDrawerProps {
   open: boolean;
@@ -157,7 +158,7 @@ function CartItem({ product, qty, onAdd, onRemove, onClose }: {
         className="w-16 h-16 rounded-lg bg-slate-50 overflow-hidden shrink-0 hover:ring-2 hover:ring-brand-200 transition-all"
       >
         {product.image && !imgError ? (
-          <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" onError={() => setImgError(true)} />
+          <img src={product.image} alt={displayName(product)} className="w-full h-full object-contain p-1" onError={() => setImgError(true)} />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-300">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -173,7 +174,7 @@ function CartItem({ product, qty, onAdd, onRemove, onClose }: {
           onClick={onClose}
           className="text-sm font-medium text-slate-900 truncate block hover:text-brand-700 transition-colors"
         >
-          {product.name}
+          {displayName(product)}
         </Link>
         <div className="flex items-center gap-2 mt-2">
           <button onClick={() => onRemove(product.id)} className="w-7 h-7 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50">

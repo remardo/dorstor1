@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, MapPin, Clock } from 'lucide-react';
 import { categorySlugs } from '../data/categories';
 import { site } from '../data/site';
+import { ContactIcon, CONTACT_CTA } from './ContactIcon';
 
 export function Footer() {
   return (
@@ -20,11 +21,11 @@ export function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href={site.phone.href}
+                href={site.contact.href}
                 className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
               >
-                <Phone className="w-4 h-4" />
-                Позвонить
+                <ContactIcon className="w-4 h-4" />
+                {CONTACT_CTA}
               </a>
               <a
                 href={`mailto:${site.email}`}
@@ -105,10 +106,9 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Контакты</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
+                <ContactIcon className="w-4 h-4 mt-0.5 text-amber-400 shrink-0" />
                 <div>
-                  <a href={site.phone.href} className="text-sm text-white hover:text-amber-400 transition-colors">{site.phone.display}</a>
-                  <div className="text-xs text-slate-500">Временный номер</div>
+                  <a href={site.contact.href} className="text-sm text-white hover:text-amber-400 transition-colors">{site.contact.display}</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">

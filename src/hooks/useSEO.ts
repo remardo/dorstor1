@@ -13,7 +13,7 @@ interface SEOProps {
 
 const BASE_URL = site.baseUrl;
 const SITE_NAME = 'DoorStore';
-const DEFAULT_IMAGE = `${BASE_URL}/images/door-technical-blind.png`;
+const DEFAULT_IMAGE = `${BASE_URL}/images/og-cover.jpg`;
 
 function setMeta(name: string, content: string, isProperty = false) {
   const attr = isProperty ? 'property' : 'name';
@@ -66,7 +66,7 @@ export function useSEO({
       canonicalEl.rel = 'canonical';
       document.head.appendChild(canonicalEl);
     }
-    canonicalEl.href = canonical || `${BASE_URL}${window.location.hash ? '/' : '/'}`;
+    canonicalEl.href = canonical || `${BASE_URL}/`;
 
     // Open Graph
     setMeta('og:type', ogType, true);
@@ -111,17 +111,22 @@ export function generateBreadcrumbs(
   };
 }
 
-// Helper to generate Product structured data
+// Helper to generate Product structured data.
+// Prices are quoted per B2B request, so the Offer carries no `price`: Google will not
+// build a price-bearing rich result from it, but availability, seller and currency stay
+// machine-readable for Yandex and AI answer engines instead of hiding in free text.
 export function generateProductSchema(product: {
   name: string;
   description: string;
   image: string;
   brand: string;
   sku: string;
+  mpn?: string;
   category: string;
   inStock: boolean;
   url: string;
 }): Record<string, unknown> {
+  const url = `${BASE_URL}${product.url}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -133,11 +138,28 @@ export function generateProductSchema(product: {
       name: product.brand,
     },
     sku: product.sku,
+    mpn: product.mpn,
     category: product.category,
-    url: `${BASE_URL}${product.url}`,
+    url,
     manufacturer: {
       '@type': 'Organization',
       name: product.brand,
+    },
+    offers: {
+      '@type': 'Offer',
+      url,
+      priceCurrency: 'RUB',
+      availability: product.inStock
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/PreOrder',
+      itemCondition: 'https://schema.org/NewCondition',
+      businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+      eligibleCustomerType: 'http://purl.org/goodrelations/v1#Business',
+      seller: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        url: `${BASE_URL}/`,
+      },
     },
     additionalProperty: {
       '@type': 'PropertyValue',

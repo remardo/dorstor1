@@ -20,6 +20,7 @@ import {
 import { useSEO } from './hooks/useSEO';
 import { homeSeo, categorySeo } from './data/seo';
 import { track, trackPageView } from './analytics';
+import { displayName } from './data/productNames';
 
 function HomePage({
   cart,
@@ -47,7 +48,7 @@ function HomePage({
     const queryTokens = normalizedQuery.split(' ').filter(Boolean);
 
     return products.filter((p) => {
-      const haystack = normalize(`${p.name} ${p.brand} ${p.category} ${p.slug} ${p.description}`);
+      const haystack = normalize(`${p.name} ${displayName(p)} ${p.brand} ${p.category} ${p.slug}`);
       return queryTokens.every((token) => haystack.includes(token));
     });
   }, [searchQuery]);

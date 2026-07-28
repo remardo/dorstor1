@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ShoppingCart, Phone, Mail, Menu, X, Package } from 'lucide-react';
+import { Search, ShoppingCart, Mail, Menu, X, Package } from 'lucide-react';
 import { site } from '../data/site';
+import { ContactIcon } from './ContactIcon';
 
 interface HeaderProps {
   cartCount: number;
@@ -24,9 +25,9 @@ export function Header({ cartCount, onCartOpen, onSearch, searchQuery, onScrollT
       <div className="bg-slate-900 text-slate-300 text-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
           <div className="flex items-center gap-5">
-            <a href={site.phone.href} className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Phone className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{site.phone.display}</span>
+            <a href={site.contact.href} className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <ContactIcon className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">{site.contact.display}</span>
             </a>
             <a href={`mailto:${site.email}`} className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5" />

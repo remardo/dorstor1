@@ -5,6 +5,7 @@ import type { Product } from '../data/products';
 import { brands } from '../data/products';
 import { categorySlugs, slugToCategory, hardwareCategories, DOOR_CATEGORY } from '../data/categories';
 import { ProductCard } from './ProductCard';
+import { displayName } from '../data/productNames';
 
 interface CatalogProps {
   products: Product[];
@@ -415,7 +416,7 @@ function ListProductCard({ product, cartQty, onAdd, onRemove }: {
         className="w-20 h-20 rounded-lg bg-slate-50 overflow-hidden shrink-0"
       >
         {product.image && !imgError ? (
-          <img src={product.image} alt={product.name} className="w-full h-full object-contain p-2" onError={() => setImgError(true)} loading="lazy" />
+          <img src={product.image} alt={displayName(product)} className="w-full h-full object-contain p-2" onError={() => setImgError(true)} loading="lazy" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-300">
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -432,7 +433,7 @@ function ListProductCard({ product, cartQty, onAdd, onRemove }: {
           <span className="text-xs text-slate-500">{product.category}</span>
         </div>
         <Link to={`/product/${product.slug}`} className="text-sm font-medium text-slate-900 truncate block hover:text-brand-700 transition-colors">
-          {product.name}
+          {displayName(product)}
         </Link>
       </div>
 

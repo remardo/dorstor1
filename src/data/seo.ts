@@ -12,6 +12,13 @@ import {
 } from '../hooks/useSEO.ts';
 import { site } from './site.ts';
 import { categoryContent } from './categoryContent.ts';
+import {
+  displayName,
+  productArticle,
+  productDescription,
+  productMetaDescription,
+  productTitle,
+} from './productNames.ts';
 
 export interface FAQItem {
   question: string;
@@ -93,9 +100,47 @@ export interface RouteSeo {
   structuredData: Record<string, unknown>[];
 }
 
-const abs = (img: string) => !img ? '' : img.startsWith('http') ? img : `${BASE_URL}${img}`;
+export const DEFAULT_OG_IMAGE = `${BASE_URL}/images/og-cover.jpg`;
+
+// SVG placeholders are not renderable as og:image and are useless in Product schema,
+// so anything without a real raster image falls back to the site-wide OG picture.
+const abs = (img: string) => {
+  if (!img || img.endsWith('.svg')) return DEFAULT_OG_IMAGE;
+  return img.startsWith('http') ? img : `${BASE_URL}${img}`;
+};
 const compact = (value: string, max: number) =>
   value.length <= max ? value : `${value.slice(0, max - 1).trimEnd()}…`;
+
+// One Organization node, reused everywhere. Placeholder requisites are never emitted:
+// wrong telephone/address in structured data is worse than none at all.
+export const ORGANIZATION: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  legalName: site.detailsAreDummy ? undefined : site.legalName,
+  url: `${BASE_URL}/`,
+  email: site.email,
+  image: DEFAULT_OG_IMAGE,
+  areaServed: 'RU',
+  description:
+    'B2B поставщик дверной фурнитуры и технических дверей для производственных предприятий и дверных фабрик.',
+  knowsAbout: [
+    'дверная фурнитура',
+    'дверные доводчики',
+    'цилиндровые механизмы',
+    'системы антипаника',
+    'дверные замки',
+    'технические двери',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: site.email,
+    areaServed: 'RU',
+    availableLanguage: 'Russian',
+    ...(site.detailsAreDummy ? {} : { telephone: site.phone.schema }),
+  },
+};
 
 export function homeSeo(): RouteSeo {
   return {
@@ -105,15 +150,7 @@ export function homeSeo(): RouteSeo {
     canonical: `${BASE_URL}/`,
     modified: site.contentUpdatedAt,
     structuredData: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: site.name,
-        url: BASE_URL,
-        email: site.email,
-        areaServed: 'RU',
-        description: 'B2B поставщик дверной фурнитуры для производственных предприятий.',
-      },
+      ORGANIZATION,
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
@@ -124,7 +161,7 @@ export function homeSeo(): RouteSeo {
       generateBreadcrumbs([{ name: 'Главная', url: '/' }]),
       generateItemListSchema(
         products.slice(0, 20).map((p, i) => ({
-          name: p.name,
+          name: displayName(p),
           url: `/product/${p.slug}`,
           image: abs(p.image),
           position: i + 1,
@@ -149,7 +186,7 @@ export function categorySeo(category: string): RouteSeo {
       ]),
       generateItemListSchema(
         catProducts.slice(0, 20).map((p, i) => ({
-          name: p.name,
+          name: displayName(p),
           url: `/product/${p.slug}`,
           image: abs(p.image),
           position: i + 1,
@@ -161,11 +198,10 @@ export function categorySeo(category: string): RouteSeo {
 }
 
 export function productSeo(product: Product): RouteSeo {
+  const name = displayName(product);
   return {
-    title: compact(`${product.name} ${product.brand} оптом | DoorStore`, 65),
-    description: compact(`${product.name}, ${product.brand}. ${
-      product.status === 'in_stock' ? `В наличии ${product.stock} шт.` : 'Поставка под заказ.'
-    } Цена по запросу, подбор совместимых комплектующих и доставка по России.`, 160),
+    title: productTitle(product),
+    description: productMetaDescription(product),
     canonical: `${BASE_URL}/product/${product.slug}`,
     modified: site.contentUpdatedAt,
     ogType: 'product',
@@ -174,14 +210,15 @@ export function productSeo(product: Product): RouteSeo {
       generateBreadcrumbs([
         { name: 'Главная', url: '/' },
         { name: product.category, url: `/category/${categorySlugs[product.category]}` },
-        { name: product.name },
+        { name },
       ]),
       generateProductSchema({
-        name: product.name,
-        description: `${product.name} — ${product.category.toLowerCase()} от бренда ${product.brand}. ${product.description} Купить оптом в интернет-магазине DoorStore с доставкой по РФ.`,
+        name,
+        description: productDescription(product),
         image: abs(product.image),
         brand: product.brand,
-        sku: product.slug,
+        sku: productArticle(product) ?? product.slug,
+        mpn: productArticle(product),
         category: product.category,
         inStock: product.status === 'in_stock',
         url: `/product/${product.slug}`,
@@ -232,15 +269,7 @@ export const STATIC_SEO: Record<string, RouteSeo> = {
     modified: site.contentUpdatedAt,
     structuredData: [
       generateBreadcrumbs([{ name: 'Главная', url: '/' }, { name: 'О компании' }]),
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'DOORSTORE',
-        url: `${BASE_URL}/`,
-        email: EMAIL,
-        areaServed: 'RU',
-        description: 'B2B поставщик дверной фурнитуры для производственных предприятий.',
-      },
+      ORGANIZATION,
     ],
   },
   '/contacts': {
@@ -285,17 +314,14 @@ export const STATIC_SEO: Record<string, RouteSeo> = {
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: 'Как выбрать дверной доводчик: 5 шагов',
+        description: 'Пошаговый подбор дверного доводчика по массе и ширине полотна, условиям эксплуатации, типу тяги и монтажной схеме.',
+        image: DEFAULT_OG_IMAGE,
+        inLanguage: 'ru-RU',
         datePublished: site.contentUpdatedAt,
         dateModified: site.contentUpdatedAt,
-        author: { '@type': 'Organization', name: site.name },
-        publisher: { '@type': 'Organization', name: site.name },
+        author: { '@type': 'Organization', name: site.name, url: `${BASE_URL}/about` },
+        publisher: ORGANIZATION,
         mainEntityOfPage: `${BASE_URL}/guides/kak-vybrat-dovodchik`,
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name: 'Как подобрать дверной доводчик',
-        step: ['Соберите параметры двери', 'Определите условия эксплуатации', 'Выберите монтажную схему', 'Перечислите функции', 'Сверьте паспорт модели'].map((name, index) => ({ '@type': 'HowToStep', position: index + 1, name })),
       },
     ],
   },

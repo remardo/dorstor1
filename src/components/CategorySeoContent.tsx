@@ -1,4 +1,5 @@
 import { categoryContent } from '../data/categoryContent';
+import { site } from '../data/site';
 
 export function CategorySeoContent({ category }: { category?: string }) {
   if (!category) return null;
@@ -52,7 +53,7 @@ export function CategorySeoContent({ category }: { category?: string }) {
             </article>
           ))}
         </div>
-        <p className="mt-8 text-xs text-slate-500">Материал проверен редакцией DoorStore 11.07.2026. Точные параметры сверяйте с паспортом производителя и документацией проекта.</p>
+        <p className="mt-8 text-xs text-slate-500">Материал проверен редакцией DoorStore {site.contentUpdatedAtRu}. Точные параметры сверяйте с паспортом производителя и документацией проекта.</p>
       </div>
     </section>
   );

@@ -60,7 +60,7 @@ export function Hero({ onScrollToCatalog, categoryName }: HeroProps) {
               <ArrowRight className="w-5 h-5" />
             </button>
             <a
-              href={site.phone.href}
+              href={site.contact.href}
               className="inline-flex items-center justify-center gap-2 h-13 px-8 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium rounded-xl transition-all border border-white/10"
             >
               Связаться с менеджером

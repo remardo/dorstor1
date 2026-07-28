@@ -2,8 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Plus, Minus, PackageCheck, PackageX, Tag, Layers,
-  Building2, Truck, Shield, ChevronRight, Share2, FileText, Phone,
-  Ruler, DoorClosed, Frame, KeyRound, Hand, MoveHorizontal, Palette, AirVent,
+  Building2, Truck, Shield, ChevronRight, Share2, FileText, Ruler, DoorClosed, Frame, KeyRound, Hand, MoveHorizontal, Palette, AirVent,
   type LucideIcon,
 } from 'lucide-react';
 import { products } from '../data/products';
@@ -13,6 +12,8 @@ import { useSEO } from '../hooks/useSEO';
 import { productSeo, BASE_URL } from '../data/seo';
 import { site } from '../data/site';
 import { categoryContent } from '../data/categoryContent';
+import { ContactIcon } from '../components/ContactIcon';
+import { displayName, productArticle, productDescription } from '../data/productNames';
 
 const PROP_ICONS: Record<PropIcon, LucideIcon> = {
   size: Ruler,
@@ -84,6 +85,8 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
   const inStock = product.status === 'in_stock';
   const cartQty = cart[product.id] || 0;
   const selectionGuide = categoryContent[product.category];
+  const name = displayName(product);
+  const description = productDescription(product);
 
   // Related products - same category, excluding current
   const relatedProducts = products
@@ -97,7 +100,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
 
   const specs = [
     ...(product.props ?? []).map(p => ({ label: p.label, value: p.value, icon: PROP_ICONS[p.icon] })),
-    { label: 'Артикул', value: product.slug, icon: Tag },
+    { label: 'Артикул', value: productArticle(product) ?? product.slug, icon: Tag },
     { label: 'Категория', value: product.category, icon: Layers },
     { label: 'Бренд', value: product.brand, icon: Building2 },
     { label: 'Наличие', value: inStock ? `${product.stock} шт. на складе` : 'Поставка под заказ', icon: inStock ? PackageCheck : PackageX },
@@ -106,9 +109,9 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
   return (
     <article className="bg-white" itemScope itemType="https://schema.org/Product">
       {/* Hidden structured data attributes */}
-      <meta itemProp="name" content={product.name} />
-      <meta itemProp="description" content={product.description} />
-      <meta itemProp="sku" content={product.slug} />
+      <meta itemProp="name" content={name} />
+      <meta itemProp="description" content={description} />
+      <meta itemProp="sku" content={productArticle(product) ?? product.slug} />
       <meta itemProp="category" content={product.category} />
       <div itemProp="brand" itemScope itemType="https://schema.org/Brand">
         <meta itemProp="name" content={product.brand} />
@@ -133,7 +136,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
             </li>
             <li aria-hidden="true"><ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" /></li>
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-slate-900 font-medium truncate">{product.name}</span>
+              <span itemProp="name" className="text-slate-900 font-medium truncate">{name}</span>
               <meta itemProp="position" content="3" />
             </li>
           </ol>
@@ -162,17 +165,18 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                 {product.image && !imgError ? (
                   <img
                     src={product.image}
-                    alt={`${product.name} — ${product.category} ${product.brand}. Фото товара.`}
-                    title={product.name}
+                    alt={`${name} — ${product.category} ${product.brand}. Фото товара.`}
+                    title={name}
                     className="w-full h-full object-contain p-8 md:p-12"
                     onError={() => setImgError(true)}
                     itemProp="image"
                     width="600"
                     height="600"
                     loading="eager"
+                    fetchPriority="high"
                   />
                 ) : (
-                  <div className="text-slate-300" role="img" aria-label={`${product.name} — изображение недоступно`}>
+                  <div className="text-slate-300" role="img" aria-label={`${name} — изображение недоступно`}>
                     <svg className="w-32 h-32" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
@@ -204,7 +208,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
 
             {/* Title */}
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6">
-              {product.name}
+              {name}
             </h1>
 
             {/* Description */}
@@ -227,7 +231,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
               </div>
             ) : (
               <p className="text-base text-slate-600 leading-relaxed mb-8">
-                {product.description} Подходит для установки на входные и технические двери. Оптовые поставки для производственных предприятий.
+                {description} Подходит для установки на входные и технические двери. Оптовые поставки для производственных предприятий.
               </p>
             )}
 
@@ -253,7 +257,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
                       ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20'
                       : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                   }`}
-                  aria-label={inStock ? `Добавить ${product.name} в заявку` : `${product.name} нет в наличии`}
+                  aria-label={inStock ? `Добавить ${name} в заявку` : `${name} нет в наличии`}
                 >
                   <Plus className="w-5 h-5" aria-hidden="true" />
                   {inStock ? 'Добавить в заявку' : 'Нет в наличии'}
@@ -294,11 +298,11 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
             {/* Action buttons */}
             <div className="flex gap-3 mb-8">
               <a
-                href={site.phone.href}
+                href={site.contact.href}
                 className="flex-1 inline-flex items-center justify-center gap-2 h-11 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-xl hover:bg-slate-50 transition-all"
-                aria-label="Позвонить для уточнения цены"
+                aria-label="Связаться с менеджером для уточнения цены"
               >
-                <Phone className="w-4 h-4" aria-hidden="true" />
+                <ContactIcon className="w-4 h-4" />
                 Узнать цену
               </a>
               <button
@@ -371,7 +375,7 @@ export function ProductPage({ cart, onAdd, onRemove }: ProductPageProps) {
               <div className="max-w-3xl">
                 <div className="prose prose-slate prose-sm">
                   <p className="text-slate-600 leading-relaxed text-base mb-4">
-                    {product.description}
+                    {description}
                   </p>
                   <p className="text-slate-600 leading-relaxed text-base mb-4">
                     Товар предназначен для профессионального применения в дверных конструкциях. Перед закупкой
@@ -546,13 +550,13 @@ function RelatedCard({ product, cartQty, onAdd }: { product: Product; cartQty: n
     <Link
       to={`/product/${product.slug}`}
       className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all overflow-hidden flex flex-col"
-      title={`${product.name} — ${product.brand}`}
+      title={`${displayName(product)} — ${product.brand}`}
     >
       <div className="aspect-square bg-slate-50 overflow-hidden relative">
         {product.image && !imgError ? (
           <img
             src={product.image}
-            alt={`${product.name} — ${product.category} ${product.brand}`}
+            alt={`${displayName(product)} — ${product.category} ${product.brand}`}
             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
             onError={() => setImgError(true)}
             loading="lazy"
@@ -560,7 +564,7 @@ function RelatedCard({ product, cartQty, onAdd }: { product: Product; cartQty: n
             height="300"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-slate-200" role="img" aria-label={product.name}>
+          <div className="w-full h-full flex items-center justify-center text-slate-200" role="img" aria-label={displayName(product)}>
             <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>
@@ -575,7 +579,7 @@ function RelatedCard({ product, cartQty, onAdd }: { product: Product; cartQty: n
       <div className="p-3 flex-1 flex flex-col">
         <span className="text-[10px] font-bold uppercase tracking-wider text-brand-600 mb-1">{product.brand}</span>
         <h3 className="text-xs sm:text-sm font-medium text-slate-900 leading-snug line-clamp-2 mb-2 group-hover:text-brand-700 transition-colors">
-          {product.name}
+          {displayName(product)}
         </h3>
         <div className="mt-auto">
           {cartQty > 0 ? (
@@ -593,7 +597,7 @@ function RelatedCard({ product, cartQty, onAdd }: { product: Product; cartQty: n
                   ? 'bg-slate-900 text-white hover:bg-slate-800'
                   : 'bg-slate-100 text-slate-400 cursor-not-allowed'
               }`}
-              aria-label={`Добавить ${product.name} в заявку`}
+              aria-label={`Добавить ${displayName(product)} в заявку`}
             >
               В заявку
             </button>

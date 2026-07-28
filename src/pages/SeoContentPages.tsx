@@ -31,7 +31,7 @@ export function ContactsPage() {
         <section className="rounded-2xl border border-slate-200 p-6">
           <h2 className="text-xl font-bold text-slate-900 mb-4">Связаться</h2>
           <dl className="space-y-4 text-sm">
-            <div><dt className="text-slate-500">Телефон</dt><dd><a className="font-medium text-brand-700" href={site.phone.href}>{site.phone.display}</a></dd></div>
+            <div><dt className="text-slate-500">Отдел продаж</dt><dd><a className="font-medium text-brand-700" href={site.contact.href}>{site.contact.display}</a></dd></div>
             <div><dt className="text-slate-500">Email</dt><dd><a className="font-medium text-brand-700" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
             <div><dt className="text-slate-500">Адрес</dt><dd className="font-medium text-slate-900">{site.address}</dd></div>
             <div><dt className="text-slate-500">Режим работы</dt><dd className="font-medium text-slate-900">{site.hours}</dd></div>
@@ -39,11 +39,18 @@ export function ContactsPage() {
         </section>
         <section className="rounded-2xl border border-slate-200 p-6">
           <h2 className="text-xl font-bold text-slate-900 mb-4">Реквизиты</h2>
-          <dl className="space-y-4 text-sm">
-            <div><dt className="text-slate-500">Организация</dt><dd className="font-medium text-slate-900">{site.legalName}</dd></div>
-            <div><dt className="text-slate-500">ИНН / КПП</dt><dd className="font-medium text-slate-900">{site.legal.inn} / {site.legal.kpp}</dd></div>
-            <div><dt className="text-slate-500">ОГРН</dt><dd className="font-medium text-slate-900">{site.legal.ogrn}</dd></div>
-          </dl>
+          {site.detailsAreDummy ? (
+            <p className="text-sm text-slate-600">
+              Полные юридические реквизиты, счёт и договор поставки менеджер направляет вместе с
+              коммерческим предложением. Запросите их на <a className="font-medium text-brand-700" href={`mailto:${site.email}`}>{site.email}</a>.
+            </p>
+          ) : (
+            <dl className="space-y-4 text-sm">
+              <div><dt className="text-slate-500">Организация</dt><dd className="font-medium text-slate-900">{site.legalName}</dd></div>
+              <div><dt className="text-slate-500">ИНН / КПП</dt><dd className="font-medium text-slate-900">{site.legal.inn} / {site.legal.kpp}</dd></div>
+              <div><dt className="text-slate-500">ОГРН</dt><dd className="font-medium text-slate-900">{site.legal.ogrn}</dd></div>
+            </dl>
+          )}
         </section>
       </div>
     </Page>
@@ -110,7 +117,7 @@ export function DoorCloserGuidePage() {
         <ol className="mt-5 space-y-4">{steps.map(([title, text], i) => <li key={title} className="flex gap-4 rounded-xl border border-slate-200 p-5"><span className="font-bold text-brand-700">{i + 1}</span><div><h3 className="font-semibold text-slate-900">{title}</h3><p className="mt-1 text-sm text-slate-600">{text}</p></div></li>)}</ol>
         <h2 className="mt-12 text-2xl font-bold text-slate-900">Данные для заявки</h2>
         <div className="mt-5 overflow-hidden rounded-xl border border-slate-200"><table className="w-full text-sm"><tbody className="divide-y divide-slate-200">{[['Количество','Число дверей и запас на объект'],['Полотно','Масса, ширина и материал'],['Эксплуатация','Помещение или улица, температура и поток'],['Монтаж','Сторона установки и тип тяги'],['Функции','Дохлоп, фиксация, торможение и задержка']].map(([a,b]) => <tr key={a}><th className="bg-slate-50 px-4 py-3 text-left">{a}</th><td className="px-4 py-3 text-slate-600">{b}</td></tr>)}</tbody></table></div>
-        <p className="mt-8 text-sm text-slate-500">Автор: техническая редакция DoorStore. Обновлено 11.07.2026. Перед заказом сверяйте параметры с актуальным паспортом производителя.</p>
+        <p className="mt-8 text-sm text-slate-500">Автор: техническая редакция DoorStore. Обновлено {site.contentUpdatedAtRu}. Перед заказом сверяйте параметры с актуальным паспортом производителя.</p>
       </article>
     </Page>
   );

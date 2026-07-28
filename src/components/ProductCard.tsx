@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, PackageCheck, PackageX, ArrowRight } from 'lucide-react';
 import type { Product } from '../data/products';
+import { displayName } from '../data/productNames';
 
 interface ProductCardProps {
   product: Product;
@@ -24,8 +25,8 @@ export function ProductCard({ product, cartQty, onAdd, onRemove }: ProductCardPr
         {product.image && !imgError ? (
           <img
             src={product.image}
-            alt={`${product.name} — ${product.category} ${product.brand}`}
-            title={product.name}
+            alt={`${displayName(product)} — ${product.category} ${product.brand}`}
+            title={displayName(product)}
             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
             onError={() => setImgError(true)}
             loading="lazy"
@@ -69,7 +70,7 @@ export function ProductCard({ product, cartQty, onAdd, onRemove }: ProductCardPr
           to={`/product/${product.slug}`}
           className="text-sm font-medium text-slate-900 leading-snug mb-1 line-clamp-2 hover:text-brand-700 transition-colors"
         >
-          {product.name}
+          {displayName(product)}
         </Link>
         <p className="text-xs text-slate-500 mb-4">{product.category}</p>
 

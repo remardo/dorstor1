@@ -59,7 +59,6 @@ function toProduct(record, index) {
   const stock = Number.parseInt(record.stock, 10);
   const name = (record.name ?? '').trim();
   const category = (record.category ?? '').trim();
-  const description = (record.seo_description ?? '').replace(/\s+/g, ' ').trim();
 
   return {
     id: Number.isFinite(id) ? id : index + 1,
@@ -70,9 +69,6 @@ function toProduct(record, index) {
     stock: Number.isFinite(stock) ? stock : 0,
     status: record.availability === 'in_stock' ? 'in_stock' : 'out_of_stock',
     image: (record.image_url ?? '').trim(),
-    description:
-      description ||
-      `${name} — ${category ? category.toLowerCase() : 'дверная фурнитура'} для входных и технических дверей.`,
   };
 }
 
@@ -85,13 +81,31 @@ function renderProduct(product) {
     brand: ${JSON.stringify(product.brand)},
     stock: ${product.stock},
     status: '${product.status}',
-    image: ${JSON.stringify(product.image)},
-    description: ${JSON.stringify(product.description)}
+    image: ${JSON.stringify(product.image)}${
+    product.props ? `,
+    props: ${JSON.stringify(product.props)}` : ''
+  }
   }`;
+}
+
+// `props` are curated by hand in products.ts and have no CSV column, so they are read
+// back from the existing file and re-attached instead of being wiped on every sync.
+async function existingProps() {
+  const previous = await fs.readFile(OUTPUT_TS, 'utf8').catch(() => '');
+  const map = new Map();
+  for (const block of previous.split(/
+  \{/)) {
+    const slug = block.match(/slug: "([^"]+)"/)?.[1];
+    const props = block.match(/props: (\[[\s\S]*?\])
+/)?.[1];
+    if (slug && props) map.set(slug, JSON.parse(props));
+  }
+  return map;
 }
 
 async function main() {
   const content = await fs.readFile(INPUT_CSV, 'utf8');
+  const keptProps = await existingProps();
   const rows = parseCsv(content);
 
   if (rows.length < 2) {
@@ -106,9 +120,18 @@ async function main() {
       return record;
     })
     .map(toProduct)
+    .map((product) => ({ ...product, props: keptProps.get(product.slug) }))
     .sort((a, b) => a.id - b.id);
 
-  const ts = `export interface Product {
+  const ts = `export type PropIcon = 'size' | 'leaf' | 'frame' | 'lock' | 'handle' | 'opening' | 'finish' | 'vent';
+
+export interface ProductProp {
+  icon: PropIcon;
+  label: string;
+  value: string;
+}
+
+export interface Product {
   id: number;
   slug: string;
   name: string;
@@ -117,7 +140,7 @@ async function main() {
   stock: number;
   status: 'in_stock' | 'out_of_stock';
   image: string;
-  description: string;
+  props?: ProductProp[];
 }
 
 export const products: Product[] = [

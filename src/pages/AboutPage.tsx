@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronRight, Building2, Factory, Handshake, ShieldCheck, PackageCheck,
-  ArrowRight, Phone, Mail, Users, Truck, Clock3
+  ArrowRight, Mail, Users, Truck, Clock3
 } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { STATIC_SEO } from '../data/seo';
 import { site } from '../data/site';
+import { ContactIcon } from '../components/ContactIcon';
 
 export function AboutPage() {
   useSEO(STATIC_SEO['/about']);
@@ -137,11 +138,11 @@ export function AboutPage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
-              href={site.phone.href}
+              href={site.contact.href}
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold rounded-xl transition-all active:scale-[0.98]"
             >
-              <Phone className="w-4 h-4" />
-              {site.phone.display}
+              <ContactIcon className="w-4 h-4" />
+              {site.contact.display}
             </a>
             <a
               href={`mailto:${site.email}`}
